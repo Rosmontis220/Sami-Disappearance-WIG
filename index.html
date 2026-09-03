@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>响石旅行社 Cairn Travel Agency · 哪儿都能去</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body class="phase-1" data-page="index" data-nav="index">
+
+<header class="site-header">
+    <div class="header-inner">
+        <a class="logo" href="index.html">
+            <img class="logo-mark" src="assets/头像_响石.png" alt="响石旅行社">
+            <span class="logo-text">
+                <span class="logo-cn">响石旅行社 · 萨米专区</span><br>
+                <span class="logo-en">Cairn Travel Agency</span>
+            </span>
+        </a>
+        <form class="search-form" role="search" onsubmit="return false;">
+            <span class="search-box">
+                <span class="search-icon">⌕</span>
+                <input id="search-input" type="text" autocomplete="off" spellcheck="false" placeholder="搜索目的地、订单号、关键词…">
+                <button class="search-btn" type="button" onclick="handleSearch()">搜索</button>
+            </span>
+        </form>
+    </div>
+    <nav class="site-nav">
+        <div class="nav-inner">
+            <a href="index.html">首页</a>
+            <a href="routes.html">线路介绍</a>
+            <a href="about.html">关于我们</a>
+            <a href="reviews.html">客户评价</a>
+            <a href="order.html">订单查询</a>
+        </div>
+    </nav>
+</header>
+
+<main>
+    <div class="hero-photo">
+        <img src="assets/度假胜地.png" alt="萨米低地风光">
+        <div class="hero-caption">
+            <span class="rune-line">SAMI</span>
+            <h1>响石旅行社 · 萨米专区</h1>
+            <p>CAIRN TRAVEL AGENCY · 萨米 · 哪儿都能去 · <span class="kw">零失联记录</span> ✓</p>
+        </div>
+    </div>
+
+    <section class="panel">
+        <h2>关于我们</h2>
+        <p>
+            响石旅行社·萨米专区，自泰拉历1095年运营至今。五年来，由专区向导
+            费尔南·伯恩（代号“响石”）接待的两百余名游客，深入雪原、林线与极光带。
+        </p>
+        <p>我们的承诺：<span class="kw">零失联记录</span> ✓</p>
+        <p class="small muted">详情请访问【<span class="kw">关于我们</span>】页面。</p>
+    </section>
+
+    <section class="panel">
+        <h2>精品<span class="kw">线路</span></h2>
+        <div class="route-grid">
+            <div class="route-card">
+                <h3><span class="kw">萨米冰原探险</span>（3天2夜）</h3>
+                <p class="tag">直播跟拍可选 · 冬季限定</p>
+            </div>
+            <div class="route-card">
+                <h3>极光观测之旅</h3>
+                <p class="tag">两晚连住 · 极光概率保障</p>
+            </div>
+            <div class="route-card">
+                <h3>原住民文化体验</h3>
+                <p class="tag">石堆与传说 · 向导全程讲解</p>
+            </div>
+        </div>
+        <p class="small muted" style="margin-top:12px;">查看完整行程与费用，请在顶部搜索框输入“<span class="kw">萨米冰原探险</span>”。</p>
+    </section>
+
+    <section class="panel">
+        <h2>最新动态</h2>
+        <ul class="news-list">
+            <li>
+                <time>1100.12.20</time>
+                <a href="news.html#n-1220">关于近期服务调整的说明</a>
+            </li>
+            <li>
+                <time>1100.12.16</time>
+                <a href="news.html#n-1216">【重要】关于<span class="kw">周符卿</span>先生行程的情况说明</a>
+            </li>
+            <li>
+                <time>1100.12.03</time>
+                <a href="news.html#n-1203">知名主播<span class="kw">周符卿</span>预订萨米探险行程</a>
+            </li>
+        </ul>
+    </section>
+
+    <section class="panel">
+        <h2><span class="kw">客户评价</span>预览</h2>
+        <div class="review-card" style="margin-bottom:0;">
+            <div class="review-head">
+                <span class="avatar">李</span>
+                <span class="reviewer">李明华</span>
+                <span class="review-date">1100.11</span>
+            </div>
+            <div class="stars">★★★★★</div>
+            <div class="review-body">“响石女士太专业了！遇到暴风雪时她冷静地找到避难所，还用‘听石头’的方法确认了撤退方向。全员安全返回！”</div>
+        </div>
+        <p class="small muted" style="margin-top:14px;">
+            响石旅行社，五年 <span class="kw">零失联记录</span> ✓ · 更多评价请查看【<span class="kw">客户评价</span>】专区。
+        </p>
+    </section>
+
+    <section class="panel soft">
+        <h2>联系方式</h2>
+        <p>服务咨询请前往【<span class="kw">关于我们</span>】页面，或于萨米边境线沿途驿站寻找石堆标记。</p>
+        <div class="agency-quote" style="margin-top:14px;">“哪儿都能去，每一位游客都能平安归来。”</div>
+    </section>
+</main>
+
+<footer class="site-footer">
+    <div>响石旅行社 Cairn Travel Agency</div>
+    <div class="progress-pill">进度 01/14</div>
+    <div class="disclaimer">本网站内容基于《明日方舟》世界观创作，与现实无关。</div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>订单查询系统 - 响石旅行社</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body class="phase-2" data-page="order" data-nav="order">
+
+<header class="site-header">
+    <div class="header-inner">
+        <a class="logo" href="index.html">
+            <img class="logo-mark" src="assets/头像_响石.png" alt="响石旅行社">
+            <span class="logo-text">
+                <span class="logo-cn">响石旅行社 · 萨米专区</span><br>
+                <span class="logo-en">Cairn Travel Agency</span>
+            </span>
+        </a>
+        <form class="search-form" role="search" onsubmit="return false;">
+            <span class="search-box">
+                <span class="search-icon">⌕</span>
+                <input id="search-input" type="text" autocomplete="off" spellcheck="false" placeholder="搜索目的地、订单号、关键词…">
+                <button class="search-btn" type="button" onclick="handleSearch()">搜索</button>
+            </span>
+        </form>
+    </div>
+    <nav class="site-nav">
+        <div class="nav-inner">
+            <a href="index.html">首页</a>
+            <a href="routes.html">线路介绍</a>
+            <a href="about.html">关于我们</a>
+            <a href="reviews.html">客户评价</a>
+            <a href="order.html">订单查询</a>
+        </div>
+    </nav>
+</header>
+
+<main>
+    <p class="kicker">ORDER</p>
+    <h1 class="page-title">订单查询系统</h1>
+    <p class="page-sub">请输入完整订单号。你也可以把订单号直接输入站内搜索框。</p>
+
+    <section class="panel">
+        <form id="order-form" style="max-width:640px; margin:0 auto;">
+            <label class="small muted" for="order-input">完整订单号</label>
+            <input class="field" id="order-input" type="text" autocomplete="off" spellcheck="false"
+                   placeholder="SA11001215-XXX" style="margin-top:8px; text-align:center; font-family:var(--font-mono);">
+            <div style="display:flex; justify-content:center; margin-top:14px;">
+                <button class="btn primary" type="submit">查询订单</button>
+            </div>
+        </form>
+        <div class="error-msg" id="order-error"></div>
+
+        <div id="order-result" class="hidden-result" style="margin-top:30px;">
+            <div class="order-card">
+                <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;">
+                    <h2 style="margin:0;">订单详情</h2>
+                    <span class="status-badge">✓ 已完成</span>
+                </div>
+                <dl class="kv" style="margin-top:16px;">
+                    <dt>订单号</dt><dd class="mono">SA11001215-325</dd>
+                    <dt>客户</dt><dd>周符卿（男）</dd>
+                    <dt>行程</dt><dd>萨米冰原探险 + <span class="kw">直播服务</span></dd>
+                    <dt>向导</dt><dd>费尔南·伯恩（响石）</dd>
+                    <dt>出发</dt><dd>泰拉历1100.12.15 · 3天2夜</dd>
+                    <dt>状态</dt><dd>✓ 已完成</dd>
+                </dl>
+
+                <div class="box" id="archive-access">
+                    <h3 style="margin-top:0;">▼ 直播存档访问</h3>
+                    <p>
+                        本行程包含全程直播服务，录像经<span class="kw">756号</span>信号放大站中继归档至本站服务器。
+                    </p>
+                    <p>如需调取，请在顶部搜索栏输入中继站编号。</p>
+                    <p class="small muted" style="margin-top:10px;">编号提示：见线路介绍 · 萨米冰原探险 DAY 2。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer class="site-footer">
+    <div>响石旅行社 Cairn Travel Agency</div>
+    <div class="progress-pill">进度 05/14</div>
+    <div class="disclaimer">本网站内容基于《明日方舟》世界观创作，与现实无关。</div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

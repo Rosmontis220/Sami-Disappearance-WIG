@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>直播存档 - 响石旅行社</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body class="phase-2" data-page="livestream">
+
+<header class="site-header">
+    <div class="header-inner">
+        <a class="logo" href="index.html">
+            <img class="logo-mark" src="assets/头像_响石.png" alt="响石旅行社">
+            <span class="logo-text">
+                <span class="logo-cn">响石旅行社 · 萨米专区</span><br>
+                <span class="logo-en">Cairn Travel Agency</span>
+            </span>
+        </a>
+        <form class="search-form" role="search" onsubmit="return false;">
+            <span class="search-box">
+                <span class="search-icon">⌕</span>
+                <input id="search-input" type="text" autocomplete="off" spellcheck="false" placeholder="搜索目的地、订单号、关键词…">
+                <button class="search-btn" type="button" onclick="handleSearch()">搜索</button>
+            </span>
+        </form>
+    </div>
+    <nav class="site-nav">
+        <div class="nav-inner">
+            <a href="index.html">首页</a>
+            <a href="routes.html">线路介绍</a>
+            <a href="about.html">关于我们</a>
+            <a href="reviews.html">客户评价</a>
+            <a href="order.html">订单查询</a>
+        </div>
+    </nav>
+</header>
+
+<main>
+    <!-- 未授权模式：信号站景点解说 -->
+    <section data-mode="scenic" style="display:none;">
+        <p class="kicker">SCENERY · DAY 2</p>
+        <h1 class="page-title">废弃信号放大站756号 · 景点解说</h1>
+        <p class="page-sub">萨米冰原探险线路 · 沿途外观参观</p>
+        <div class="panel">
+            <div class="photo-frame">
+                <img src="assets/756号.png" alt="废弃信号放大站756号">
+                <div class="photo-cap">废弃信号放大站756号 · 外观（资料图）。</div>
+            </div>
+            <div style="margin-top:18px;">
+                <p>
+                    756号曾是萨米边境的一处信号放大站，如今早已废弃，只保留短波中继功能。
+                    该站仍可作短波中继，本社直播服务由此接入。
+                </p>
+                <p class="small muted">本页为线路解说页面。如需调取与某位游客有关的直播档案，请先在订单查询系统中完成验证。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 授权模式：直播存档 -->
+    <section data-mode="archive">
+        <p class="kicker">ARCHIVE · RESTRICTED</p>
+        <h1 class="page-title">直播存档《萨米冰原探险》</h1>
+        <p class="page-sub">主播：周符卿 · 1100.12.15 · 时长 05:47（信号于 03:25 中断）</p>
+
+        <div class="video-frame">
+            <div class="video-top">
+                <span class="record-dot"></span>
+                <span class="video-title">LIVE ARCHIVE · REC</span>
+                <span class="small muted" style="margin-left:auto; font-family:var(--font-mono);">SA11001215-325</span>
+            </div>
+            <div class="video-bar">
+                <span class="play-sym">▶</span>
+                <div class="timeline">
+                    <div class="fill"></div>
+                    <div class="cut-marker" title="信号中断"></div>
+                </div>
+                <span class="time-stamp">03:25 / 05:47</span>
+            </div>
+            <div class="shot-grid">
+                <div class="shot">
+                    <img src="assets/低地市集.png" alt="00:30">
+                    <div class="cap"><span>00:30</span><span>出发</span></div>
+                </div>
+                <div class="shot">
+                    <img src="assets/冰原.png" alt="01:00">
+                    <div class="cap"><span>01:00</span><span>徒步中</span></div>
+                </div>
+                <div class="shot">
+                    <img src="assets/雪林.png" alt="01:30">
+                    <div class="cap"><span>01:30</span><span>雪景</span></div>
+                </div>
+                <div class="shot">
+                    <img src="assets/部族聚落.png" alt="02:00">
+                    <div class="cap"><span>02:00</span><span>休息</span></div>
+                </div>
+                <div class="shot">
+                    <img src="assets/雪原.png" alt="02:30">
+                    <div class="cap"><span>02:30</span><span>继续前进</span></div>
+                </div>
+                <div class="shot">
+                    <img src="assets/雪林2.png" alt="03:00">
+                    <div class="cap"><span>03:00</span><span>正常</span></div>
+                </div>
+                <div class="shot glitched">
+                    <img src="assets/污染.png" alt="03:25 异常">
+                    <div class="cap" style="color:#e08a83;"><span>03:25</span><span>⚠️ 异常</span></div>
+                </div>
+                <div class="shot">
+                    <div class="noise-box">NO SIGNAL</div>
+                    <div class="cap"><span>04:00</span><span>信号丢失</span></div>
+                </div>
+                <div class="shot">
+                    <div class="noise-box">NO SIGNAL</div>
+                    <div class="cap"><span>04:30</span><span>信号丢失</span></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel">
+            <h2>▼ 技术说明</h2>
+            <p>
+                直播信号于 <strong class="danger">03:25</strong> 突然中断，后续画面完全丢失。
+                存档由756号信号放大站中继，画面经多段修复后仍存在严重损坏。
+            </p>
+            <div class="box alert">
+                <strong>⚠️ 03:25 截图严重损坏</strong>
+                <p style="margin-top:4px;">点击查看<span class="broken-link">关键帧分析</span>……（页面链接丢失）</p>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer class="site-footer">
+    <div>响石旅行社 Cairn Travel Agency</div>
+    <span class="progress-pill" data-mode="archive">进度 06/14</span>
+    <span class="progress-pill" data-mode="scenic" style="display:none;">景点解说 · 不计入主线</span>
+    <div class="disclaimer">本网站内容基于《明日方舟》世界观创作，与现实无关。</div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>关键帧分析报告 - 响石旅行社</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body class="phase-3" data-page="frame">
+
+<header class="site-header">
+    <div class="header-inner">
+        <a class="logo" href="index.html">
+            <img class="logo-mark" src="assets/头像_响石.png" alt="响石旅行社">
+            <span class="logo-text">
+                <span class="logo-cn">响石旅行社 · 萨米专区</span><br>
+                <span class="logo-en">Cairn Travel Agency</span>
+            </span>
+        </a>
+        <form class="search-form" role="search" onsubmit="return false;">
+            <span class="search-box">
+                <span class="search-icon">⌕</span>
+                <input id="search-input" type="text" autocomplete="off" spellcheck="false" placeholder="搜索目的地、订单号、关键词…">
+                <button class="search-btn" type="button" onclick="handleSearch()">搜索</button>
+            </span>
+        </form>
+    </div>
+    <nav class="site-nav">
+        <div class="nav-inner">
+            <a href="index.html">首页</a>
+            <a href="routes.html">线路介绍</a>
+            <a href="about.html">关于我们</a>
+            <a href="reviews.html">客户评价</a>
+            <a href="order.html">订单查询</a>
+        </div>
+    </nav>
+</header>
+
+<main>
+    <p class="kicker">FRAME ANALYSIS</p>
+    <h1 class="page-title">关键帧分析报告</h1>
+    <p class="page-sub" style="margin-bottom:8px;">时间戳 <strong class="danger">03:25</strong> · 状态：严重损坏 · 来源：直播存档 756号中继</p>
+    <div class="file-tag" style="margin-bottom:24px;">DOC-0325 · UNVERIFIED</div>
+
+    <div class="panel" style="margin-bottom:22px;">
+        <div class="photo-frame glitched" style="border-color:rgba(178,75,69,.65);">
+            <img src="assets/污染.png" alt="03:25 关键帧（损坏）">
+            <div class="photo-cap" style="color:var(--danger);">03:25 原始帧（修复后）——画面主体颜色异常，右侧存在无法解析的轮廓。</div>
+        </div>
+    </div>
+
+    <div class="panel report">
+        <h2>▼ 异常特征</h2>
+        <div class="line" style="padding:10px 0; border-bottom:1px dashed var(--line);">
+            <strong>1. 雪花颜色异常</strong><br>
+            正常：RGB (255,255,255) 白色<br>
+            异常：RGB (0,0,0) <span class="kw">黑色</span>
+        </div>
+        <div class="line" style="padding:10px 0; border-bottom:1px dashed var(--line);">
+            <strong>2. 未知物体</strong><br>
+            画面右侧出现<span class="kw">黑烟状</span>人形轮廓，无固定实体
+        </div>
+        <div class="line" style="padding:10px 0; border-bottom:1px dashed var(--line);">
+            <strong>3. 人物定位</strong><br>
+            周符卿：画面中央　·　响石女士：未出现在画面中
+        </div>
+        <div class="line" style="padding:10px 0 4px;">
+            <strong>4. 档案匹配</strong><br>
+            异常特征符合机密档案记录：<span class="kw">皇帝的利刃</span><br>
+            <span style="color:var(--danger);">⚠️ 该档案涉及敏感信息</span>
+        </div>
+    </div>
+
+    <p class="small muted" style="text-align:center;">分析由存档服务器自动生成 · 未经官方审核</p>
+</main>
+
+<footer class="site-footer">
+    <div>响石旅行社 Cairn Travel Agency</div>
+    <div class="progress-pill">进度 07/14</div>
+    <div class="disclaimer">本网站内容基于《明日方舟》世界观创作，与现实无关。</div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
