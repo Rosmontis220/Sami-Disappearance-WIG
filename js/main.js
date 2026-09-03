@@ -281,7 +281,7 @@ document.addEventListener('DOMContentLoaded', boot);
 if (document.body && document.body.getAttribute('data-page') === 'index') {
     console.log('%c响石旅行社 CAIRN TRAVEL', 'font-family:serif;font-size:22px;color:#8f5f26;');
     console.log('%c“哪儿都能去，每一位游客都能平安归来。”', 'font-size:13px;color:#837a68;');
-    console.log('%c提示：本站页面中的加粗文字，都可以放进搜索框试试。', 'font-size:12px;color:#a9773c;');
+    console.log('%c雪会停的。', 'font-size:12px;color:#8f5f26;');
 }
 
 /* 对外暴露（供 HTML 内联调用兜底） */
