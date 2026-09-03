@@ -15,7 +15,7 @@ ZFQ/
 ├── order.html          05/14 订单查询
 ├── livestream.html     06/14 直播存档（未验证时自动变为“信号站景点解说”）
 ├── frame_0325.html     07/14 关键帧分析（黑雪）
-├── blade.html          08/14 皇帝的利刃档案
+├── blade.html          08/14 邪魔的利刃档案（皇帝的利刃·失控体）
 ├── prophecy.html       09/14 凛视的预言
 ├── journal.html        10/14 响石的私人日志
 ├── stones.html         11/14 萨米的古树（同色隐藏文字）
@@ -56,7 +56,7 @@ SA11001215-325       → 05 order（自动填入并展示）
 订单查询             → 05 order（空查询框，需自己输入订单号）
 756 / 756号 / 直播存档 → 06 livestream（完成订单验证后可看直播）
 关键帧分析           → 07 frame_0325
-皇帝的利刃           → 08 blade
+邪魔的利刃 / 皇帝的利刃 → 08 blade
 凛视                → 09 prophecy
 私人日志             → 404_hint?type=zero（全选看提示 → 密码 zero）
 zero                → 10 journal

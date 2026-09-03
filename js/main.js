@@ -39,6 +39,7 @@ const KEYWORDS = {
     '废弃信号放大站756号': 'livestream.html',
     '关键帧分析': 'frame_0325.html',
     '皇帝的利刃': 'blade.html',
+    '邪魔的利刃': 'blade.html',
     '凛视': 'prophecy.html',
     '艾尔启': 'prophecy.html',
     '私人日志': '404_hint.html?type=zero',
