@@ -7,7 +7,11 @@
 
 ## 线上地址
 
-<https://rosmontis220.github.io/Sami-Disappearance-WIG/>
+游戏引导页（对外宣传入口）：<https://rosmontis220.github.io/Sami-Disappearance-WIG/intro.html>
+
+响石旅行社官网（游戏本体）：<https://rosmontis220.github.io/Sami-Disappearance-WIG/>
+
+> 引导页为开场说明，不带搜索框；阅读后从页内“进入响石旅行社官网”按钮开始游戏。
 
 ## 玩法
 
