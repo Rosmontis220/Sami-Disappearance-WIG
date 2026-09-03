@@ -1,0 +1,328 @@
+<!-- 👁️我在看着你👁️ -->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>知名主播萨米失联事件 · 调查入口</title>
+    <style>
+        :root {
+            --paper: #f6f1e6;
+            --paper-deep: #ece4d3;
+            --card: #fffdf6;
+            --ink: #38322a;
+            --muted: #8a8170;
+            --brand: #24375f;
+            --brand-deep: #15203a;
+            --accent: #a9773c;
+            --line: #ddd2bd;
+            --danger: #a33b32;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: "Noto Serif SC", "Source Han Serif SC", "Songti SC", STSong, SimSun, Georgia, serif;
+            background:
+                radial-gradient(circle at 15% 8%, rgba(169,119,60,.07), transparent 36%),
+                radial-gradient(circle at 85% 92%, rgba(36,55,95,.08), transparent 40%),
+                var(--paper);
+            color: var(--ink);
+            line-height: 1.95;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .banner {
+            background: linear-gradient(135deg, var(--brand-deep) 0%, var(--brand) 58%, #31456f 100%);
+            color: #f6efe0;
+            text-align: center;
+            padding: 54px 20px 46px;
+            position: relative;
+            overflow: hidden;
+        }
+        .banner::after {
+            content: "";
+            position: absolute; inset: 0;
+            background-image:
+                linear-gradient(rgba(255,255,255,.028) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,.028) 1px, transparent 1px);
+            background-size: 42px 42px;
+            pointer-events: none;
+        }
+        .banner .kicker {
+            font-family: "Cascadia Mono", "SF Mono", Consolas, monospace;
+            font-size: 12px;
+            letter-spacing: 6px;
+            opacity: .78;
+            text-transform: uppercase;
+        }
+        .banner h1 {
+            font-size: clamp(30px, 5.5vw, 54px);
+            letter-spacing: 3px;
+            font-weight: 700;
+            margin: 14px 0 8px;
+            text-shadow: 0 3px 18px rgba(0,0,0,.35);
+        }
+        .banner .sub {
+            font-size: 15px;
+            letter-spacing: 2.5px;
+            opacity: .92;
+            color: #d9cba6;
+        }
+        .banner .meta {
+            margin-top: 18px;
+            font-size: 13px;
+            letter-spacing: 1px;
+            color: rgba(246,239,224,.78);
+        }
+        .banner .meta .dot { color: #c8a95f; margin: 0 8px; }
+
+        main {
+            max-width: 780px;
+            margin: 0 auto;
+            padding: 34px 18px 72px;
+        }
+
+        .card {
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-radius: 14px;
+            padding: 30px 34px;
+            margin-bottom: 24px;
+            box-shadow: 0 2px 6px rgba(60,45,25,.06), 0 16px 34px rgba(60,45,25,.07);
+            position: relative;
+        }
+        .card h2 {
+            font-size: 21px;
+            letter-spacing: 1px;
+            color: var(--brand-deep);
+            padding-bottom: 10px;
+            margin-bottom: 18px;
+            border-bottom: 1px dashed var(--line);
+            display: flex;
+            align-items: baseline;
+            gap: 10px;
+        }
+        .card h2 .cn { font-weight: 700; }
+        .card h2 .en {
+            font-family: "Cascadia Mono", "SF Mono", Consolas, monospace;
+            font-size: 11px;
+            letter-spacing: 2px;
+            color: var(--muted);
+            font-weight: 400;
+        }
+        .card h3 {
+            font-size: 16.5px;
+            color: var(--accent);
+            margin: 20px 0 8px;
+            font-weight: 700;
+        }
+        .card h3:first-child { margin-top: 0; }
+        .card p + p { margin-top: 10px; }
+        ul, ol { padding-left: 26px; margin: 8px 0; }
+        li { margin: 6px 0; }
+        b, strong { color: var(--brand-deep); }
+        .hl {
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .intro-lead {
+            font-size: 16.5px;
+            letter-spacing: .2px;
+        }
+        .route-flow {
+            text-align: center;
+            font-weight: 700;
+            color: var(--brand);
+            letter-spacing: .5px;
+            background: #f3ecd9;
+            border: 1px dashed var(--accent);
+            border-radius: 10px;
+            padding: 12px 14px;
+            margin: 14px 0 4px;
+            font-size: 15px;
+        }
+        .route-flow .arrow { color: var(--accent); margin: 0 6px; }
+
+        .notice {
+            border-left: 4px solid var(--danger);
+            background: #faf4ea;
+            border-radius: 0 10px 10px 0;
+            padding: 14px 18px;
+            margin-top: 14px;
+            font-size: 14.5px;
+        }
+        .notice b { color: var(--danger); }
+
+        .start-box {
+            text-align: center;
+            padding: 34px 24px 30px;
+            background:
+                repeating-linear-gradient(0deg, rgba(169,119,60,.04) 0 1px, transparent 1px 4px),
+                var(--card);
+            border: 1px solid var(--line);
+            border-radius: 14px;
+            margin-bottom: 24px;
+        }
+        .start-box .btn {
+            display: inline-block;
+            margin-top: 14px;
+            padding: 15px 42px;
+            background: var(--brand);
+            color: #f7f1e4;
+            text-decoration: none;
+            border-radius: 32px;
+            font-size: 17px;
+            letter-spacing: 3px;
+            box-shadow: 0 6px 18px rgba(21,32,58,.25);
+            transition: transform .15s, box-shadow .2s, background .2s;
+        }
+        .start-box .btn:hover {
+            transform: translateY(-2px);
+            background: var(--brand-deep);
+            box-shadow: 0 10px 24px rgba(21,32,58,.32);
+        }
+        .start-box .hint-line {
+            margin-top: 14px;
+            font-size: 13.5px;
+            color: var(--muted);
+        }
+
+        .foot-note {
+            text-align: center;
+            color: var(--muted);
+            font-size: 12.5px;
+            line-height: 2;
+            letter-spacing: .3px;
+            padding: 8px 20px 30px;
+        }
+        .foot-note .line { display: block; }
+
+        @media (max-width: 640px) {
+            .card { padding: 22px 20px; }
+            .banner { padding: 40px 16px 34px; }
+        }
+    </style>
+</head>
+<body>
+
+<header class="banner">
+    <div class="kicker">A WEB PUZZLE · 网页解谜</div>
+    <h1>知名主播萨米失联事件</h1>
+    <div class="sub">响石旅行社 · 萨米专区 调查档案</div>
+    <div class="meta">泰拉历 1100.12<span class="dot">◆</span>信号于 03:25 中断<span class="dot">◆</span>零失联记录？</div>
+</header>
+
+<main>
+
+    <section class="card">
+        <h2><span class="cn">◯ 引言</span><span class="en">INTRODUCTION</span></h2>
+        <p class="intro-lead">
+            你是周符卿的老观众。
+            1100.12.15 凌晨，他开启了筹备已久的萨米冰原探险直播——
+            然后，在 03:25，画面与声音同时中断，再也没有回来。
+        </p>
+        <p>
+            三天后，响石旅行社发布公告：客户已平安离开萨米，直播中断只是当地常见的信号故障。
+            可周符卿的账号从此再也没有更新。没有复播预告，没有报平安的动态，什么都没有。
+            那场直播的存档也被标注为“异常”，仿佛整件事都被轻轻揭过。
+        </p>
+        <p>
+            你咽不下这口气。你重新打开响石旅行社的官网，逐页翻找——
+            然后你发现，这家自称<span class="hl">零失联记录</span>的旅行社，
+            在看似普通的网页之下，藏着一层层不该被游客看见的内容。
+        </p>
+        <p>
+            有些东西，只能用搜索框才能找到。
+            而你决定把它们全部挖出来。
+        </p>
+    </section>
+
+    <section class="card">
+        <h2><span class="cn">◯ 玩法</span><span class="en">HOW TO PLAY</span></h2>
+
+        <h3>游戏目的</h3>
+        <p>通过浏览<span class="hl">响石旅行社官网</span>的公开页面与隐藏页面：</p>
+        <ul>
+            <li>还原 03:25 直播中断时究竟发生了什么；</li>
+            <li>找出响石旅行社“零失联记录”背后的秘密；</li>
+            <li>查明周符卿的下落——并决定你要不要替他把真相说出来。</li>
+        </ul>
+
+        <h3>游戏玩法</h3>
+        <p>
+            这是一款没有明面进度条的游戏。官网的大多数页面都可以直接点击浏览，
+            但真正重要的内容不会出现在导航里——<b>只要搜对关键词，隐藏页面就会浮出水面</b>。
+            关键词可能是人名、地名、一串编号，甚至是某个看起来很普通的词语。
+        </p>
+        <div class="route-flow">
+            阅读现有页面 <span class="arrow">→</span> 找出可疑关键词
+            <span class="arrow">→</span> 在站内搜索框搜索
+            <span class="arrow">→</span> 发现隐藏页面 <span class="arrow">→</span> 重复
+        </div>
+        <p>
+            每个网页页脚都标有编号与总页数（如 06/14）。<b>编号越大，代表你越接近真相。</b>
+            公开页面与隐藏页面共用同一个搜索框；搜不到任何结果时，你会看到 404，那也是正常体验的一部分。
+        </p>
+        <p>预计游戏时长：1～2 小时。你走出的每一步都会让雪花更黑一点。</p>
+
+        <h3>注意事项</h3>
+        <ol>
+            <li><b>本游戏不要求任何编程知识。</b>请只用页面中可见的信息进行推理。
+                不需要查看源代码、修改文件或使用任何外部工具——页面里故意留了一些“吓唬人”的东西，它们只是气氛。</li>
+            <li>推荐使用电脑或手机浏览器游玩，并在浏览器中保留完整的搜索与浏览记录。</li>
+            <li>关于搜索关键词：
+                <ul>
+                    <li><b>每次搜索一个关键词</b>，不要一次输入整句话或整段文字；</li>
+                    <li>优先使用页面里出现过的<b>词语本身</b>，去掉多余的标点与空格；</li>
+                    <li>部分关键词带有格式（例如订单号），请照原样输入。</li>
+                </ul>
+            </li>
+            <li>部分页面存在<b>解锁顺序</b>：如果搜索后打不开、或看到的内容“不对”，
+                通常意味着你漏掉了更早的线索，请回到之前的页面重新找。</li>
+            <li>本游戏不含音效，也没有跳脸画面。只有越来越深的雪。</li>
+        </ol>
+
+        <h3>游戏建议</h3>
+        <ol>
+            <li><b>建议用记事本或表格记录</b>：已访问页面的编号、所用关键词、页面大致内容。
+                这能有效防止你忘记某页是怎么进来的。</li>
+            <li>不是只有生僻的专有名词才算关键词。请逐字阅读每一段话，
+                一些看起来最平常的词，恰恰是最有用的。</li>
+            <li>如果某一步卡住了，<b>回头检查你搜过的每一个词</b>。
+                有些页面在搜索后不会消失——你只是还没有搜到通向它的那一个词。</li>
+        </ol>
+    </section>
+
+    <section class="card">
+        <h2><span class="cn">◯ 入门提示</span><span class="en">START HERE</span></h2>
+        <p>
+            准备好了的话，就从响石旅行社官网的公开页面逛起吧。
+            先在搜索框输入主播的名字<span class="hl">周符卿</span>看看官方怎么说；
+            如果还想知道那晚到底发生了什么，可以试着搜索“<span class="hl">那场直播</span>”。
+        </p>
+        <div class="notice">
+            注意：本站是<b>网页解谜游戏</b>，官网页面中所有看起来像链接的关键词都不能点击——
+            它们只是提示。把词抄进搜索框，才是正确的推进方式。
+        </div>
+    </section>
+
+    <div class="start-box">
+        <p style="font-size:17px; letter-spacing:1px;">准备好了吗？</p>
+        <p class="hint-line">进入响石旅行社官网，开始你的调查。</p>
+        <a class="btn" href="index.html" target="_blank">进入响石旅行社官网</a>
+        <p class="hint-line">建议在新标签页打开，方便随时回到本页查看说明。</p>
+    </div>
+
+    <section class="card">
+        <h2><span class="cn">◯ 特别鸣谢</span><span class="en">SPECIAL THANKS</span></h2>
+        <p>感谢协助试玩与捉虫的朋友们。你们的眼睛，让这场雪不至于太冷。</p>
+    </section>
+
+    <div class="foot-note">
+        <span class="line">本页面为游戏开场引导，不计入官网主线页数。</span>
+        <span class="line">本游戏为《明日方舟》世界观下的同人创作，与现实中的任何人、事、物无关。</span>
+    </div>
+</main>
+
+</body>
+</html>
