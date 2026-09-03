@@ -48,7 +48,7 @@ const KEYWORDS = {
     'zero': 'journal.html',
     '提丰': 'stones.html',
     '尸体': 'ending.html',
-    '周符卿': 'news.html#n-1216'
+    '周符卿': 'news.html#n-1218'
 };
 
 /* 结局页彩蛋：搜索 325 */
