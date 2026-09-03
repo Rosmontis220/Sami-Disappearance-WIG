@@ -1093,6 +1093,11 @@ input.shake { animation: shake .4s ease; }
     letter-spacing: 1px;
     margin-bottom: 8px;
 }
+.archive-empty {
+    color: #b9b6ad;
+    font-size: 14px;
+    line-height: 1.9;
+}
 
 /* 搜索结果痕迹（默认404） */
 .query-trace {
