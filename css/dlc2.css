@@ -253,6 +253,24 @@ body {
     line-height: 2.2;
     color: var(--d2-ink);
 }
+.d2-final-figure {
+    margin: 26px auto 6px;
+    max-width: 440px;
+}
+.d2-final-figure img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border: 1px solid var(--d2-line);
+    border-radius: 10px;
+    box-shadow: 0 0 26px rgba(0, 0, 0, .38);
+}
+.d2-final-note {
+    margin-top: 12px;
+    color: var(--d2-muted);
+    font-size: 13px;
+    line-height: 2;
+}
 .d2-final-stamp {
     margin-top: 38px;
     font-family: "Cascadia Mono", Consolas, monospace;
