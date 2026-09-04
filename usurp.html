@@ -6,6 +6,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>利刃所指 - USURPATION END</title>
     <link rel="stylesheet" href="css/dlc.css">
+    <style>
+        /* DLC2 入口卡片（冷蓝，区别于皮车红黑结局） */
+        .miller-hook {
+            text-align: center;
+            margin: 34px auto 70px;
+            max-width: 560px;
+            padding: 0 18px;
+        }
+        .miller-hook-card {
+            border: 1px solid rgba(127,180,216,.45);
+            background: rgba(16,26,36,.92);
+            border-radius: 14px;
+            padding: 20px 24px;
+            box-shadow: 0 0 34px rgba(63,111,147,.22);
+            color: #d8e2ea;
+        }
+        .miller-hook-tag {
+            font-family: "Cascadia Mono", Consolas, monospace;
+            font-size: 10.5px;
+            letter-spacing: 2px;
+            color: #7fb4d8;
+        }
+        .miller-hook-text {
+            margin: 12px 0;
+            line-height: 1.9;
+        }
+        .miller-hook-btn {
+            display: inline-block;
+            margin-top: 6px;
+            padding: 10px 30px;
+            border-radius: 999px;
+            background: #3f6f93;
+            color: #eaf2f8;
+            text-decoration: none;
+            font-size: 14px;
+            letter-spacing: 2px;
+        }
+        .miller-hook-btn:hover { background: #4d86ae; }
+    </style>
 </head>
 <body data-page="usurp">
 
@@ -49,6 +88,18 @@
     <div class="usurp-end-stamp">USURPATION END · 利刃所指</div>
 </div>
 
+<!-- DLC2 入口：结局 C 后，米勒的加密内联消息 -->
+<div class="miller-hook" id="dlc2-hook" hidden>
+    <div class="miller-hook-card">
+        <div class="miller-hook-tag">ENCRYPTED · 内联消息</div>
+        <p class="miller-hook-text">
+            “我知道你拿了什么，也知道他在哪。<br>
+            来萨米见。—— 米勒”
+        </p>
+        <a class="miller-hook-btn" href="dlc2_e01.html">接入终章 →</a>
+    </div>
+</div>
+
 <footer class="dlc-footer">
     EX-05 · 体系外 · 共犯视角<br>
     本页面为《明日方舟》世界观同人创作，与现实无关。
@@ -56,6 +107,14 @@
 
 <script src="js/main.js"></script>
 <script>
+/* DLC2：结局 C 达成后显示入口 */
+document.addEventListener('DOMContentLoaded', () => {
+    const hook = document.getElementById('dlc2-hook');
+    if (hook && window.DlcStore && DlcStore.get('dlc1_completed') === '1') {
+        hook.hidden = false;
+    }
+});
+
 /* 黑雪：密度为结局 A 的 1.5 倍（约 120 片） */
 (function () {
     const layer = document.createElement('div');

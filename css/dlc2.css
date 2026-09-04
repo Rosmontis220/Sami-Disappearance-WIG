@@ -1,0 +1,310 @@
+/* 👁️我在看着你👁️ */
+/* ============================================================
+   DLC2《越过群山》样式 · 米勒寻人调查档案
+   视觉：雪原冷蓝调查底 + 红色证据标记 + 结局暖金
+   ============================================================ */
+
+:root {
+    --d2-bg: #0a1016;
+    --d2-bg-deep: #05090d;
+    --d2-card: #101a24;
+    --d2-card-2: #16222f;
+    --d2-ink: #d8e2ea;
+    --d2-muted: #8b9aaa;
+    --d2-line: #24394b;
+    --d2-accent: #7fb4d8;
+    --d2-strong: #3f6f93;
+    --d2-danger: #d04339;
+    --d2-gold: #d9b45f;
+    --d2-warm: #d9a066;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: "Noto Serif SC", "Source Han Serif SC", "Songti SC", STSong, SimSun, Georgia, serif;
+    background:
+        radial-gradient(ellipse at 18% -8%, rgba(63,111,147,.16), transparent 46%),
+        radial-gradient(ellipse at 95% 110%, rgba(208,67,57,.08), transparent 38%),
+        var(--d2-bg);
+    color: var(--d2-ink);
+    line-height: 1.9;
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+}
+
+.d2-top {
+    border-bottom: 1px solid var(--d2-line);
+    background: rgba(8,14,20,.88);
+    backdrop-filter: blur(8px);
+    position: sticky; top: 0; z-index: 60;
+}
+.d2-top-inner {
+    width: min(1080px, calc(100% - 28px));
+    margin: 0 auto;
+    display: flex; align-items: center; gap: 12px;
+    padding: 10px 0;
+    flex-wrap: wrap;
+}
+.d2-brand {
+    color: var(--d2-ink);
+    text-decoration: none;
+    display: flex; align-items: center; gap: 10px;
+    margin-right: auto;
+}
+.d2-brand .mark {
+    width: 34px; height: 34px;
+    border-radius: 8px;
+    display: inline-flex; align-items: center; justify-content: center;
+    background: var(--d2-card-2);
+    border: 1px solid var(--d2-line);
+    color: var(--d2-accent);
+    font-size: 17px;
+}
+.d2-brand .t1 { font-size: 14px; font-weight: 800; letter-spacing: 2px; }
+.d2-brand .t2 { font-size: 10px; letter-spacing: 2px; color: var(--d2-muted); font-family: "Cascadia Mono", Consolas, monospace; }
+.d2-progress {
+    font-family: "Cascadia Mono", Consolas, monospace;
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: var(--d2-muted);
+}
+
+.d2-main {
+    width: min(760px, calc(100% - 32px));
+    margin: 0 auto;
+    padding: 44px 0 72px;
+}
+.d2-kicker {
+    text-align: center;
+    font-family: "Cascadia Mono", Consolas, monospace;
+    font-size: 12px;
+    letter-spacing: 6px;
+    color: var(--d2-accent);
+}
+.d2-title {
+    text-align: center;
+    font-size: clamp(26px, 5vw, 42px);
+    letter-spacing: 5px;
+    color: #e6f0f7;
+    margin: 10px 0 6px;
+}
+.d2-subtitle {
+    text-align: center;
+    color: var(--d2-muted);
+    font-size: 13px;
+    letter-spacing: 2px;
+    margin-bottom: 26px;
+    font-family: "Cascadia Mono", Consolas, monospace;
+}
+
+.d2-panel {
+    background: linear-gradient(160deg, rgba(22,34,47,.72), rgba(12,18,25,.88));
+    border: 1px solid var(--d2-line);
+    border-radius: 14px;
+    padding: 26px 30px;
+    margin-bottom: 22px;
+    box-shadow: 0 10px 32px rgba(0,0,0,.35);
+}
+.d2-panel h2 {
+    font-size: 18px;
+    letter-spacing: 2px;
+    color: var(--d2-accent);
+    border-bottom: 1px dashed var(--d2-line);
+    padding-bottom: 10px;
+    margin-bottom: 14px;
+}
+.d2-panel h3 {
+    color: var(--d2-gold);
+    font-size: 15px;
+    margin: 16px 0 8px;
+}
+.d2-panel p + p { margin-top: 10px; }
+.d2-mono { font-family: "Cascadia Mono", Consolas, monospace; }
+.d2-small { font-size: 12.5px; color: var(--d2-muted); }
+.d2-danger { color: var(--d2-danger); }
+.d2-gold { color: var(--d2-gold); }
+
+/* 聊天/消息块 */
+.d2-msg {
+    border-left: 3px solid var(--d2-accent);
+    background: rgba(127,180,216,.06);
+    border-radius: 0 10px 10px 0;
+    padding: 12px 16px;
+    margin: 12px 0;
+}
+.d2-msg.red { border-left-color: var(--d2-danger); background: rgba(208,67,57,.06); }
+.d2-msg.warm { border-left-color: var(--d2-gold); background: rgba(217,180,95,.06); }
+.d2-msg .who {
+    font-weight: 800;
+    color: var(--d2-accent);
+    font-size: 13px;
+    letter-spacing: 1px;
+}
+.d2-msg.red .who { color: var(--d2-danger); }
+.d2-msg.warm .who { color: var(--d2-gold); }
+
+/* 物证对照 */
+.d2-evid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 14px 0;
+}
+.d2-evid > div {
+    border: 1px solid var(--d2-line);
+    border-radius: 10px;
+    padding: 12px 14px;
+    font-size: 13.5px;
+    background: rgba(10,16,24,.6);
+}
+.d2-evid .lbl {
+    font-family: "Cascadia Mono", Consolas, monospace;
+    font-size: 10.5px;
+    letter-spacing: 2px;
+    color: var(--d2-muted);
+    display: block;
+    margin-bottom: 6px;
+}
+.d2-evid .site { color: var(--d2-accent); }
+.d2-evid .fact { color: var(--d2-danger); }
+
+/* 终端敲字 */
+.d2-term {
+    font-family: "Cascadia Mono", Consolas, monospace;
+    font-size: 13px;
+    color: var(--d2-accent);
+    background: rgba(4,8,12,.72);
+    border: 1px solid var(--d2-line);
+    border-radius: 8px;
+    padding: 14px 16px;
+    white-space: pre-wrap;
+    line-height: 1.8;
+}
+.d2-term .cursor::after {
+    content: "▊";
+    animation: d2-cursor 1s steps(1) infinite;
+    color: var(--d2-accent);
+}
+@keyframes d2-cursor { 50% { opacity: 0; } }
+
+.d2-next {
+    text-align: center;
+    margin-top: 28px;
+}
+.d2-btn {
+    display: inline-block;
+    padding: 13px 40px;
+    border-radius: 999px;
+    text-decoration: none;
+    font-size: 15px;
+    letter-spacing: 2px;
+    color: #eaf2f8;
+    background: var(--d2-strong);
+    transition: background .2s, transform .15s;
+}
+.d2-btn:hover { background: #4d86ae; transform: translateY(-1px); }
+.d2-btn.warm { background: #9a6f2f; }
+.d2-btn.warm:hover { background: #b5833a; }
+.d2-btn.ghost {
+    background: transparent;
+    border: 1px solid var(--d2-line);
+    color: var(--d2-muted);
+}
+
+.d2-footer {
+    text-align: center;
+    color: var(--d2-muted);
+    font-family: "Cascadia Mono", Consolas, monospace;
+    font-size: 11px;
+    letter-spacing: 2px;
+    padding: 18px 16px 30px;
+}
+
+/* 终章：越过群山（暖色收束） */
+.d2-final {
+    min-height: 90vh;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    text-align: center;
+    padding: 70px 22px;
+    background:
+        radial-gradient(ellipse at 50% 0%, rgba(217,180,95,.12), transparent 48%),
+        radial-gradient(ellipse at 50% 100%, rgba(208,67,57,.06), transparent 42%),
+        var(--d2-bg-deep);
+}
+.d2-final-title {
+    font-size: clamp(32px, 6vw, 58px);
+    letter-spacing: 10px;
+    color: var(--d2-gold);
+    text-shadow: 0 0 34px rgba(217,180,95,.25);
+}
+.d2-final-sub {
+    color: var(--d2-muted);
+    letter-spacing: 4px;
+    margin-top: 14px;
+    font-family: "Cascadia Mono", Consolas, monospace;
+    font-size: 13px;
+}
+.d2-final-para {
+    max-width: 620px;
+    margin: 30px auto 8px;
+    font-size: 15.5px;
+    line-height: 2.2;
+    color: var(--d2-ink);
+}
+.d2-final-stamp {
+    margin-top: 38px;
+    font-family: "Cascadia Mono", Consolas, monospace;
+    letter-spacing: 6px;
+    color: var(--d2-gold);
+    border: 2px solid var(--d2-gold);
+    padding: 10px 24px;
+    border-radius: 4px;
+    transform: rotate(-3deg);
+    opacity: 0;
+    animation: d2-stamp 1s ease forwards 1.2s;
+}
+@keyframes d2-stamp { to { opacity: 1; transform: rotate(-2deg) scale(1); } }
+
+/* 入口钩子（结局 C 页） */
+.miller-hook {
+    text-align: center;
+    margin: 34px auto 60px;
+    max-width: 560px;
+}
+.miller-hook-card {
+    border: 1px solid rgba(127,180,216,.45);
+    background: rgba(16,26,36,.9);
+    border-radius: 14px;
+    padding: 20px 24px;
+    box-shadow: 0 0 34px rgba(63,111,147,.22);
+}
+.miller-hook-tag {
+    font-family: "Cascadia Mono", Consolas, monospace;
+    font-size: 10.5px;
+    letter-spacing: 2px;
+    color: var(--d2-accent);
+}
+.miller-hook-text {
+    color: var(--d2-ink);
+    margin: 12px 0;
+    line-height: 1.9;
+}
+.miller-hook-btn {
+    display: inline-block;
+    margin-top: 6px;
+    padding: 10px 30px;
+    border-radius: 999px;
+    background: var(--d2-strong);
+    color: #eaf2f8;
+    text-decoration: none;
+    font-size: 14px;
+    letter-spacing: 2px;
+}
+.miller-hook-btn:hover { background: #4d86ae; }
+
+@media (max-width: 680px) {
+    .d2-panel { padding: 20px 18px; }
+    .d2-evid { grid-template-columns: 1fr; }
+}
