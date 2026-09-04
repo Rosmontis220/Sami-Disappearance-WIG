@@ -44,9 +44,28 @@
             letter-spacing: 2px;
         }
         .miller-hook-btn:hover { background: #4d86ae; }
+        /* 信号异常 → 消息浮现 */
+        #miller-static {
+            position: fixed; inset: 0;
+            background: #04060a;
+            z-index: 200;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 18px;
+            transition: opacity 1.2s ease;
+            font-family: "Cascadia Mono", Consolas, monospace;
+            text-align: center;
+            color: #5f7a90;
+            letter-spacing: 4px;
+        }
+        #miller-static .st-code { font-size: clamp(26px, 5vw, 44px); color: #7fb4d8; }
+        #miller-static .st-line { font-size: 12px; color: #54708a; }
+        #miller-static.fade { opacity: 0; pointer-events: none; }
     </style>
 </head>
-<body data-page="usurp">
+<body data-page="usurp" class="no-scroll">
 
 <div class="usurp-stage">
     <span class="usurp-avatar">🐰</span>
@@ -105,14 +124,32 @@
     本页面为《明日方舟》世界观同人创作，与现实无关。
 </footer>
 
+<div id="miller-static">
+    <div class="st-code">▚▞ 信号异常 ▞▚</div>
+    <div class="st-line">正在尝试恢复加密频道……</div>
+</div>
+
 <script src="js/main.js"></script>
 <script>
 /* DLC2：结局 C 达成后显示入口 */
 document.addEventListener('DOMContentLoaded', () => {
     const hook = document.getElementById('dlc2-hook');
-    if (hook && window.DlcStore && DlcStore.get('dlc1_completed') === '1') {
-        hook.hidden = false;
+    const stat = document.getElementById('miller-static');
+    if (!hook || !window.DlcStore || DlcStore.get('dlc1_completed') !== '1') {
+        if (stat) stat.remove();
+        return;
     }
+
+    // 20 秒信号异常（期间页面滚动锁定），随后消息浮现
+    document.body.classList.add('no-scroll');
+    document.documentElement.style.overflow = 'hidden';
+    setTimeout(() => {
+        if (stat) stat.classList.add('fade');
+        hook.hidden = false;
+        document.body.classList.remove('no-scroll');
+        document.documentElement.style.overflow = '';
+        setTimeout(() => { if (stat) stat.remove(); }, 1300);
+    }, 20000);
 });
 
 /* 黑雪：密度为结局 A 的 1.5 倍（约 120 片） */

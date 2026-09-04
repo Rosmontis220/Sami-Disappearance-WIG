@@ -6,18 +6,59 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>米勒的调查日志 · 第三章</title>
     <link rel="stylesheet" href="css/dlc2.css">
+    <style>
+        /* 克雷松拼图 */
+        .pz-wrap { margin-top: 14px; }
+        .pz-board {
+            width: 324px;
+            max-width: 100%;
+            aspect-ratio: 1 / 1;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(4, 1fr);
+            gap: 2px;
+            background: #05080c;
+            border: 1px solid var(--d2-line);
+            border-radius: 10px;
+            padding: 6px;
+            margin: 0 auto;
+        }
+        .pz-tile {
+            background-image: url("assets/头像_敌人_无垠回荡克雷松.png");
+            background-size: 312px 312px;
+            border-radius: 3px;
+            cursor: pointer;
+            transition: box-shadow .15s, transform .1s;
+        }
+        .pz-tile:hover { box-shadow: 0 0 0 2px rgba(127,180,216,.7); z-index: 2; }
+        .pz-tile.selected { box-shadow: 0 0 0 3px var(--d2-danger); }
+        .pz-tip {
+            text-align: center;
+            color: var(--d2-muted);
+            font-size: 12px;
+            margin-top: 10px;
+            font-family: "Cascadia Mono", Consolas, monospace;
+        }
+        .pz-done {
+            text-align: center;
+            color: var(--d2-gold);
+            font-weight: 700;
+            margin-top: 10px;
+            letter-spacing: 1px;
+        }
+    </style>
 </head>
 <body data-page="dlc2e03">
 
 <header class="d2-top">
     <div class="d2-top-inner">
-        <a class="d2-brand" href="index.html">
+        <div class="d2-brand">
             <span class="mark">M</span>
             <span>
                 <span class="t1" style="display:block;">米勒 · 寻人调查</span>
                 <span class="t2">OVER THE RIDGES · 越过群山</span>
             </span>
-        </a>
+        </div>
         <span class="d2-progress">E03 / E04 · 真相</span>
     </div>
 </header>
@@ -35,8 +76,7 @@
         </p>
         <div class="d2-msg warm">
             <span class="who">门后的周符卿</span>
-            <p>“别过来！外面那个……那个紫眼睛的怪物——他还在吗？！”
-            你们别信他，他眼睛会发紫光，他不是人！”</p>
+            <p>“别过来！外面那个……那个紫眼睛的怪物——他还在吗？！你们别信他，他眼睛会发紫光，他不是人！”</p>
         </div>
         <p>
             皮车猛地抬头：“紫眼？什么紫眼？”
@@ -46,7 +86,22 @@
     </section>
 
     <section class="d2-panel">
-        <h2>二、镜子</h2>
+        <h2>二、克雷松的影像（拼图）</h2>
+        <p>
+            门内的声音让皮车僵在原地。米勒没有立刻回答，而是从背包里取出一张旧照片——
+            那是你曾在污染影像里见过的面孔：<strong class="d2-danger">无垠回荡 · 克雷松</strong>。
+        </p>
+        <p class="d2-small">“把它拼完整。污染留下的记忆是碎的，但拼起来就能看见真相。”</p>
+
+        <div class="pz-wrap">
+            <div class="pz-board" id="pz-board"></div>
+            <p class="pz-tip">点击两块碎片交换位置 · 还原完整影像</p>
+            <p class="pz-done" id="pz-done" hidden>✓ 影像已还原。镜子里的，就是你。</p>
+        </div>
+    </section>
+
+    <section class="d2-panel" id="mirror-section" hidden>
+        <h2>三、镜子</h2>
         <p>
             反光面里，皮车看见了自己的眼睛。瞳孔深处泛着诡异的紫光，
             像冻在冰层下的两簇火。他踉跄后退，撞在科考站的外墙上。
@@ -67,8 +122,8 @@
         </p>
     </section>
 
-    <section class="d2-panel">
-        <h2>三、压制</h2>
+    <section class="d2-panel" id="suppress-section" hidden>
+        <h2>四、压制</h2>
         <p>
             紫光没有熄灭，反而更亮。皮车的手指开始不受控制地抽搐，
             某种不属于他的声音仿佛要从他嗓子里爬出来。米勒挡在你身前，正要拔刀——
@@ -100,5 +155,74 @@
 </footer>
 
 <script src="js/main.js"></script>
+<script>
+/* 克雷松 4x4 拼图：点击两片交换，还原后解锁下文 */
+(function () {
+    const board = document.getElementById('pz-board');
+    if (!board) return;
+
+    const SIZE = 4;
+    const TOTAL = SIZE * SIZE;
+    const CELL = 312 / SIZE;               // 背景单位
+    let positions = Array.from({ length: TOTAL }, (_, i) => i);
+    let selected = -1;
+
+    // Fisher-Yates 洗牌（任意排列都可通过两两交换还原，保证可解）
+    for (let i = TOTAL - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [positions[i], positions[j]] = [positions[j], positions[i]];
+    }
+
+    function render() {
+        board.innerHTML = '';
+        positions.forEach((pieceId, slot) => {
+            const r = Math.floor(pieceId / SIZE);
+            const c = pieceId % SIZE;
+            const tile = document.createElement('div');
+            tile.className = 'pz-tile';
+            tile.dataset.slot = slot;
+            tile.style.backgroundPosition = (-c * CELL) + 'px ' + (-r * CELL) + 'px';
+            if (slot === selected) tile.classList.add('selected');
+            tile.addEventListener('click', () => onPick(slot));
+            board.appendChild(tile);
+        });
+    }
+
+    function onPick(slot) {
+        if (selected === -1) {
+            selected = slot;
+            render();
+            return;
+        }
+        if (selected === slot) {
+            selected = -1;
+            render();
+            return;
+        }
+        const a = positions[selected];
+        positions[selected] = positions[slot];
+        positions[slot] = a;
+        selected = -1;
+        render();
+        checkDone();
+    }
+
+    function checkDone() {
+        const done = positions.every((v, i) => v === i);
+        if (done) {
+            document.getElementById('pz-done').hidden = false;
+            document.getElementById('mirror-section').hidden = false;
+            document.getElementById('suppress-section').hidden = false;
+            const mirror = document.getElementById('mirror-section');
+            setTimeout(() => mirror.scrollIntoView({ behavior: 'smooth', block: 'start' }), 300);
+            // 只允许成功一次后锁定面板交互（视觉上留下完整影像）
+            board.style.pointerEvents = 'none';
+            board.style.opacity = '.72';
+        }
+    }
+
+    render();
+})();
+</script>
 </body>
 </html>
