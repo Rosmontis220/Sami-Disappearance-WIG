@@ -990,9 +990,66 @@ input.shake { animation: shake .4s ease; }
     display: flex; gap: 18px; justify-content: center; flex-wrap: wrap;
     margin-top: 14px;
 }
+.dlc-silence {
+    border-color: #c8a45a !important;
+    color: #c8a45a !important;
+    background: transparent;
+}
+.dlc-silence:hover {
+    background: rgba(200,164,90,.12) !important;
+}
 .choice-note {
     max-width: 620px; margin: 0 auto;
     text-align: center; color: var(--muted); font-size: 13.5px;
+}
+
+/* ---------- DLC1：journal 页皮车模块 ---------- */
+.dlc-card {
+    border: 1px dashed var(--line);
+    background: var(--panel-soft);
+    opacity: .72;
+    transition: opacity .4s, border-color .4s, background .4s;
+}
+.dlc-card[data-locked="0"] {
+    opacity: 1;
+    border-color: var(--accent-strong);
+}
+.dlc-card-head {
+    display: flex; align-items: center; gap: 12px;
+    margin-bottom: 12px;
+}
+.dlc-avatar {
+    width: 46px; height: 46px;
+    display: inline-flex; align-items: center; justify-content: center;
+    font-size: 26px;
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 50%;
+    transition: filter .5s;
+}
+.dlc-avatar.dim { filter: brightness(.25); }
+.dlc-name { font-weight: 800; font-size: 15.5px; }
+.dlc-sub { font-size: 12px; color: var(--muted); font-family: var(--font-mono); letter-spacing: 1px; }
+.dlc-card-body { font-size: 14.5px; color: var(--ink); opacity: .85; }
+.dlc-card-reveal { margin-top: 14px; }
+.dlc-card-reveal p {
+    color: var(--accent-strong);
+    font-weight: 700;
+    letter-spacing: 1px;
+    animation: typein .7s ease forwards;
+}
+.dlc-card-reveal .btn { margin-top: 12px; }
+
+/* DLC 全页 glitch */
+body.dlc-glitch {
+    animation: dlc-page-glitch .3s steps(2) 1;
+}
+@keyframes dlc-page-glitch {
+    0% { transform: translate(0, 0); filter: none; }
+    25% { transform: translate(-3px, 2px); filter: hue-rotate(40deg) contrast(1.3); }
+    50% { transform: translate(3px, -2px); filter: invert(.18); }
+    75% { transform: translate(-2px, -1px); filter: hue-rotate(-40deg) saturate(2); }
+    100% { transform: translate(0, 0); filter: none; }
 }
 
 /* 黑雪特效 */

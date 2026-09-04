@@ -1,0 +1,116 @@
+<!-- 👁️我在看着你👁️ -->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>……</title>
+    <link rel="stylesheet" href="css/dlc.css">
+    <style>
+        .review-card-dlc {
+            max-width: 620px;
+            border: 1px solid var(--dlc-line);
+            border-radius: 12px;
+            background: rgba(30,10,14,.82);
+            padding: 18px 22px;
+            margin: 10px auto 0;
+            text-align: left;
+            font-size: 14px;
+        }
+        .review-card-dlc .stars { color: var(--dlc-gold); letter-spacing: 2px; margin: 6px 0; }
+        .review-card-dlc .meta2 { color: var(--dlc-muted); font-size: 12px; font-family: "Cascadia Mono", Consolas, monospace; }
+        #truth-last { display: none; }
+    </style>
+</head>
+<body data-page="truth">
+
+<div class="truth-stage" id="truth-stage">
+    <div style="min-height:12px;"></div>
+</div>
+
+<footer class="dlc-footer" style="display:none;" id="truth-footer">
+    EX-04 · 体系外 · 未经审核<br>
+    本页面为《明日方舟》世界观同人创作，与现实无关。
+</footer>
+
+<script src="js/main.js"></script>
+<script>
+(function () {
+    const paragraphs = [
+        '你找到这里来了。',
+        '你以为你在调查响石。\n你以为你在调查邪魔的利刃。\n我告诉你真相。',
+        '我是皿良皮车。\n你刚刚在表格里亲手把我的名字拼了出来。',
+        '而你，是那天跟周哥一起旅行的人。\n我们见过面。\n后来我一直跟着你，\n看你摔了一跤，好像失忆了。',
+        '那份档案你们都读过。\n第一栏写着：被生前所有同僚猎杀，直至彻底消亡。\n最后一栏写着：12.16，萨米，最近活动。\n一份档案，自相矛盾。你们没有一个人发现。\n死档案不会辟谣——那就让它替我出场。',
+        '12.17 凌晨，我追加那一栏。\n“目标：一名乌萨斯叛徒。已确认消灭。”\n没有叛徒。\n但我确实“杀”了东西。',
+        '12.16 15:25，756 号站外。\n我穿上了装置。黑烟。黑雪。\n他连同设备一起被吞没了。\n但等黑烟散去，人不见了。掉下冰崖了。',
+        '我不能空着手回去。我杀了路过的一头鹿。\n撕裂了周符卿的外套，砸碎了他的直播设备，裹在鹿尸上。',
+        '裹完鹿尸，我把这玩意丢在一边，走了。\n五十米外，你们的导游和当地向导看向这边。\n导游没仔细看。暴风雪太大，她只看到那件熟悉的外套和血。\n她走过去。她埋了。\n她埋的是一头鹿。',
+        '你知道接下来发生了什么吗？\n你想起来了吗？',
+        '我拖着那头“尸体”往回走的时候，正好撞见你。\n你吓坏了。你问我那是什么。\n我给了你一笔钱。很多钱。\n我说：“你没看见。你什么都没看见。”\n你收了钱。你点了头。\n<span class="truth-red">不要忘记</span>',
+        '后来你摔了一跤。你失忆了。\n但是我猜就算失忆，你也会调查这个事情。\n对吧，侦探先生。\n所以我给我的个人网站放了这个页面。\n是给你看的真相。',
+        '我要你想起来：你是我的共犯。\n你看着我拖回那具“尸体”，你拿了钱，你包庇了我。\n从你按下回车解谜的那一刻起，\n我们就是同一条船上的人了。',
+        '所以——\n有些事，别干。\n你想让自己被捕吗？',
+        '<!--truth-card-->'
+    ];
+    const stage = document.getElementById('truth-stage');
+    let idx = 0;
+
+    // 预渲染所有段落（页面保持完整高度，可随时滚动），逐段淡入
+    const els = paragraphs.map((raw) => {
+        let el;
+        if (raw === '<!--truth-card-->') {
+            el = document.createElement('div');
+            el.className = 'review-card-dlc truth-paragraph';
+            el.innerHTML =
+                '<div><strong>⭐⭐⭐⭐⭐</strong></div>' +
+                '<div style="font-weight:700;">周符卿 <span class="meta2">| 1100.12.20</span></div>' +
+                '<div class="stars">★★★★★</div>' +
+                '<div>已平安回家，谢谢大家的关心，下次还来！</div>' +
+                '<div class="meta2" style="margin-top:6px;">—— 发布时间：15:25</div>' +
+                '<p class="dlc-small" style="margin-top:12px;">这条评价是我发的。退网公告也是。操作日志里有记录。</p>';
+        } else {
+            el = document.createElement('p');
+            el.className = 'truth-paragraph';
+            el.innerHTML = raw;
+        }
+        stage.appendChild(el);
+        return el;
+    });
+
+    let userScrolled = false;
+    window.addEventListener('wheel', () => { userScrolled = true; });
+    window.addEventListener('touchmove', () => { userScrolled = true; }, { passive: true });
+
+    function revealNext() {
+        if (idx >= els.length) {
+            const endBtn = document.getElementById('truth-end');
+            const last = document.getElementById('truth-last');
+            const footer = document.getElementById('truth-footer');
+            if (!endBtn || !last || !footer) return;
+            endBtn.style.display = 'inline-block';
+            last.style.display = 'block';
+            footer.style.display = '';
+            return;
+        }
+        const el = els[idx];
+        idx += 1;
+        el.classList.add('visible');
+        // 自动播放阶段跟随段落滚动；用户开始滚动后立即停止跟随
+        if (!userScrolled) {
+            setTimeout(() => el.scrollIntoView({ behavior: 'smooth', block: 'start' }), 120);
+        }
+        const long = el.textContent.length > 60;
+        setTimeout(revealNext, long ? 1500 : 950);
+    }
+
+    setTimeout(revealNext, 500);
+})();
+</script>
+
+<div style="text-align:center; padding: 0 20px 50px;">
+    <p class="dlc-small" id="truth-last">你已经知道了该知道的。去结局页，做最后一次选择。</p>
+    <a id="truth-end" style="display:none; margin:22px auto 8px; padding:14px 46px; background:#a8302a; color:#ffe9e9; border-radius:999px; text-decoration:none; font-size:16px; letter-spacing:3px;" href="ending.html">进入结局</a>
+</div>
+</body>
+</html>

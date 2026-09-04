@@ -1,0 +1,101 @@
+<!-- 👁️我在看着你👁️ -->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>永远的第二 - ALWAYS SECOND</title>
+    <link rel="stylesheet" href="css/dlc.css">
+</head>
+<body data-page="second">
+
+<header class="dlc-header">
+    <div class="dlc-header-inner">
+        <a class="dlc-brand" href="index.html">
+            <span class="rabbit">🐰</span>
+            <span>
+                <span class="t1" style="display:block;">皿良咨询台</span>
+                <span class="t2">MINLIANG CONSULTATION</span>
+            </span>
+        </a>
+        <form class="dlc-search-form" role="search" onsubmit="return false;">
+            <span class="dlc-search-box">
+                <input id="search-input" type="text" autocomplete="off" spellcheck="false" placeholder="输入关键词 / 解出的答案…">
+                <button type="button" onclick="handleSearch()">搜索</button>
+            </span>
+        </form>
+    </div>
+</header>
+
+<main class="dlc-main">
+    <div class="dlc-progress">EX-02 / 05 · RANKING</div>
+    <p class="dlc-kicker">泰拉直播平台</p>
+    <h1 class="dlc-title">年度热度总榜</h1>
+    <p class="dlc-subtitle">统计区间：1100.01 - 1100.12</p>
+
+    <section class="dlc-card-panel">
+        <table class="rank-table">
+            <thead>
+                <tr><th>排名</th><th>主播</th><th>年度热度值</th><th>备注</th></tr>
+            </thead>
+            <tbody>
+                <tr class="rank-first"><td class="num">🥇 1</td><td>周符卿</td><td class="dlc-mono">9,284,110</td><td>舟区一哥</td></tr>
+                <tr class="rank-self"><td class="num">🥈 2</td><td>皿良皮车</td><td class="dlc-mono">7,153,026</td><td>我</td></tr>
+                <tr><td class="num">🥉 3</td><td>米勒</td><td class="dlc-mono">5,102,884</td><td>——</td></tr>
+            </tbody>
+        </table>
+    </section>
+
+    <section class="dlc-card-panel">
+        <h2>▼ 月度榜单摘要</h2>
+        <p class="dlc-small">一年十二个月，每月前三名都是同一组名字。展开看看。</p>
+        <button class="fold-btn" id="month-fold" type="button">展开 12 个月</button>
+        <ul class="month-list" id="month-list">
+            <li>1100.01　1.周符卿　2.皿良皮车　3.米勒</li>
+            <li>1100.02　1.周符卿　2.皿良皮车　3.米勒</li>
+            <li>1100.03　1.周符卿　2.皿良皮车　3.米勒</li>
+            <li>1100.04　1.周符卿　2.皿良皮车　3.米勒</li>
+            <li>1100.05　1.周符卿　2.皿良皮车　3.米勒</li>
+            <li>1100.06　1.周符卿　2.皿良皮车　3.米勒</li>
+            <li>1100.07　1.周符卿　2.皿良皮车　3.米勒</li>
+            <li>1100.08　1.周符卿　2.皿良皮车　3.米勒</li>
+            <li>1100.09　1.周符卿　2.皿良皮车　3.米勒</li>
+            <li>1100.10　1.周符卿　2.皿良皮车　3.米勒</li>
+            <li>1100.11　1.周符卿　2.皿良皮车　3.米勒</li>
+            <li>1100.12　1.周符卿　2.皿良皮车　3.米勒（数据统计至 12.16 15:25）</li>
+        </ul>
+    </section>
+
+    <section class="dlc-card-panel">
+        <h2>▼ 相关评论（精选）</h2>
+        <p><strong>米勒</strong> <span class="dlc-small dlc-mono">| 1100.12.18</span></p>
+        <p class="quote-line">“周哥这萨米行程还是我推荐的，本来想着弄个好效果。<br>
+        我们仨泡澡那天聊起来的，皮车说不去，周哥特别想去。<br>
+        15:25 信号一断人就没了。这家伙跟我玩捉迷藏呢？”</p>
+    </section>
+
+    <section class="dlc-card-panel">
+        <h2>▼ 皿良的作战笔记（已加密）</h2>
+        <p>“有人问我那个问题的时候，我就知道他会走到这一步。<br>
+        榜单不会说谎。它会说的一切都在下面：”</p>
+        <div class="cipher">ABAAA AAAAA ABABB AAAAA ABABA BABAA AAAAA BABBA BAAAB AABAA AAABA ABBAB ABBAA AAABB</div>
+        <p class="dlc-small">页脚提示：他说过——所有数据，都由 Excel 推算得出。提丰不是中杯就是大杯，不是 A 就是 B。</p>
+        <p class="dlc-small" style="margin-top:10px;">解出的答案可以输入上方搜索框。</p>
+    </section>
+</main>
+
+<footer class="dlc-footer">
+    EX-02 · 体系外 · 未经审核<br>
+    本页面为《明日方舟》世界观同人创作，与现实无关。
+</footer>
+
+<script src="js/main.js"></script>
+<script>
+document.getElementById('month-fold').addEventListener('click', function () {
+    const list = document.getElementById('month-list');
+    const open = list.classList.toggle('open');
+    this.textContent = open ? '收起月度列表' : '展开 12 个月';
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!-- 👁️我在看着你👁️ -->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>利刃所指 - USURPATION END</title>
+    <link rel="stylesheet" href="css/dlc.css">
+</head>
+<body data-page="usurp">
+
+<div class="usurp-stage">
+    <span class="usurp-avatar">🐰</span>
+    <h1 class="usurp-title">利刃所指</h1>
+
+    <p class="dlc-small" style="letter-spacing:3px; margin-bottom:22px;">泰拉直播平台 · 年度热度总榜</p>
+    <p class="dlc-small" style="margin-bottom:16px;">统计区间：1101.01 - 1101.12</p>
+
+    <table class="rank-table" style="max-width:620px; margin:0 auto 26px;">
+        <thead>
+            <tr><th>排名</th><th>主播</th><th>年度热度值</th><th>备注</th></tr>
+        </thead>
+        <tbody>
+            <tr class="rank-first"><td class="num">🥇 1</td><td>皿良皮车</td><td class="dlc-mono">10,207,441</td><td>舟区一哥</td></tr>
+            <tr><td class="num">🥈 2</td><td>米勒</td><td class="dlc-mono">6,891,200</td><td>——</td></tr>
+            <tr><td class="num">🥉 3</td><td>（其他）</td><td class="dlc-mono">…</td><td>——</td></tr>
+        </tbody>
+    </table>
+
+    <div class="usurp-para">你们看，我说什么来着。<br><br>
+    我从来不带节奏。<br>
+    我只是把挡在我前面的东西挪开了。<br>
+    然后第一就是我的了。<br><br>
+    舟区一哥，皿良皮车。你们现在就这么叫了。</div>
+
+    <div class="usurp-para">只有那一件事没人算得出来。<br><br>
+    米勒还在发寻人启事。<br>
+    他说萨米行程是他推荐的。<br>
+    他不知道泡澡那天推荐完行程，<br>
+    我低头看手机的时候，<br>
+    已经在查 756 号站了。<br>
+    他更不知道，现在他坐的这个第二，<br>
+    也是我替他留的。</div>
+
+    <div class="usurp-para">而你，我的共犯朋友。<br>
+    你终于想起来自己收了那笔钱。<br>
+    朋友嘛。我只是看着榜，看着你。</div>
+
+    <div class="usurp-end-stamp">USURPATION END · 利刃所指</div>
+</div>
+
+<footer class="dlc-footer">
+    EX-05 · 体系外 · 共犯视角<br>
+    本页面为《明日方舟》世界观同人创作，与现实无关。
+</footer>
+
+<script src="js/main.js"></script>
+<script>
+/* 黑雪：密度为结局 A 的 1.5 倍（约 120 片） */
+(function () {
+    const layer = document.createElement('div');
+    layer.id = 'dlc-snow';
+    document.body.appendChild(layer);
+    for (let i = 0; i < 120; i++) {
+        const flake = document.createElement('span');
+        flake.className = 'dlc-flake';
+        const size = 3.5 + Math.random() * 6;
+        flake.style.width = size + 'px';
+        flake.style.height = size + 'px';
+        flake.style.left = Math.random() * 100 + 'vw';
+        flake.style.setProperty('--drift', (Math.random() * 160 - 80) + 'px');
+        flake.style.animationDuration = (7 + Math.random() * 9).toFixed(1) + 's';
+        flake.style.animationDelay = (-Math.random() * 12).toFixed(1) + 's';
+        layer.appendChild(flake);
+    }
+})();
+</script>
+</body>
+</html>

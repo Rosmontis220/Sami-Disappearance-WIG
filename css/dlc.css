@@ -1,0 +1,364 @@
+/* 👁️我在看着你👁️ */
+/* ============================================================
+   DLC1《夺位》样式 · 皿良皮车支线
+   视觉：phase-4 黑底 + 紫黑"魔女审判"氛围
+   ============================================================ */
+
+:root {
+    --dlc-bg: #0b0507;
+    --dlc-bg-deep: #050203;
+    --dlc-card: #16090d;
+    --dlc-card-2: #210c12;
+    --dlc-ink: #e6d4d6;
+    --dlc-muted: #a0797e;
+    --dlc-line: #471a23;
+    --dlc-accent: #e08a83;
+    --dlc-strong: #a8302a;
+    --dlc-gold: #c8a45a;
+    --dlc-danger: #d04339;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: "Noto Serif SC", "Source Han Serif SC", "Songti SC", STSong, SimSun, Georgia, serif;
+    background:
+        radial-gradient(ellipse at 20% -10%, rgba(168,48,42,.20), transparent 45%),
+        radial-gradient(ellipse at 90% 110%, rgba(168,48,42,.12), transparent 40%),
+        var(--dlc-bg);
+    color: var(--dlc-ink);
+    line-height: 1.9;
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+}
+
+.dlc-header {
+    position: sticky; top: 0; z-index: 60;
+    background: rgba(11,5,7,.88);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--dlc-line);
+}
+.dlc-header-inner {
+    width: min(1080px, calc(100% - 28px));
+    margin: 0 auto;
+    display: flex; align-items: center; gap: 18px;
+    padding: 10px 0;
+    flex-wrap: wrap;
+}
+.dlc-brand {
+    display: flex; align-items: center; gap: 10px;
+    text-decoration: none; color: var(--dlc-ink);
+    margin-right: auto;
+}
+.dlc-brand .rabbit {
+    width: 34px; height: 34px;
+    display: inline-flex; align-items: center; justify-content: center;
+    font-size: 20px;
+    background: var(--dlc-card-2);
+    border: 1px solid var(--dlc-line);
+    border-radius: 50%;
+}
+.dlc-brand .t1 { font-size: 14px; font-weight: 800; letter-spacing: 2px; }
+.dlc-brand .t2 { font-size: 10px; letter-spacing: 2px; color: var(--dlc-muted); font-family: "Cascadia Mono", Consolas, monospace; }
+.dlc-search-form { flex: 0 1 380px; min-width: 220px; }
+.dlc-search-box {
+    display: flex; align-items: stretch;
+    border: 1px solid var(--dlc-line);
+    border-radius: 999px;
+    background: rgba(33,12,18,.62);
+    overflow: hidden;
+}
+.dlc-search-box input {
+    flex: 1; min-width: 0;
+    padding: 9px 16px;
+    background: transparent;
+    border: 0; outline: none;
+    color: var(--dlc-ink);
+    font-family: inherit; font-size: 14px;
+}
+.dlc-search-box button {
+    border: 0;
+    padding: 0 18px;
+    background: var(--dlc-strong);
+    color: #ffe9e9;
+    font-family: inherit;
+    font-size: 13.5px;
+    cursor: pointer;
+}
+.dlc-search-box button:hover { background: #bd3a33; }
+
+.dlc-main {
+    width: min(820px, calc(100% - 32px));
+    margin: 0 auto;
+    padding: 42px 0 70px;
+}
+
+.dlc-progress {
+    text-align: center;
+    font-family: "Cascadia Mono", Consolas, monospace;
+    font-size: 11px;
+    letter-spacing: 4px;
+    color: var(--dlc-muted);
+    margin-bottom: 22px;
+}
+
+.dlc-card-panel {
+    background: linear-gradient(160deg, rgba(33,12,18,.72), rgba(15,6,9,.86));
+    border: 1px solid var(--dlc-line);
+    border-radius: 14px;
+    padding: 28px 32px;
+    margin-bottom: 24px;
+    box-shadow: 0 10px 34px rgba(0,0,0,.35);
+}
+.dlc-card-panel h2 {
+    font-size: 19px;
+    letter-spacing: 2px;
+    color: var(--dlc-accent);
+    padding-bottom: 10px;
+    margin-bottom: 14px;
+    border-bottom: 1px dashed var(--dlc-line);
+}
+.dlc-card-panel h3 {
+    font-size: 15px;
+    color: var(--dlc-gold);
+    margin: 16px 0 8px;
+}
+.dlc-card-panel p + p { margin-top: 8px; }
+.dlc-mono { font-family: "Cascadia Mono", Consolas, monospace; }
+.dlc-small { font-size: 12.5px; color: var(--dlc-muted); }
+.dlc-kicker {
+    text-align: center;
+    font-family: "Cascadia Mono", Consolas, monospace;
+    font-size: 12px;
+    letter-spacing: 6px;
+    color: var(--dlc-accent);
+}
+.dlc-title {
+    text-align: center;
+    font-size: clamp(26px, 5vw, 42px);
+    letter-spacing: 5px;
+    margin: 10px 0 6px;
+    color: #f4e2e4;
+}
+.dlc-subtitle {
+    text-align: center;
+    color: var(--dlc-muted);
+    font-size: 13px;
+    letter-spacing: 2px;
+    margin-bottom: 26px;
+    font-family: "Cascadia Mono", Consolas, monospace;
+}
+
+/* D01 咨询台：头像与台词 */
+.rabbit-center {
+    display: flex; align-items: center; gap: 16px;
+    margin-bottom: 6px;
+}
+.rabbit-center .avatar-big {
+    width: 62px; height: 62px; flex: none;
+    display: inline-flex; align-items: center; justify-content: center;
+    font-size: 34px;
+    background: var(--dlc-card-2);
+    border: 1px solid var(--dlc-line);
+    border-radius: 50%;
+}
+.quote-line {
+    color: var(--dlc-accent);
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+/* 榜单表格 */
+.rank-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14.5px;
+    margin-top: 8px;
+}
+.rank-table th, .rank-table td {
+    padding: 9px 12px;
+    border-bottom: 1px solid var(--dlc-line);
+    text-align: left;
+}
+.rank-table th {
+    color: var(--dlc-muted);
+    font-family: "Cascadia Mono", Consolas, monospace;
+    font-size: 12px;
+    letter-spacing: 1px;
+}
+.rank-table .num { font-family: "Cascadia Mono", Consolas, monospace; color: var(--dlc-muted); }
+.rank-first td { color: var(--dlc-gold); font-weight: 700; }
+.rank-self td { color: var(--dlc-accent); font-weight: 700; }
+
+.month-list {
+    list-style: none;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height .5s ease;
+}
+.month-list.open { max-height: 520px; }
+.month-list li {
+    font-family: "Cascadia Mono", Consolas, monospace;
+    font-size: 12.5px;
+    color: var(--dlc-muted);
+    padding: 3px 0;
+}
+.fold-btn {
+    margin-top: 8px;
+    background: transparent;
+    border: 1px solid var(--dlc-line);
+    color: var(--dlc-muted);
+    padding: 5px 14px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-family: inherit;
+    cursor: pointer;
+}
+.fold-btn:hover { color: var(--dlc-accent); border-color: var(--dlc-accent); }
+
+/* Excel 伪表格 */
+.excel-wrap { overflow-x: auto; }
+.excel-table {
+    border-collapse: collapse;
+    font-family: "Cascadia Mono", Consolas, monospace;
+    font-size: 13px;
+    width: 100%;
+    min-width: 560px;
+}
+.excel-table th, .excel-table td {
+    border: 1px solid var(--dlc-line);
+    padding: 7px 10px;
+    text-align: left;
+    background: rgba(22,9,13,.78);
+}
+.excel-table th { background: #3a1017; color: var(--dlc-accent); font-weight: 400; }
+.excel-table .row-head { color: var(--dlc-muted); white-space: nowrap; }
+.excel-table .secret { color: var(--dlc-danger); letter-spacing: 2px; }
+.excel-table .formula { color: #6ec6a4; word-break: break-all; }
+
+/* 密文块 */
+.cipher {
+    font-family: "Cascadia Mono", Consolas, monospace;
+    font-size: 17px;
+    letter-spacing: 3px;
+    color: var(--dlc-accent);
+    background: rgba(0,0,0,.35);
+    border: 1px dashed var(--dlc-line);
+    border-radius: 8px;
+    padding: 12px 16px;
+    text-align: center;
+    margin: 12px 0;
+    word-break: break-all;
+}
+
+/* D04 真相：逐段淡入 */
+.truth-stage {
+    min-height: 90vh;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    text-align: center;
+    padding: 60px 22px;
+    position: relative;
+}
+.truth-paragraph {
+    max-width: 620px;
+    opacity: 0;
+    margin: 0 0 22px;
+    font-size: 16px;
+    line-height: 2.1;
+    color: var(--dlc-ink);
+    white-space: pre-line;
+}
+.truth-paragraph.visible { animation: truth-in .8s ease forwards; }
+@keyframes truth-in { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+.truth-red {
+    color: var(--dlc-danger);
+    font-weight: 800;
+    animation: truth-shake .26s infinite linear;
+    display: inline-block;
+}
+@keyframes truth-shake {
+    0% { transform: translate(0,0); }
+    25% { transform: translate(-1px,1px); }
+    50% { transform: translate(1px,-1px); }
+    75% { transform: translate(-1px,-1px); }
+    100% { transform: translate(0,0); }
+}
+
+/* 结局 C */
+.usurp-stage {
+    min-height: 88vh;
+    display: flex; flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 60px 22px 90px;
+    position: relative;
+}
+.usurp-avatar {
+    width: 92px; height: 92px;
+    display: inline-flex; align-items: center; justify-content: center;
+    font-size: 52px;
+    background: var(--dlc-card-2);
+    border: 2px solid var(--dlc-line);
+    border-radius: 50%;
+    margin-bottom: 20px;
+    box-shadow: 0 0 40px rgba(168,48,42,.35);
+}
+.usurp-title {
+    font-size: clamp(26px, 5vw, 40px);
+    letter-spacing: 8px;
+    color: var(--dlc-gold);
+    margin-bottom: 28px;
+}
+.usurp-stage .rank-table { max-width: 620px; margin: 0 auto 24px; }
+.usurp-para { max-width: 600px; margin: 0 auto 18px; font-size: 15px; color: var(--dlc-ink); }
+.usurp-end-stamp {
+    margin-top: 34px;
+    font-family: "Cascadia Mono", Consolas, monospace;
+    letter-spacing: 5px;
+    color: var(--dlc-gold);
+    border: 2px solid var(--dlc-gold);
+    padding: 10px 22px;
+    border-radius: 4px;
+    transform: rotate(-3deg);
+}
+
+.dlc-footer {
+    text-align: center;
+    color: var(--dlc-muted);
+    font-size: 11.5px;
+    padding: 20px 16px 30px;
+    letter-spacing: 2px;
+    font-family: "Cascadia Mono", Consolas, monospace;
+}
+
+/* 黑雪（复用主站形态） */
+#dlc-snow {
+    position: fixed; inset: 0;
+    pointer-events: none;
+    z-index: 120;
+    overflow: hidden;
+}
+.dlc-flake {
+    position: absolute;
+    top: -6vh;
+    background: radial-gradient(circle at 50% 50%,
+        #07070b 0%, #07070b 42%,
+        rgba(255,255,255,.95) 46%, rgba(255,255,255,.95) 54%,
+        rgba(255,255,255,0) 58%);
+    border-radius: 50%;
+    opacity: .92;
+    animation: dlc-snowfall linear infinite;
+}
+@keyframes dlc-snowfall {
+    from { transform: translate3d(0, -4vh, 0) translateX(0); }
+    to { transform: translate3d(calc(var(--drift, 30px) * 1), 108vh, 0); }
+}
+
+@media (max-width: 680px) {
+    .dlc-card-panel { padding: 20px 18px; }
+    .dlc-brand { flex: 1 1 100%; }
+    .dlc-search-form { flex: 1 1 100%; }
+    .cipher { font-size: 14px; letter-spacing: 1px; }
+}

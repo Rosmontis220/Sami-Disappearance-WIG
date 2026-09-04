@@ -1,0 +1,59 @@
+<!-- 👁️我在看着你👁️ -->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - 皿良咨询台</title>
+    <link rel="stylesheet" href="css/dlc.css">
+    <style>
+        .dlc-404 {
+            min-height: 70vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 60px 24px;
+        }
+        .dlc-404 .code {
+            font-family: "Cascadia Mono", Consolas, monospace;
+            font-size: clamp(64px, 14vw, 130px);
+            line-height: 1;
+            color: var(--dlc-strong);
+            opacity: .55;
+            letter-spacing: 8px;
+        }
+        .dlc-404 .msg {
+            margin-top: 18px;
+            color: var(--dlc-muted);
+            font-size: 14px;
+        }
+        .dlc-404 .back {
+            margin-top: 30px;
+            color: var(--dlc-accent);
+            text-decoration: none;
+            border: 1px solid var(--dlc-line);
+            padding: 10px 30px;
+            border-radius: 999px;
+            font-size: 14px;
+        }
+        .dlc-404 .back:hover { border-color: var(--dlc-accent); }
+    </style>
+</head>
+<body data-page="dlc404">
+
+<div class="dlc-404">
+    <div class="code">404</div>
+    <div class="msg">本台没有这个页面。<br>关键词不对，或者它根本不在这里。</div>
+    <a class="back" href="javascript:history.back()">← 返回</a>
+</div>
+
+<footer class="dlc-footer">
+    EX · 体系外 · 未经审核<br>
+    本页面为《明日方舟》世界观同人创作，与现实无关。
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
