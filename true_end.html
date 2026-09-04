@@ -1,0 +1,211 @@
+<!-- 👁️我在看着你👁️ -->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>·</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html, body { height: 100%; background: #020202; overflow: hidden; }
+        body {
+            user-select: none;
+            -webkit-user-select: none;
+            cursor: crosshair;
+            font-family: "Noto Serif SC", "Songti SC", SimSun, Georgia, serif;
+        }
+
+        /* 全屏舞台 */
+        .te-stage {
+            position: fixed; inset: 0;
+            background:
+                radial-gradient(ellipse at 50% 42%, rgba(160,0,0,.18), transparent 55%),
+                radial-gradient(ellipse at center, transparent 30%, rgba(0,0,0,.85) 82%),
+                #020202;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        /* 噪点层 */
+        .te-grain {
+            position: absolute; inset: -60%;
+            pointer-events: none;
+            opacity: .09;
+            mix-blend-mode: overlay;
+            background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.4 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+            animation: te-grain .5s steps(2) infinite;
+        }
+        @keyframes te-grain {
+            0% { transform: translate(0, 0); }
+            50% { transform: translate(-2%, 1.5%); }
+            100% { transform: translate(2%, -1%); }
+        }
+
+        /* 眼睛（CSS 绘制，非素材） */
+        .te-eye-wrap {
+            position: relative;
+            width: 220px; height: 220px;
+            margin-bottom: 26px;
+            animation: te-eye-breathe 6s ease-in-out infinite;
+        }
+        @keyframes te-eye-breathe {
+            0%, 100% { transform: scale(1); filter: drop-shadow(0 0 26px rgba(200,0,0,.35)); }
+            50% { transform: scale(1.045); filter: drop-shadow(0 0 46px rgba(220,0,0,.55)); }
+        }
+        .te-eye {
+            position: absolute; inset: 0;
+            border-radius: 50%;
+            background: radial-gradient(circle at 50% 45%, #000 0 18%, #1c0505 30%, #050202 55%, #000 100%);
+            border: 1px solid rgba(160,30,30,.5);
+            box-shadow: inset 0 0 50px rgba(120,0,0,.45);
+            overflow: hidden;
+        }
+        .te-iris {
+            position: absolute;
+            left: 50%; top: 50%;
+            width: 54%; height: 54%;
+            margin: -27% 0 0 -27%;
+            border-radius: 50%;
+            background:
+                radial-gradient(circle, #ff3a2a 0%, #a80606 38%, #400000 72%, #000 100%);
+            box-shadow: 0 0 28px rgba(255,40,20,.55), inset 0 0 18px rgba(0,0,0,.8);
+            transition: transform .18s ease-out;
+        }
+        .te-pupil {
+            position: absolute;
+            left: 50%; top: 50%;
+            width: 46%; height: 46%;
+            margin: -23% 0 0 -23%;
+            border-radius: 50%;
+            background: #000;
+            box-shadow: inset 0 0 8px rgba(0,0,0,.9);
+        }
+
+        /* 中央文字 */
+        .te-line-top {
+            color: rgba(210,205,205,.82);
+            letter-spacing: .28em;
+            font-size: clamp(14px, 2.4vw, 20px);
+            font-weight: 700;
+            margin-bottom: 18px;
+            opacity: 0;
+            animation: te-in 1.6s ease forwards 2.2s;
+        }
+        .te-line-main {
+            color: #b00000;
+            font-weight: 900;
+            font-size: clamp(58px, 14vw, 190px);
+            letter-spacing: .12em;
+            line-height: 1.1;
+            text-shadow: 0 0 28px rgba(190,0,0,.65), 0 0 90px rgba(120,0,0,.5);
+            opacity: 0;
+            animation: te-in 1.2s ease forwards 2.8s, te-flicker 7s ease infinite 5s;
+        }
+        .te-line-bot {
+            color: rgba(210,205,205,.6);
+            letter-spacing: .2em;
+            font-size: clamp(12px, 2vw, 17px);
+            margin-top: 20px;
+            opacity: 0;
+            animation: te-in 1.8s ease forwards 4s;
+        }
+        @keyframes te-in { to { opacity: 1; } }
+        @keyframes te-flicker {
+            0%, 88%, 100% { opacity: 1; }
+            89% { opacity: .45; }
+            90% { opacity: 1; }
+            91% { opacity: .25; }
+            92% { opacity: .95; }
+            97% { opacity: .6; }
+        }
+
+        .te-exit {
+            position: fixed;
+            right: 22px; bottom: 20px;
+            color: rgba(200,60,50,.55);
+            font-size: 12px;
+            letter-spacing: .2em;
+            text-decoration: none;
+            font-family: "Cascadia Mono", Consolas, monospace;
+            transition: color .2s;
+            z-index: 5;
+        }
+        .te-exit:hover { color: #e08a83; }
+
+        .te-note {
+            position: fixed;
+            left: 22px; bottom: 20px;
+            color: rgba(150,140,140,.28);
+            font-size: 11px;
+            letter-spacing: .12em;
+            font-family: "Cascadia Mono", Consolas, monospace;
+            z-index: 5;
+        }
+    </style>
+</head>
+<body>
+
+<div class="te-stage" id="te-stage">
+    <div class="te-grain"></div>
+
+    <div class="te-eye-wrap" id="te-eye-wrap">
+        <div class="te-eye">
+            <div class="te-iris" id="te-iris">
+                <div class="te-pupil"></div>
+            </div>
+        </div>
+    </div>
+
+    <p class="te-line-top">你找到这里来了。</p>
+    <p class="te-line-main">真结局</p>
+    <p class="te-line-bot">有些东西，看见了，就再也回不去了。</p>
+</div>
+
+<a class="te-exit" href="javascript:history.length > 1 ? history.back() : location.href='index.html'">离开</a>
+<span class="te-note">REC · 756号中继</span>
+
+<script>
+/* 眼睛追随鼠标 */
+(function () {
+    const iris = document.getElementById('te-iris');
+    const wrap = document.getElementById('te-eye-wrap');
+    const maxShift = 16;
+    let tx = 0, ty = 0, cx = 0, cy = 0;
+
+    window.addEventListener('mousemove', (e) => {
+        const r = wrap.getBoundingClientRect();
+        const ex = r.left + r.width / 2;
+        const ey = r.top + r.height / 2;
+        const dx = (e.clientX - ex) / Math.max(r.width, 1);
+        const dy = (e.clientY - ey) / Math.max(r.height, 1);
+        tx = Math.max(-1, Math.min(1, dx)) * maxShift;
+        ty = Math.max(-1, Math.min(1, dy)) * maxShift;
+    });
+
+    function tick() {
+        cx += (tx - cx) * .08;
+        cy += (ty - cy) * .08;
+        iris.style.transform = 'translate(' + cx.toFixed(2) + 'px,' + cy.toFixed(2) + 'px)';
+        requestAnimationFrame(tick);
+    }
+    tick();
+})();
+
+/* 右键提示：不阻止，但给个小彩蛋 */
+document.addEventListener('contextmenu', (e) => {
+    const n = document.querySelector('.te-note');
+    n.textContent = 'REC · 别找了。';
+    setTimeout(() => { n.textContent = 'REC · 756号中继'; }, 1800);
+});
+
+/* 键盘：Esc 返回 */
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+        if (history.length > 1) history.back(); else location.href = 'index.html';
+    }
+});
+</script>
+</body>
+</html>

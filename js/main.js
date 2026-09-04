@@ -56,7 +56,8 @@ const KEYWORDS = {
     'iamalwayssecond': 'excel.html',
     '第二': 'excel.html',
     'minliangpiche': 'truth.html',
-    '皿良皮车': 'truth.html'
+    '皿良皮车': 'truth.html',
+    '真结局': 'true_end.html'   // 真结局页面
 };
 
 /* ---------- DLC1 持久状态（localStorage） ---------- */
