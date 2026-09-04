@@ -83,7 +83,7 @@
             box-shadow: inset 0 0 8px rgba(0,0,0,.9);
         }
 
-        /* 中央文字 */
+        /* 中央文字：默认全隐，突脸时瞬现 */
         .te-line-top {
             color: rgba(210,205,205,.82);
             letter-spacing: .28em;
@@ -91,7 +91,6 @@
             font-weight: 700;
             margin-bottom: 18px;
             opacity: 0;
-            animation: te-in 1.6s ease forwards 2.2s;
         }
         .te-line-main {
             color: #b00000;
@@ -101,7 +100,7 @@
             line-height: 1.1;
             text-shadow: 0 0 28px rgba(190,0,0,.65), 0 0 90px rgba(120,0,0,.5);
             opacity: 0;
-            animation: te-in 1.2s ease forwards 2.8s, te-flicker 7s ease infinite 5s;
+            transform: scale(.2);
         }
         .te-line-bot {
             color: rgba(210,205,205,.6);
@@ -109,17 +108,56 @@
             font-size: clamp(12px, 2vw, 17px);
             margin-top: 20px;
             opacity: 0;
-            animation: te-in 1.8s ease forwards 4s;
         }
-        @keyframes te-in { to { opacity: 1; } }
-        @keyframes te-flicker {
-            0%, 88%, 100% { opacity: 1; }
-            89% { opacity: .45; }
-            90% { opacity: 1; }
-            91% { opacity: .25; }
-            92% { opacity: .95; }
-            97% { opacity: .6; }
+
+        /* 突脸瞬间：文字全部显现 + 猛冲抖动 + 眼球爆闪 */
+        .te-pop .te-line-top,
+        .te-pop .te-line-bot {
+            opacity: 1;
         }
+        .te-pop .te-line-main {
+            opacity: 1;
+            animation: te-burst .55s cubic-bezier(.12,.8,.2,1) forwards;
+        }
+        .te-pop .te-line-top {
+            animation: te-jump .5s ease forwards;
+        }
+        .te-pop .te-line-bot {
+            animation: te-jump .5s ease forwards .08s;
+        }
+        .te-pop .te-eye-wrap {
+            animation: te-eye-lunge .5s ease forwards;
+        }
+        @keyframes te-burst {
+            0% { opacity: 0; transform: scale(.15); filter: brightness(3); }
+            18% { opacity: 1; transform: scale(1.12); filter: brightness(2.2); }
+            42% { transform: scale(.94); }
+            70% { transform: scale(1.04); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+        @keyframes te-jump {
+            0% { opacity: 0; transform: translateY(26px) scale(1.4); filter: brightness(2); }
+            20% { opacity: 1; }
+            60% { transform: translateY(-6px) scale(.98); }
+            100% { opacity: 1; transform: none; filter: none; }
+        }
+        @keyframes te-eye-lunge {
+            0% { transform: scale(1); }
+            25% { transform: scale(1.35); }
+            60% { transform: scale(.96); }
+            100% { transform: scale(1); }
+        }
+
+        /* 屏幕短暂红闪一下 */
+        .te-flash {
+            position: fixed; inset: 0;
+            background: rgba(190,0,0,.45);
+            opacity: 0;
+            pointer-events: none;
+            z-index: 3;
+            transition: opacity .08s ease;
+        }
+        .te-flash.on { opacity: 1; }
 
         .te-exit {
             position: fixed;
@@ -158,15 +196,37 @@
         </div>
     </div>
 
-    <p class="te-line-top">你找到这里来了。</p>
+    <p class="te-line-top">你在找它？</p>
     <p class="te-line-main">真结局</p>
-    <p class="te-line-bot">有些东西，看见了，就再也回不去了。</p>
+    <p class="te-line-bot">它一直都在你身后。</p>
 </div>
+<div class="te-flash" id="te-flash"></div>
 
 <a class="te-exit" href="javascript:history.length > 1 ? history.back() : location.href='index.html'">离开</a>
 <span class="te-note">REC · 756号中继</span>
 
 <script>
+/* 先黑场吊胃口，再"突脸" */
+(function () {
+    const stage = document.getElementById('te-stage');
+    const flash = document.getElementById('te-flash');
+
+    function burst() {
+        stage.classList.add('te-pop');
+        flash.classList.add('on');
+        setTimeout(() => flash.classList.remove('on'), 120);
+        // 后续轻微闪烁，保持不安感
+        setInterval(() => {
+            if (Math.random() < .18) {
+                flash.classList.add('on');
+                setTimeout(() => flash.classList.remove('on'), 90);
+            }
+        }, 4200);
+    }
+
+    setTimeout(burst, 2300);
+})();
+
 /* 眼睛追随鼠标 */
 (function () {
     const iris = document.getElementById('te-iris');
