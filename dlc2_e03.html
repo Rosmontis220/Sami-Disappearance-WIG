@@ -108,8 +108,9 @@
         </p>
         <div class="d2-msg">
             <span class="who">米勒</span>
-            <p>“你到 756 号站那天，碰过渊雪结晶——那是被邪魔污染的源石残晶。
-            它放大了你的嫉妒，也接管了你拿刀的手。你以为自己只是跳出来吓人，
+            <p>“你到 756 号站那天，无意间接触了盘踞在那里的污染体——
+            无垠回荡的坍缩碎片顺着风雪爬进了你的影子。它放大了你的嫉妒，
+            也接管了你拿刀的手。你以为自己只是跳出来吓人，
             可你写下的那个网站，从头到尾都是真的。”</p>
         </div>
         <div class="d2-msg red">
@@ -144,7 +145,7 @@
         </p>
     </section>
 
-    <div class="d2-next">
+    <div class="d2-next" id="dlc2-next" hidden>
         <a class="d2-btn warm" href="dlc2_final.html">越过群山 →</a>
     </div>
 </main>
@@ -213,6 +214,7 @@
             document.getElementById('pz-done').hidden = false;
             document.getElementById('mirror-section').hidden = false;
             document.getElementById('suppress-section').hidden = false;
+            document.getElementById('dlc2-next').hidden = false;
             const mirror = document.getElementById('mirror-section');
             setTimeout(() => mirror.scrollIntoView({ behavior: 'smooth', block: 'start' }), 300);
             // 只允许成功一次后锁定面板交互（视觉上留下完整影像）
