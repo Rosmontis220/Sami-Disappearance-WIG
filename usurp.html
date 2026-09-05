@@ -28,6 +28,7 @@
             letter-spacing: 2px;
             color: #7fb4d8;
         }
+        .miller-hook-tag.waiting { color: #54708a; }
         .miller-hook-text {
             margin: 12px 0;
             line-height: 1.9;
@@ -44,28 +45,28 @@
             letter-spacing: 2px;
         }
         .miller-hook-btn:hover { background: #4d86ae; }
-        /* 信号异常 → 消息浮现 */
-        #miller-static {
-            position: fixed; inset: 0;
-            background: #04060a;
-            z-index: 200;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 18px;
-            transition: opacity 1.2s ease;
-            font-family: "Cascadia Mono", Consolas, monospace;
-            text-align: center;
-            color: #5f7a90;
-            letter-spacing: 4px;
+        .miller-hook [hidden] { display: none !important; }
+        .miller-hook-card.ready {
+            border-color: rgba(127,180,216,.85);
+            box-shadow: 0 0 40px rgba(63,111,147,.35);
         }
-        #miller-static .st-code { font-size: clamp(26px, 5vw, 44px); color: #7fb4d8; }
-        #miller-static .st-line { font-size: 12px; color: #54708a; }
-        #miller-static.fade { opacity: 0; pointer-events: none; }
+        .miller-hook-card.ready .miller-hook-tag { color: #a5d4ef; }
+        /* 解密中状态（仅卡片内提示，不遮挡结局正文） */
+        .miller-decrypt-code {
+            font-size: 13px;
+            letter-spacing: 3px;
+            color: #7fb4d8;
+            animation: miller-flicker 1.4s steps(2) infinite;
+        }
+        .miller-decrypt-line {
+            font-size: 12px;
+            color: #54708a;
+            letter-spacing: 1px;
+        }
+        @keyframes miller-flicker { 50% { opacity: .45; } }
     </style>
 </head>
-<body data-page="usurp" class="no-scroll">
+<body data-page="usurp">
 
 <div class="usurp-stage">
     <span class="usurp-avatar">🐰</span>
@@ -107,15 +108,22 @@
     <div class="usurp-end-stamp">USURPATION END · 利刃所指</div>
 </div>
 
-<!-- DLC2 入口：结局 C 后，米勒的加密内联消息 -->
+<!-- DLC2 入口：结局 C 后，米勒的加密内联消息
+     结局正文正常展示；入口卡片在页面下方“解密中”，20 秒后解密完成 -->
 <div class="miller-hook" id="dlc2-hook" hidden>
-    <div class="miller-hook-card">
-        <div class="miller-hook-tag">ENCRYPTED · 内联消息</div>
+    <div class="miller-hook-card" id="dlc2-card">
+        <div class="miller-hook-tag waiting" id="dlc2-tag">ENCRYPTED · 解密中</div>
         <p class="miller-hook-text">
-            “我知道你拿了什么，也知道他在哪。<br>
-            来萨米见。—— 米勒”
+            <span id="dlc2-decrypting">
+                <span class="miller-decrypt-code">▚▞ 信号异常 ▞▚</span><br>
+                <span class="miller-decrypt-line">正在尝试恢复加密频道……</span>
+            </span>
+            <span id="dlc2-msg" hidden>
+                “我知道你拿了什么，也知道他在哪。<br>
+                来萨米见。—— 米勒”
+            </span>
         </p>
-        <a class="miller-hook-btn" href="dlc2_e01.html">接入终章 →</a>
+        <a class="miller-hook-btn" id="dlc2-btn" href="dlc2_e01.html" hidden>接入终章 →</a>
     </div>
 </div>
 
@@ -124,31 +132,30 @@
     本页面为《明日方舟》世界观同人创作，与现实无关。
 </footer>
 
-<div id="miller-static">
-    <div class="st-code">▚▞ 信号异常 ▞▚</div>
-    <div class="st-line">正在尝试恢复加密频道……</div>
-</div>
-
 <script src="js/main.js"></script>
 <script>
-/* DLC2：结局 C 达成后显示入口 */
+/* DLC2：结局 C 达成后，卡片在下方解密（不锁定页面滚动） */
 document.addEventListener('DOMContentLoaded', () => {
     const hook = document.getElementById('dlc2-hook');
-    const stat = document.getElementById('miller-static');
-    if (!hook || !window.DlcStore || DlcStore.get('dlc1_completed') !== '1') {
-        if (stat) stat.remove();
-        return;
-    }
+    if (!hook || !window.DlcStore || DlcStore.get('dlc1_completed') !== '1') return;
 
-    // 20 秒信号异常（期间页面滚动锁定），随后消息浮现
-    document.body.classList.add('no-scroll');
-    document.documentElement.style.overflow = 'hidden';
+    // 结局正文立即可读；入口卡片立即进入解密中状态
+    hook.hidden = false;
+
     setTimeout(() => {
-        if (stat) stat.classList.add('fade');
-        hook.hidden = false;
-        document.body.classList.remove('no-scroll');
-        document.documentElement.style.overflow = '';
-        setTimeout(() => { if (stat) stat.remove(); }, 1300);
+        const card = document.getElementById('dlc2-card');
+        const tag = document.getElementById('dlc2-tag');
+        const decrypting = document.getElementById('dlc2-decrypting');
+        const msg = document.getElementById('dlc2-msg');
+        const btn = document.getElementById('dlc2-btn');
+        if (card) card.classList.add('ready');
+        if (tag) {
+            tag.classList.remove('waiting');
+            tag.textContent = 'DECRYPTED · 解密完成';
+        }
+        if (decrypting) decrypting.hidden = true;
+        if (msg) msg.hidden = false;
+        if (btn) btn.hidden = false;
     }, 20000);
 });
 
