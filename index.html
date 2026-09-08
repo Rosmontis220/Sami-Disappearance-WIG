@@ -139,9 +139,15 @@
 
 <!-- 抽奖弹窗 -->
 <div class="lottery-mask" id="lottery-mask" hidden>
-    <div class="lottery-modal" role="dialog" aria-modal="true" aria-label="幸运大转盘">
+    <div class="lottery-modal legend-modal" role="dialog" aria-modal="true" aria-label="幸运大转盘">
+        <span class="lm-corner c-tl" aria-hidden="true">✦</span>
+        <span class="lm-corner c-tr" aria-hidden="true">✦</span>
+        <span class="lm-corner c-bl" aria-hidden="true">✦</span>
+        <span class="lm-corner c-br" aria-hidden="true">✦</span>
         <button type="button" class="lm-close" id="lottery-modal-close" aria-label="关闭">×</button>
         <h3 class="lm-title">响石旅行社 · 幸运大转盘</h3>
+        <p class="lm-hot" aria-hidden="true">🔥 火爆进行中 · 每日一抽 🔥</p>
+        <p class="lm-shout">点一下！大奖就是你的——<b>萨米三日游</b>！</p>
         <p class="lm-sub" id="lottery-sub">每天一次机会 · 转出你的萨米之旅</p>
         <div class="wheel-shell">
             <span class="wheel-pointer" aria-hidden="true">▼</span>
@@ -150,7 +156,7 @@
             </div>
         </div>
         <div class="lottery-result" id="lottery-result" aria-live="polite"></div>
-        <button type="button" class="lottery-btn" id="lottery-start">开始抽奖</button>
+        <button type="button" class="lottery-btn" id="lottery-start">点击抽奖</button>
     </div>
 </div>
 
@@ -329,7 +335,7 @@
         }
         RESULT.textContent = '';
         START.disabled = false;
-        START.textContent = '开始抽奖';
+        START.textContent = '点击抽奖';
         SUB.textContent = '每天一次机会 · 转出你的萨米之旅';
     }
 
