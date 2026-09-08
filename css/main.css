@@ -2106,20 +2106,13 @@ body.dlc-glitch {
 
 /* 评价页彩蛋：罗斯蒙蒂斯 */
 #ros-name {
-    cursor: pointer;
-    border-bottom: 1px dotted rgba(131, 122, 104, .45);
-    transition: color .2s ease, border-color .2s ease;
-}
-#ros-name:hover {
-    color: var(--accent-strong);
-    border-bottom-color: var(--accent-strong);
+    cursor: default;
 }
 #ros-name.rune-name {
     font-family: 'SamiRunes', var(--font-serif);
     font-size: 15px;
     letter-spacing: 4px;
     color: var(--brand);
-    border-bottom: 0;
     cursor: default;
 }
 #ros-avatar {
