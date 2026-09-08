@@ -1954,3 +1954,152 @@ body.dlc-glitch {
     .lottery-modal.legend-modal { width: calc(100vw - 18px); }
     .lottery-modal.legend-modal .wheel-shell { width: calc(100vw - 72px); }
 }
+
+/* ===== 弹窗星光让位 + 传奇广告 4:3 竖版精修 ===== */
+.legend-modal .lm-corner {
+    z-index: 1;
+    pointer-events: none;
+}
+.legend-modal .lm-corner.c-tr {
+    right: 58px;
+}
+.legend-modal .lm-close {
+    z-index: 12;
+}
+
+/* 4:3 传奇 Banner：竖向排布，艺术字发光 */
+.lottery-float.legend-float {
+    width: min(264px, calc(100vw - 24px));
+    aspect-ratio: 4 / 3;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0;
+    padding: 20px 14px 12px;
+    text-align: center;
+}
+.lottery-float.legend-float .lf-icon {
+    width: 50px;
+    height: 50px;
+    flex: 0 0 50px;
+    font-size: 30px;
+    margin-bottom: 4px;
+}
+.lottery-float.legend-float .lf-badge {
+    left: 6px;
+    top: 6px;
+    width: 30px;
+    height: 30px;
+    font-size: 14px;
+}
+.lottery-float.legend-float .lf-copy {
+    display: block;
+    flex: none;
+    width: 100%;
+}
+.lottery-float.legend-float .lf-kicker {
+    display: block;
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: 3px;
+    color: #ffe45a;
+    text-shadow: 0 0 6px #fff, 0 0 14px #ffd34d;
+    animation: lm-hot-blink 1s steps(2) infinite;
+}
+.lottery-float.legend-float .lf-title {
+    display: block;
+    margin: 2px 0 1px;
+    font-size: 24px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    line-height: 1.25;
+    white-space: normal;
+    background: linear-gradient(180deg, #fffce0 0%, #ffe45a 45%, #e88a00 90%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    filter: drop-shadow(0 1px 0 #7a0f00) drop-shadow(0 0 8px rgba(255, 220, 80, .8));
+    animation: lm-shout-glow 1.2s ease-in-out infinite;
+}
+.lottery-float.legend-float .lf-sub {
+    display: block;
+    font-size: 11.5px;
+    font-weight: 700;
+    line-height: 1.5;
+    color: #fff;
+    text-shadow: 0 1px 0 #7a0f00, 0 0 8px rgba(255, 210, 90, .45);
+}
+.lottery-float.legend-float .lf-sub b {
+    display: inline-block;
+    font-size: 15px;
+    color: #fff;
+    text-shadow: 0 0 4px #fff, 0 0 12px #ffe27a;
+    animation: legend-gold 1s ease-in-out infinite;
+}
+.lottery-float.legend-float .lf-cta {
+    display: inline-block;
+    margin-top: 7px;
+    padding: 4px 20px;
+    border-radius: 999px;
+    background: linear-gradient(180deg, #fff2a8 0%, #ffcf3f 45%, #e08a00 100%);
+    border: 2px solid #fffbe6;
+    color: #7a1400;
+    font-size: 13px;
+    font-weight: 900;
+    letter-spacing: 1px;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, .6);
+    box-shadow: 0 0 0 2px #9c2300, 0 0 16px rgba(255, 230, 120, 1);
+    animation: legend-btn-pulse 1s ease-in-out infinite;
+}
+.lottery-float.legend-float .lf-close {
+    position: absolute;
+    top: 6px;
+    right: 8px;
+    width: 28px;
+    height: 28px;
+    display: grid;
+    place-items: center;
+    z-index: 20;
+    align-self: auto;
+    font-size: 16px;
+    border-radius: 50%;
+    background: rgba(122, 15, 0, .55);
+    border: 1px solid rgba(255, 255, 255, .5);
+    color: #fff;
+}
+.lottery-float.legend-float .lf-close:hover {
+    background: #ffe27a;
+    border-color: #7a0f00;
+    color: #7a0f00;
+}
+
+@media (max-height: 700px) {
+    .lottery-float.legend-float {
+        width: min(230px, calc(100vw - 20px));
+        padding: 16px 12px 10px;
+    }
+    .lottery-float.legend-float .lf-icon {
+        width: 42px;
+        height: 42px;
+        flex-basis: 42px;
+        font-size: 26px;
+    }
+    .lottery-float.legend-float .lf-title { font-size: 20px; }
+    .lottery-float.legend-float .lf-cta { margin-top: 4px; padding: 3px 14px; font-size: 12px; }
+}
+@media (max-width: 480px) {
+    .lottery-float.legend-float {
+        width: min(220px, calc(100vw - 20px));
+        padding: 14px 10px 8px;
+    }
+    .lottery-float.legend-float .lf-icon {
+        width: 40px;
+        height: 40px;
+        flex-basis: 40px;
+        font-size: 24px;
+    }
+    .lottery-float.legend-float .lf-title { font-size: 18px; }
+    .lottery-float.legend-float .lf-sub { font-size: 10.5px; }
+    .lottery-float.legend-float .lf-sub b { font-size: 13px; }
+    .lottery-float.legend-float .lf-cta { font-size: 11.5px; padding: 3px 12px; }
+}
