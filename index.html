@@ -361,7 +361,7 @@
     });
     FLOAT_CLOSE.addEventListener('click', function (e) {
         e.stopPropagation();
-        storeSet('cairn_lottery_closed_' + todayKey(), '1');
+        /* 单次关闭：不写入存储，刷新/重新进入页面后广告会再次出现 */
         FLOAT.classList.add('is-closed');
     });
     MODAL_CLOSE.addEventListener('click', closeLottery);
@@ -405,10 +405,6 @@
         }, 4800);
     });
 
-    /* 已关闭的广告当天不再出现 */
-    if (storeGet('cairn_lottery_closed_' + todayKey())) {
-        FLOAT.classList.add('is-closed');
-    }
 })();
 </script>
 </body>
