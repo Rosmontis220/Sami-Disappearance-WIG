@@ -158,35 +158,42 @@
     本页面为《明日方舟》世界观同人创作，与现实无关。
 </footer>
 
-<audio id="pd120-bgm" src="assets/pd120.wav" loop preload="auto"></audio>
+<audio id="pd120-bgm" src="assets/pd120.wav" preload="auto"></audio>
 
 <script src="js/main.js"></script>
 <script>
-/* PD120 SSTV 音频：作为页面 BGM（音量 1%，正常几乎听不出），自动播放被拦截时由首次交互启动 */
+/* PD120 SSTV 音频：作为页面 BGM（音量 1%，正常几乎听不出）；
+   每次播完后静默 5 秒再循环，自动播放被拦截时由首次交互启动 */
 (function () {
     const bgm = document.getElementById('pd120-bgm');
     if (!bgm) return;
     bgm.volume = 0.01;
 
-    let started = false;
     function detach() {
         window.removeEventListener('pointerdown', onFirst);
         window.removeEventListener('keydown', onFirst);
         window.removeEventListener('touchstart', onFirst);
     }
-    function tryStart() {
-        if (started) { detach(); return; }
+    function playBgm() {
         const p = bgm.play();
         if (p && typeof p.then === 'function') {
-            p.then(function () { started = true; detach(); }, function () {});
+            p.then(detach, function () {
+                window.addEventListener('pointerdown', onFirst);
+                window.addEventListener('keydown', onFirst);
+                window.addEventListener('touchstart', onFirst);
+            });
         } else {
-            started = true;
             detach();
         }
     }
-    function onFirst() { tryStart(); }
+    function onFirst() { playBgm(); }
 
-    tryStart();
+    /* 播放结束 → 静默 5 秒 → 再播 */
+    bgm.addEventListener('ended', function () {
+        setTimeout(playBgm, 5000);
+    });
+
+    playBgm();
     window.addEventListener('pointerdown', onFirst);
     window.addEventListener('keydown', onFirst);
     window.addEventListener('touchstart', onFirst);
