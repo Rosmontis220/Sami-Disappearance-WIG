@@ -162,11 +162,11 @@
 
 <script src="js/main.js"></script>
 <script>
-/* PD120 SSTV 音频：作为页面 BGM（音量 10%），自动播放被拦截时由首次交互启动 */
+/* PD120 SSTV 音频：作为页面 BGM（音量 1%，正常几乎听不出），自动播放被拦截时由首次交互启动 */
 (function () {
     const bgm = document.getElementById('pd120-bgm');
     if (!bgm) return;
-    bgm.volume = 0.1;
+    bgm.volume = 0.01;
 
     let started = false;
     function detach() {
