@@ -2103,3 +2103,32 @@ body.dlc-glitch {
     .lottery-float.legend-float .lf-sub b { font-size: 13px; }
     .lottery-float.legend-float .lf-cta { font-size: 11.5px; padding: 3px 12px; }
 }
+
+/* 评价页彩蛋：罗斯蒙蒂斯 */
+#ros-name {
+    cursor: pointer;
+    border-bottom: 1px dotted rgba(131, 122, 104, .45);
+    transition: color .2s ease, border-color .2s ease;
+}
+#ros-name:hover {
+    color: var(--accent-strong);
+    border-bottom-color: var(--accent-strong);
+}
+#ros-name.rune-name {
+    font-family: 'SamiRunes', var(--font-serif);
+    font-size: 15px;
+    letter-spacing: 4px;
+    color: var(--brand);
+    border-bottom: 0;
+    cursor: default;
+}
+#ros-avatar {
+    transition: box-shadow .2s ease, border-color .2s ease;
+}
+#ros-avatar.ready {
+    cursor: pointer;
+}
+#ros-avatar.ready:hover {
+    border-color: var(--accent-strong);
+    box-shadow: 0 0 0 3px var(--accent-soft);
+}

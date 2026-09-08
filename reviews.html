@@ -95,10 +95,10 @@
         </div>
     </div>
 
-    <div class="review-card">
+    <div class="review-card" id="rosmontis-review">
         <div class="review-head">
-            <span class="avatar">罗</span>
-            <span class="reviewer">罗斯蒙蒂斯</span>
+            <span class="avatar" id="ros-avatar">罗</span>
+            <span class="reviewer" id="ros-name" role="button" tabindex="0" title="">罗斯蒙蒂斯</span>
             <span class="review-date">1100.12.08</span>
         </div>
         <div class="stars">★★★★★</div>
@@ -138,5 +138,52 @@
 </footer>
 
 <script src="js/main.js"></script>
+<script>
+/* 彩蛋：罗斯蒙蒂斯 → 萨米文 ROSMONTIS → 迷迭香 */
+(function () {
+    const name = document.getElementById('ros-name');
+    const avatar = document.getElementById('ros-avatar');
+    if (!name || !avatar) return;
+
+    function stepOne() {
+        if (name.getAttribute('data-step') === '2') return;
+        name.setAttribute('data-step', '1');
+        name.classList.add('rune-name');
+        name.textContent = 'ROSMONTIS';
+        avatar.setAttribute('data-ready', '1');
+        avatar.classList.add('ready');
+        avatar.tabIndex = 0;
+    }
+
+    function stepTwo() {
+        if (avatar.getAttribute('data-ready') !== '1') return;
+        if (avatar.getAttribute('data-step') === '2') return;
+        avatar.setAttribute('data-step', '2');
+        avatar.innerHTML = '<img src="assets/头像_迷迭香.png" alt="迷迭香">';
+        name.textContent = '迷迭香';
+        name.classList.remove('rune-name');
+        name.setAttribute('data-step', '2');
+        name.removeAttribute('role');
+        name.removeAttribute('tabindex');
+        avatar.classList.remove('ready');
+        avatar.removeAttribute('tabindex');
+    }
+
+    name.addEventListener('click', stepOne);
+    name.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            stepOne();
+        }
+    });
+    avatar.addEventListener('click', stepTwo);
+    avatar.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            stepTwo();
+        }
+    });
+})();
+</script>
 </body>
 </html>
