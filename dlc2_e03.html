@@ -154,11 +154,44 @@
 
 <footer class="d2-footer">
     E03 · 越岭寻人档案 · 未经官方确认<br>
+    REC · PD120<br>
     本页面为《明日方舟》世界观同人创作，与现实无关。
 </footer>
 
+<audio id="pd120-bgm" src="assets/pd120.wav" loop preload="auto"></audio>
+
 <script src="js/main.js"></script>
 <script>
+/* PD120 SSTV 音频：作为页面 BGM（音量 10%），自动播放被拦截时由首次交互启动 */
+(function () {
+    const bgm = document.getElementById('pd120-bgm');
+    if (!bgm) return;
+    bgm.volume = 0.1;
+
+    let started = false;
+    function detach() {
+        window.removeEventListener('pointerdown', onFirst);
+        window.removeEventListener('keydown', onFirst);
+        window.removeEventListener('touchstart', onFirst);
+    }
+    function tryStart() {
+        if (started) { detach(); return; }
+        const p = bgm.play();
+        if (p && typeof p.then === 'function') {
+            p.then(function () { started = true; detach(); }, function () {});
+        } else {
+            started = true;
+            detach();
+        }
+    }
+    function onFirst() { tryStart(); }
+
+    tryStart();
+    window.addEventListener('pointerdown', onFirst);
+    window.addEventListener('keydown', onFirst);
+    window.addEventListener('touchstart', onFirst);
+})();
+
 /* 克雷松 4x4 拼图：点击两片交换，还原后解锁下文 */
 (function () {
     const board = document.getElementById('pz-board');
