@@ -1285,14 +1285,15 @@ body.dlc-glitch {
 .lottery-mask[hidden] { display: none !important; }
 .lottery-modal {
     position: relative;
-    width: min(430px, 100%);
-    max-height: calc(100vh - 36px);
+    width: min(500px, calc(100vw - 32px));
+    max-height: calc(100vh - 28px);
     overflow-y: auto;
+    scrollbar-gutter: stable;
     background: linear-gradient(180deg, #fffdf7 0%, #f6efe0 100%);
     border: 1px solid var(--line);
     border-radius: 18px;
     box-shadow: 0 26px 70px rgba(21, 32, 58, .45);
-    padding: 22px 20px 20px;
+    padding: 30px 28px 28px;
     text-align: center;
     color: var(--ink);
 }
@@ -1328,19 +1329,21 @@ body.dlc-glitch {
 
 .wheel-shell {
     position: relative;
-    width: min(310px, 80vw);
-    margin: 16px auto 2px;
+    width: min(340px, 82vw);
+    margin: 24px auto 8px;
 }
 .wheel-spin {
     width: 100%;
-    transform-origin: center center;
-    will-change: transform;
+    overflow: hidden;
+    border-radius: 50%;
+    background: #f7efdf;
 }
 .wheel-spin canvas {
     display: block;
     width: 100%;
     height: auto;
-    border-radius: 50%;
+    transform-origin: center center;
+    will-change: transform;
 }
 .wheel-pointer {
     position: absolute;
@@ -1370,7 +1373,7 @@ body.dlc-glitch {
 }
 .lottery-btn {
     display: inline-block;
-    margin-top: 8px;
+    margin-top: 14px;
     padding: 12px 44px;
     border: none;
     border-radius: 999px;

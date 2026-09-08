@@ -385,8 +385,8 @@
         SUB.textContent = '转盘正在减速……';
 
         currentRotation = next;
-        SPIN.style.transition = 'transform 4.6s cubic-bezier(.08,.75,.16,1)';
-        SPIN.style.transform = 'rotate(' + next + 'deg)';
+        CANVAS.style.transition = 'transform 4.6s cubic-bezier(.08,.75,.16,1)';
+        CANVAS.style.transform = 'rotate(' + next + 'deg)';
 
         setTimeout(function () {
             spinning = false;
