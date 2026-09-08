@@ -123,6 +123,281 @@
     <div class="disclaimer">本网站内容基于《明日方舟》世界观创作，与现实无关。</div>
 </footer>
 
+<!-- 右下角每日抽奖广告（可关闭；每日一抽） -->
+<div class="lottery-float" id="lottery-float" role="button" tabindex="0" aria-label="打开每日抽奖">
+    <span class="lf-icon">🎡</span>
+    <span class="lf-copy">
+        <span class="lf-title">会员幸运日 · 大转盘</span>
+        <span class="lf-sub">每日一抽 · 大奖：萨米三日游</span>
+    </span>
+    <span class="lf-close" id="lottery-float-close" title="关闭" role="button" aria-label="关闭广告">×</span>
+</div>
+
+<!-- 抽奖弹窗 -->
+<div class="lottery-mask" id="lottery-mask" hidden>
+    <div class="lottery-modal" role="dialog" aria-modal="true" aria-label="幸运大转盘">
+        <button type="button" class="lm-close" id="lottery-modal-close" aria-label="关闭">×</button>
+        <h3 class="lm-title">响石旅行社 · 幸运大转盘</h3>
+        <p class="lm-sub" id="lottery-sub">每天一次机会 · 转出你的萨米之旅</p>
+        <div class="wheel-shell">
+            <span class="wheel-pointer" aria-hidden="true">▼</span>
+            <div class="wheel-spin" id="lottery-spin">
+                <canvas id="lottery-canvas" width="600" height="600" aria-label="抽奖转盘"></canvas>
+            </div>
+        </div>
+        <div class="lottery-result" id="lottery-result" aria-live="polite"></div>
+        <button type="button" class="lottery-btn" id="lottery-start">开始抽奖</button>
+    </div>
+</div>
+
 <script src="js/main.js"></script>
+<script>
+/* 每日抽奖转盘（仅首页）：大奖“萨米三日游”只作展示，实际结果只会落在代金券与谢谢参与上 */
+(function () {
+    'use strict';
+
+    const FLOAT = document.getElementById('lottery-float');
+    const FLOAT_CLOSE = document.getElementById('lottery-float-close');
+    const MASK = document.getElementById('lottery-mask');
+    const MODAL_CLOSE = document.getElementById('lottery-modal-close');
+    const SUB = document.getElementById('lottery-sub');
+    const RESULT = document.getElementById('lottery-result');
+    const START = document.getElementById('lottery-start');
+    const SPIN = document.getElementById('lottery-spin');
+    const CANVAS = document.getElementById('lottery-canvas');
+    const ctx = CANVAS ? CANVAS.getContext('2d') : null;
+    if (!FLOAT || !MASK || !START || !CANVAS || !ctx) return;
+
+    /* 盘面（视觉奖项） */
+    const SECTORS = [
+        { id: 'trip',    label: '萨米三日游' },
+        { id: 'v50',     label: '50龙门币券' },
+        { id: 'thanks',  label: '谢谢参与' },
+        { id: 'v20',     label: '20龙门币券' },
+        { id: 'v10',     label: '10龙门币券' },
+        { id: 'v5',      label: '5龙门币券' }
+    ];
+    const COLORS = {
+        trip:   '#a63c33',
+        v50:    '#b97e3a',
+        v20:    '#d0a050',
+        v10:    '#e2bc78',
+        v5:     '#eed5a4',
+        thanks: '#d7cfbd'
+    };
+
+    /* 真实奖池：不含 trip（大奖永远不会被抽中） */
+    const PRIZE_TEXT = {
+        trip:   '🎉 恭喜抽中大奖：萨米三日游！',
+        v5:     '🎊 恭喜获得 5 龙门币代金券！',
+        v10:    '🎊 恭喜获得 10 龙门币代金券！',
+        v20:    '🎊 恭喜获得 20 龙门币代金券！',
+        v50:    '🎊 恭喜获得 50 龙门币代金券！',
+        thanks: '很遗憾，谢谢参与。明天再来试试手气。'
+    };
+    const WEIGHTS = { v5: 30, thanks: 30, v10: 20, v20: 14, v50: 6 };
+
+    /* 每日 key（真实日期，跨天自动刷新） */
+    function todayKey() {
+        const d = new Date();
+        return d.getFullYear() + '-' +
+            String(d.getMonth() + 1).padStart(2, '0') + '-' +
+            String(d.getDate()).padStart(2, '0');
+    }
+
+    /* localStorage 兜底存储 */
+    const mem = {};
+    let lsOK = true;
+    try { localStorage.setItem('__cairn_lottery_t', '1'); localStorage.removeItem('__cairn_lottery_t'); }
+    catch (e) { lsOK = false; }
+    function storeGet(key) {
+        if (lsOK) { try { const v = localStorage.getItem(key); if (v !== null) return v; } catch (e) {} }
+        return Object.prototype.hasOwnProperty.call(mem, key) ? mem[key] : null;
+    }
+    function storeSet(key, val) {
+        mem[key] = val;
+        if (lsOK) { try { localStorage.setItem(key, val); } catch (e) {} }
+    }
+
+    /* 按日期打乱盘面顺序（每天看起来都不一样） */
+    function hashStr(s) {
+        let h = 2166136261;
+        for (let i = 0; i < s.length; i++) {
+            h ^= s.charCodeAt(i);
+            h = Math.imul(h, 16777619);
+        }
+        return h >>> 0;
+    }
+    function mulberry32(a) {
+        return function () {
+            a |= 0; a = (a + 0x6D2B79F5) | 0;
+            let t = Math.imul(a ^ (a >>> 15), 1 | a);
+            t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+            return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+        };
+    }
+    const daySectors = SECTORS.slice();
+    {
+        const rnd = mulberry32(hashStr(todayKey()));
+        for (let i = daySectors.length - 1; i > 0; i--) {
+            const j = Math.floor(rnd() * (i + 1));
+            const tmp = daySectors[i];
+            daySectors[i] = daySectors[j];
+            daySectors[j] = tmp;
+        }
+    }
+
+    function drawWheel() {
+        const S = CANVAS.width;
+        const cx = S / 2;
+        const cy = S / 2;
+        ctx.clearRect(0, 0, S, S);
+
+        ctx.beginPath();
+        ctx.arc(cx, cy, S / 2 - 2, 0, Math.PI * 2);
+        ctx.fillStyle = '#f7efdf';
+        ctx.fill();
+
+        const R = S / 2 - 20;
+        const n = daySectors.length;
+        const arc = (Math.PI * 2) / n;
+        daySectors.forEach((sec, i) => {
+            const start = -Math.PI / 2 + i * arc;
+            ctx.beginPath();
+            ctx.moveTo(cx, cy);
+            ctx.arc(cx, cy, R, start, start + arc);
+            ctx.closePath();
+            ctx.fillStyle = COLORS[sec.id] || '#e8dcc4';
+            ctx.fill();
+            ctx.strokeStyle = 'rgba(255,255,255,.9)';
+            ctx.lineWidth = 3;
+            ctx.stroke();
+
+            ctx.save();
+            ctx.translate(cx, cy);
+            ctx.rotate(start + arc / 2);
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.fillStyle = sec.id === 'trip' ? '#fff8f3' : '#3c3427';
+            ctx.font = '700 28px "Noto Sans SC","PingFang SC","Microsoft YaHei",sans-serif';
+            ctx.fillText(sec.label, R * 0.63, 0);
+            ctx.restore();
+        });
+
+        /* 中心轴 */
+        ctx.beginPath();
+        ctx.arc(cx, cy, 46, 0, Math.PI * 2);
+        ctx.fillStyle = '#fffdf7';
+        ctx.fill();
+        ctx.lineWidth = 4;
+        ctx.strokeStyle = 'rgba(169,119,60,.45)';
+        ctx.stroke();
+    }
+
+    function weightedPick() {
+        const keys = Object.keys(WEIGHTS);
+        const total = keys.reduce(function (s, k) { return s + WEIGHTS[k]; }, 0);
+        let r = Math.random() * total;
+        for (let i = 0; i < keys.length; i++) {
+            r -= WEIGHTS[keys[i]];
+            if (r < 0) return keys[i];
+        }
+        return 'thanks';
+    }
+
+    function showResult(id) {
+        RESULT.classList.toggle('is-fail', id === 'thanks');
+        RESULT.textContent = PRIZE_TEXT[id] || PRIZE_TEXT.thanks;
+    }
+
+    function applyTodayState() {
+        const rec = storeGet('cairn_lottery_' + todayKey());
+        if (rec) {
+            let data = null;
+            try { data = JSON.parse(rec); } catch (e) {}
+            if (data && data.id) {
+                showResult(data.id);
+                START.disabled = true;
+                START.textContent = '今日已抽过';
+                SUB.textContent = '下一次机会将于明日刷新';
+                return;
+            }
+        }
+        RESULT.textContent = '';
+        START.disabled = false;
+        START.textContent = '开始抽奖';
+        SUB.textContent = '每天一次机会 · 转出你的萨米之旅';
+    }
+
+    function openLottery() {
+        drawWheel();
+        applyTodayState();
+        MASK.hidden = false;
+        document.body.style.overflow = 'hidden';
+    }
+    function closeLottery() {
+        MASK.hidden = true;
+        document.body.style.overflow = '';
+    }
+
+    FLOAT.addEventListener('click', openLottery);
+    FLOAT.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            openLottery();
+        }
+    });
+    FLOAT_CLOSE.addEventListener('click', function (e) {
+        e.stopPropagation();
+        storeSet('cairn_lottery_closed_' + todayKey(), '1');
+        FLOAT.classList.add('is-closed');
+    });
+    MODAL_CLOSE.addEventListener('click', closeLottery);
+    MASK.addEventListener('click', function (e) {
+        if (e.target === MASK) closeLottery();
+    });
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && !MASK.hidden) closeLottery();
+    });
+
+    let currentRotation = 0;
+    let spinning = false;
+    START.addEventListener('click', function () {
+        if (spinning) return;
+
+        const chosen = weightedPick();
+        const target = daySectors.findIndex(function (s) { return s.id === chosen; });
+        const n = daySectors.length;
+        const centerFromTop = (target + 0.5) * (360 / n);
+        const desired = (360 - centerFromTop) % 360;
+        const current = ((currentRotation % 360) + 360) % 360;
+        const delta = (desired - current + 360) % 360;
+        const next = currentRotation + delta + 360 * 5;
+
+        spinning = true;
+        START.disabled = true;
+        START.textContent = '开奖中…';
+        RESULT.textContent = '';
+        SUB.textContent = '转盘正在减速……';
+
+        currentRotation = next;
+        SPIN.style.transition = 'transform 4.6s cubic-bezier(.08,.75,.16,1)';
+        SPIN.style.transform = 'rotate(' + next + 'deg)';
+
+        setTimeout(function () {
+            spinning = false;
+            storeSet('cairn_lottery_' + todayKey(), JSON.stringify({ id: chosen }));
+            showResult(chosen);
+            START.textContent = '今日已抽过';
+            SUB.textContent = '下一次机会将于明日刷新';
+        }, 4800);
+    });
+
+    /* 已关闭的广告当天不再出现 */
+    if (storeGet('cairn_lottery_closed_' + todayKey())) {
+        FLOAT.classList.add('is-closed');
+    }
+})();
+</script>
 </body>
 </html>
