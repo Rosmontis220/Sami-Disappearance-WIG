@@ -2108,6 +2108,9 @@ body.dlc-glitch {
 #ros-name {
     cursor: default;
 }
+#ros-name:hover {
+    cursor: pointer;
+}
 #ros-name.rune-name {
     font-family: 'SamiRunes', var(--font-serif);
     font-size: 15px;
@@ -2120,8 +2123,4 @@ body.dlc-glitch {
 }
 #ros-avatar.ready {
     cursor: pointer;
-}
-#ros-avatar.ready:hover {
-    border-color: var(--accent-strong);
-    box-shadow: 0 0 0 3px var(--accent-soft);
 }
