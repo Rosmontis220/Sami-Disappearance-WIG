@@ -1,3 +1,23 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>皿良咨询台（合并站）</title>
+    <style>
+        html, body { margin: 0; padding: 0; height: 100%; background: #000; }
+        #view-frame { display: block; width: 100%; height: 100vh; border: 0; }
+    </style>
+</head>
+<body>
+    <!-- BGM 挂载点：后续在此文件顶层加入 <audio>，站内切换视图不会中断 -->
+    <!-- 站点 BGM：按视图映射播放，站内切换视图不中断 -->
+    <audio data-bgm="minliang" src="assets/minliang.mp3" preload="none"></audio>
+    <audio data-bgm="be" src="assets/BE.mp3" preload="none"></audio>
+
+    <iframe id="view-frame" title="皿良咨询台（合并站）"></iframe>
+
+<script type="text/plain" id="pg-minliang">
 <!-- 👁️我在看着你👁️ -->
 <!DOCTYPE html>
 <html lang="zh-CN">
@@ -87,6 +107,850 @@
     本页面为《明日方舟》世界观同人创作，与现实无关。
 </footer>
 
-<script src="js/main.js"></script>
+<script src="js/main.js"><\/script>
+</body>
+</html>
+
+</script>
+<script type="text/plain" id="pg-second">
+<!-- 👁️我在看着你👁️ -->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>永远的第二 - ALWAYS SECOND</title>
+    <link rel="stylesheet" href="css/dlc.css">
+</head>
+<body data-page="second">
+
+<header class="dlc-header">
+    <div class="dlc-header-inner">
+        <div class="dlc-brand">
+            <span class="rabbit">🐰</span>
+            <span>
+                <span class="t1" style="display:block;">皿良咨询台</span>
+                <span class="t2">MINLIANG CONSULTATION</span>
+            </span>
+        </div>
+        <form class="dlc-search-form" role="search" onsubmit="return false;">
+            <span class="dlc-search-box">
+                <input id="search-input" type="text" autocomplete="off" spellcheck="false" placeholder="输入关键词 / 解出的答案…">
+                <button type="button" onclick="handleSearch()">搜索</button>
+            </span>
+        </form>
+    </div>
+</header>
+
+<main class="dlc-main">
+    <div class="dlc-progress">EX-02 / 05 · RANKING</div>
+    <p class="dlc-kicker">泰拉直播平台</p>
+    <h1 class="dlc-title">年度热度总榜</h1>
+    <p class="dlc-subtitle">统计区间：1100.01 - 1100.12</p>
+
+    <section class="dlc-card-panel">
+        <table class="rank-table">
+            <thead>
+                <tr><th>排名</th><th>主播</th><th>年度热度值</th><th>备注</th></tr>
+            </thead>
+            <tbody>
+                <tr class="rank-first"><td class="num">🥇 1</td><td>周符卿</td><td class="dlc-mono">9,284,110</td><td>舟区一哥</td></tr>
+                <tr class="rank-self"><td class="num">🥈 2</td><td>皿良皮车</td><td class="dlc-mono">7,153,026</td><td>我</td></tr>
+                <tr><td class="num">🥉 3</td><td>米勒</td><td class="dlc-mono">5,102,884</td><td>——</td></tr>
+            </tbody>
+        </table>
+    </section>
+
+    <section class="dlc-card-panel">
+        <h2>▼ 月度榜单摘要</h2>
+        <p class="dlc-small">一年十二个月，每月前三名都是同一组名字。展开看看。</p>
+        <button class="fold-btn" id="month-fold" type="button">展开 12 个月</button>
+        <ul class="month-list" id="month-list">
+            <li>1100.01　1.周符卿　2.皿良皮车　3.米勒</li>
+            <li>1100.02　1.周符卿　2.皿良皮车　3.米勒</li>
+            <li>1100.03　1.周符卿　2.皿良皮车　3.米勒</li>
+            <li>1100.04　1.周符卿　2.皿良皮车　3.米勒</li>
+            <li>1100.05　1.周符卿　2.皿良皮车　3.米勒</li>
+            <li>1100.06　1.周符卿　2.皿良皮车　3.米勒</li>
+            <li>1100.07　1.周符卿　2.皿良皮车　3.米勒</li>
+            <li>1100.08　1.周符卿　2.皿良皮车　3.米勒</li>
+            <li>1100.09　1.周符卿　2.皿良皮车　3.米勒</li>
+            <li>1100.10　1.周符卿　2.皿良皮车　3.米勒</li>
+            <li>1100.11　1.周符卿　2.皿良皮车　3.米勒</li>
+            <li>1100.12　1.周符卿　2.皿良皮车　3.米勒（数据统计至 12.16 15:25）</li>
+        </ul>
+    </section>
+
+    <section class="dlc-card-panel">
+        <h2>▼ 相关评论（精选）</h2>
+        <p><strong>米勒</strong> <span class="dlc-small dlc-mono">| 1100.12.18</span></p>
+        <p class="quote-line">“周哥这萨米行程还是我推荐的，本来想着弄个好效果。<br>
+        我们仨泡澡那天聊起来的，皮车说不去，周哥特别想去。<br>
+        15:25 信号一断人就没了。这家伙跟我玩捉迷藏呢？”</p>
+    </section>
+
+    <section class="dlc-card-panel">
+        <h2>▼ 皿良的作战笔记（已加密）</h2>
+        <p>“有人问我那个问题的时候，我就知道他会走到这一步。<br>
+        榜单不会说谎。它会说的一切都在下面：”</p>
+        <div class="cipher">ABAAA AAAAA ABABB AAAAA ABABA BABAA AAAAA BABBA BAAAB AABAA AAABA ABBAB ABBAA AAABB</div>
+        <p class="dlc-small">页脚提示：他说过——所有数据，都由 Excel 推算得出。提丰不是中杯就是大杯，不是 A 就是 B。</p>
+        <p class="dlc-small" style="margin-top:10px;">解出的答案可以输入上方搜索框。</p>
+    </section>
+</main>
+
+<footer class="dlc-footer">
+    EX-02 · 体系外 · 未经审核<br>
+    本页面为《明日方舟》世界观同人创作，与现实无关。
+</footer>
+
+<script src="js/main.js"><\/script>
+<script>
+document.getElementById('month-fold').addEventListener('click', function () {
+    const list = document.getElementById('month-list');
+    const open = list.classList.toggle('open');
+    this.textContent = open ? '收起月度列表' : '展开 12 个月';
+});
+<\/script>
+</body>
+</html>
+
+</script>
+<script type="text/plain" id="pg-excel">
+<!-- 👁️我在看着你👁️ -->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Excel 档案 - 作战记录表</title>
+    <link rel="stylesheet" href="css/dlc.css">
+</head>
+<body data-page="excel">
+
+<header class="dlc-header">
+    <div class="dlc-header-inner">
+        <div class="dlc-brand">
+            <span class="rabbit">🐰</span>
+            <span>
+                <span class="t1" style="display:block;">皿良咨询台</span>
+                <span class="t2">MINLIANG CONSULTATION</span>
+            </span>
+        </div>
+        <form class="dlc-search-form" role="search" onsubmit="return false;">
+            <span class="dlc-search-box">
+                <input id="search-input" type="text" autocomplete="off" spellcheck="false" placeholder="输入关键词 / 解出的答案…">
+                <button type="button" onclick="handleSearch()">搜索</button>
+            </span>
+        </form>
+    </div>
+</header>
+
+<main class="dlc-main">
+    <div class="dlc-progress">EX-03 / 05 · WORKBOOK</div>
+    <p class="dlc-kicker">皿良的作战记录表（已加密）</p>
+    <h1 class="dlc-title" style="font-size:clamp(22px,4vw,32px);">Excel 档案</h1>
+    <p class="dlc-subtitle">打开方式：相信数据</p>
+
+    <section class="dlc-card-panel">
+        <div class="excel-wrap">
+            <table class="excel-table">
+                <tr><th></th><th>A</th><th>B</th></tr>
+                <tr><td class="row-head">1</td><td>丰神 DPS 精算</td><td>0-2 重的小怪 → 799</td></tr>
+                <tr><td class="row-head">2</td><td></td><td></td></tr>
+                <tr><td class="row-head">3</td><td>项目</td><td>数值/内容</td></tr>
+                <tr><td class="row-head">4</td><td>目标</td><td>周符卿（已确认消灭）</td></tr>
+                <tr><td class="row-head">5</td><td>状态</td><td>已确认消灭，没杀死也肯定从悬崖上掉下去摔死了</td></tr>
+                <tr><td class="row-head">6</td><td>日期</td><td>1100.12.16</td></tr>
+                <tr><td class="row-head">7</td><td>时间</td><td>15:25</td></tr>
+                <tr><td class="row-head">8</td><td>地点</td><td>756 号站</td></tr>
+                <tr><td class="row-head">9</td><td>装置</td><td class="secret">████████</td></tr>
+                <tr><td class="row-head">10</td><td>释放</td><td class="formula">=CONCATENATE(CHAR(77),CHAR(73),CHAR(78),CHAR(76),CHAR(73),CHAR(65),CHAR(78),CHAR(71),CHAR(80),CHAR(73),CHAR(67),CHAR(72),CHAR(69))</td></tr>
+                <tr><td class="row-head">11</td><td>行程推荐人</td><td>米勒</td></tr>
+                <tr><td class="row-head">12</td><td>行程起源</td><td>泡澡（三人线下聚会）</td></tr>
+                <tr><td class="row-head">13</td><td>我当时的表态</td><td>“那种地方有什么好拍的，我不去”</td></tr>
+                <tr><td class="row-head">14</td><td>目击者</td><td class="secret">██████</td></tr>
+            </table>
+        </div>
+        <p class="dlc-small" style="margin-top:14px;">B10 单元格备注：“这个公式很长。我知道。名字是别人取的，长度不是我定的。”</p>
+    </section>
+
+    <section class="dlc-card-panel">
+        <h2>▼ 操作日志</h2>
+        <p class="dlc-mono dlc-small" style="line-height:2.4;">
+            [1100.12.17 02:14] 上传文件：blade.html（DB 档案 · 追加“最近活动记录”一栏）<br>
+            [1100.12.17 02:15] 上传文件：journal.html.bak（备份已删除）<br>
+            [1100.12.20 01:02] 登录账号：ZhouFuQing（发布退网声明 · 评价区发帖）
+        </p>
+        <p class="dlc-small" style="margin-top:8px;">页脚提示：CHAR(数字) 返回 ASCII 表对应字符。解出的答案可以输入上方搜索框。</p>
+    </section>
+</main>
+
+<footer class="dlc-footer">
+    EX-03 · 体系外 · 未经审核<br>
+    本页面为《明日方舟》世界观同人创作，与现实无关。
+</footer>
+
+<script src="js/main.js"><\/script>
+</body>
+</html>
+
+</script>
+<script type="text/plain" id="pg-truth">
+<!-- 👁️我在看着你👁️ -->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>……</title>
+    <link rel="stylesheet" href="css/dlc.css">
+    <style>
+        .review-card-dlc {
+            max-width: 620px;
+            border: 1px solid var(--dlc-line);
+            border-radius: 12px;
+            background: rgba(30,10,14,.82);
+            padding: 18px 22px;
+            margin: 10px auto 0;
+            text-align: left;
+            font-size: 14px;
+        }
+        .review-card-dlc .stars { color: var(--dlc-gold); letter-spacing: 2px; margin: 6px 0; }
+        .review-card-dlc .meta2 { color: var(--dlc-muted); font-size: 12px; font-family: "Cascadia Mono", Consolas, monospace; }
+        #truth-last { display: none; }
+    </style>
+</head>
+<body data-page="truth">
+
+<div class="truth-stage" id="truth-stage">
+    <div style="min-height:12px;"></div>
+</div>
+
+<footer class="dlc-footer" style="display:none;" id="truth-footer">
+    EX-04 · 体系外 · 未经审核<br>
+    本页面为《明日方舟》世界观同人创作，与现实无关。
+</footer>
+
+<script src="js/main.js"><\/script>
+<script>
+(function () {
+    const paragraphs = [
+        '你找到这里来了。',
+        '你以为你在调查响石。\n你以为你在调查邪魔的利刃。\n我告诉你真相。',
+        '我是皿良皮车。\n你刚刚在表格里亲手把我的名字拼了出来。',
+        '而你，是那天跟周哥一起旅行的人。\n我们见过面。\n后来我一直跟着你，\n看你摔了一跤，好像失忆了。',
+        '那份档案你们都读过。\n第一栏写着：被生前所有同僚猎杀，直至彻底消亡。\n最后一栏写着：12.16，萨米，最近活动。\n一份档案，自相矛盾。你们没有一个人发现。\n死档案不会辟谣——那就让它替我出场。',
+        '12.17 凌晨，我追加那一栏。\n“目标：一名乌萨斯叛徒。已确认消灭。”\n没有叛徒。\n但我确实“杀”了东西。',
+        '12.16 15:25，756 号站外。\n我穿上了装置。黑烟。黑雪。\n他连同设备一起被吞没了。\n但等黑烟散去，人不见了。掉下冰崖了。',
+        '我不能空着手回去。我杀了路过的一头鹿。\n撕裂了周符卿的外套，砸碎了他的直播设备，裹在鹿尸上。',
+        '裹完鹿尸，我把这玩意丢在一边，走了。\n五十米外，你们的导游和当地向导看向这边。\n导游没仔细看。暴风雪太大，她只看到那件熟悉的外套和血。\n她走过去。她埋了。\n她埋的是一头鹿。',
+        '你知道接下来发生了什么吗？\n你想起来了吗？',
+        '我拖着那头“尸体”往回走的时候，正好撞见你。\n你吓坏了。你问我那是什么。\n我给了你一笔钱。很多钱。\n我说：“你没看见。你什么都没看见。”\n你收了钱。你点了头。\n<span class="truth-red">不要忘记</span>',
+        '后来你摔了一跤。你失忆了。\n但是我猜就算失忆，你也会调查这个事情。\n对吧，侦探先生。\n所以我给我的个人网站放了这个页面。\n是给你看的真相。',
+        '我要你想起来：你是我的共犯。\n你看着我拖回那具“尸体”，你拿了钱，你包庇了我。\n从你按下回车解谜的那一刻起，\n我们就是同一条船上的人了。',
+        '所以——\n有些事，别干。\n你想让自己被捕吗？',
+        '<!--truth-card-->'
+    ];
+    const stage = document.getElementById('truth-stage');
+    let idx = 0;
+
+    // 预渲染所有段落（页面保持完整高度，可随时滚动），逐段淡入
+    const els = paragraphs.map((raw) => {
+        let el;
+        if (raw === '<!--truth-card-->') {
+            el = document.createElement('div');
+            el.className = 'review-card-dlc truth-paragraph';
+            el.innerHTML =
+                '<div><strong>⭐⭐⭐⭐⭐</strong></div>' +
+                '<div style="font-weight:700;">周符卿 <span class="meta2">| 1100.12.20</span></div>' +
+                '<div class="stars">★★★★★</div>' +
+                '<div>已平安回家，谢谢大家的关心，下次还来！</div>' +
+                '<div class="meta2" style="margin-top:6px;">—— 发布时间：15:25</div>' +
+                '<p class="dlc-small" style="margin-top:12px;">这条评价是我发的。退网公告也是。操作日志里有记录。</p>';
+        } else {
+            el = document.createElement('p');
+            el.className = 'truth-paragraph';
+            el.innerHTML = raw;
+        }
+        stage.appendChild(el);
+        return el;
+    });
+
+    let userScrolled = false;
+    window.addEventListener('wheel', () => { userScrolled = true; });
+    window.addEventListener('touchmove', () => { userScrolled = true; }, { passive: true });
+
+    function revealNext() {
+        if (idx >= els.length) {
+            const endBtn = document.getElementById('truth-end');
+            const last = document.getElementById('truth-last');
+            const footer = document.getElementById('truth-footer');
+            if (!endBtn || !last || !footer) return;
+            endBtn.style.display = 'inline-block';
+            last.style.display = 'block';
+            footer.style.display = '';
+            return;
+        }
+        const el = els[idx];
+        idx += 1;
+        el.classList.add('visible');
+        // 自动播放阶段跟随段落滚动；用户开始滚动后立即停止跟随
+        if (!userScrolled) {
+            setTimeout(() => el.scrollIntoView({ behavior: 'smooth', block: 'start' }), 120);
+        }
+        const long = el.textContent.length > 60;
+        setTimeout(revealNext, long ? 1500 : 950);
+    }
+
+    setTimeout(revealNext, 500);
+})();
+<\/script>
+
+<div style="text-align:center; padding: 0 20px 50px;">
+    <p class="dlc-small" id="truth-last">你已经知道了该知道的。去结局页，做最后一次选择。</p>
+    <p class="dlc-small" style="margin-top:8px; opacity:.55;">档案的最后一页压着一行小字：还在找“真结局”的人，往这里看。</p>
+    <a id="truth-end" style="display:none; margin:22px auto 8px; padding:14px 46px; background:#a8302a; color:#ffe9e9; border-radius:999px; text-decoration:none; font-size:16px; letter-spacing:3px;" href="ending.html">进入结局</a>
+</div>
+</body>
+</html>
+
+</script>
+<script type="text/plain" id="pg-usurp">
+<!-- 👁️我在看着你👁️ -->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>利刃所指 - USURPATION END</title>
+    <link rel="stylesheet" href="css/dlc.css">
+    <style>
+        /* DLC2 入口卡片（冷蓝，区别于皮车红黑结局） */
+        .miller-hook {
+            text-align: center;
+            margin: 34px auto 70px;
+            max-width: 560px;
+            padding: 0 18px;
+        }
+        .miller-hook-card {
+            border: 1px solid rgba(127,180,216,.45);
+            background: rgba(16,26,36,.92);
+            border-radius: 14px;
+            padding: 20px 24px;
+            box-shadow: 0 0 34px rgba(63,111,147,.22);
+            color: #d8e2ea;
+        }
+        .miller-hook-tag {
+            font-family: "Cascadia Mono", Consolas, monospace;
+            font-size: 10.5px;
+            letter-spacing: 2px;
+            color: #7fb4d8;
+        }
+        .miller-hook-tag.waiting { color: #54708a; }
+        .miller-hook-text {
+            margin: 12px 0;
+            line-height: 1.9;
+        }
+        .miller-hook-btn {
+            display: inline-block;
+            margin-top: 6px;
+            padding: 10px 30px;
+            border-radius: 999px;
+            background: #3f6f93;
+            color: #eaf2f8;
+            text-decoration: none;
+            font-size: 14px;
+            letter-spacing: 2px;
+        }
+        .miller-hook-btn:hover { background: #4d86ae; }
+        .miller-hook [hidden] { display: none !important; }
+        .miller-hook-card.ready {
+            border-color: rgba(127,180,216,.85);
+            box-shadow: 0 0 40px rgba(63,111,147,.35);
+        }
+        .miller-hook-card.ready .miller-hook-tag { color: #a5d4ef; }
+        /* 解密中状态（仅卡片内提示，不遮挡结局正文） */
+        .miller-decrypt-code {
+            font-size: 13px;
+            letter-spacing: 3px;
+            color: #7fb4d8;
+            animation: miller-flicker 1.4s steps(2) infinite;
+        }
+        .miller-decrypt-line {
+            font-size: 12px;
+            color: #54708a;
+            letter-spacing: 1px;
+        }
+        @keyframes miller-flicker { 50% { opacity: .45; } }
+    </style>
+</head>
+<body data-page="usurp">
+
+<div class="usurp-stage">
+    <span class="usurp-avatar">🐰</span>
+    <h1 class="usurp-title">利刃所指</h1>
+
+    <p class="dlc-small" style="letter-spacing:3px; margin-bottom:22px;">泰拉直播平台 · 实时热度总榜</p>
+    <p class="dlc-small" style="margin-bottom:16px;">数据截至：1101.01 · 因退网事件引发的热度空窗 · 暂居实时热度第一</p>
+
+    <table class="rank-table" style="max-width:620px; margin:0 auto 26px;">
+        <thead>
+            <tr><th>排名</th><th>主播</th><th>实时热度值</th><th>备注</th></tr>
+        </thead>
+        <tbody>
+            <tr class="rank-first"><td class="num">🥇 1</td><td>皿良皮车</td><td class="dlc-mono">10,207,441</td><td>舟区一哥</td></tr>
+            <tr><td class="num">🥈 2</td><td>米勒</td><td class="dlc-mono">6,891,200</td><td>——</td></tr>
+            <tr><td class="num">🥉 3</td><td>（其他）</td><td class="dlc-mono">…</td><td>——</td></tr>
+        </tbody>
+    </table>
+
+    <div class="usurp-para">你们看，我说什么来着。<br><br>
+    我从来不带节奏。<br>
+    我只是把挡在我前面的东西挪开了。<br>
+    然后第一就是我的了。<br><br>
+    舟区一哥，皿良皮车。你们现在就这么叫了。</div>
+
+    <div class="usurp-para">只有那一件事没人算得出来。<br><br>
+    米勒还在发寻人启事。<br>
+    他说萨米行程是他推荐的。<br>
+    他不知道泡澡那天推荐完行程，<br>
+    我低头看手机的时候，<br>
+    已经在查 756 号站了。<br>
+    他更不知道，现在他坐的这个第二，<br>
+    也是我替他留的。</div>
+
+    <div class="usurp-para">而你，我的共犯朋友。<br>
+    你终于想起来自己收了那笔钱。<br>
+    朋友嘛。我只是看着榜，看着你。</div>
+
+    <div class="usurp-end-stamp">USURPATION END · 利刃所指</div>
+</div>
+
+<!-- DLC2 入口：结局 C 后，米勒的加密内联消息
+     结局正文正常展示；入口卡片在页面下方“解密中”，20 秒后解密完成 -->
+<div class="miller-hook" id="dlc2-hook" hidden>
+    <div class="miller-hook-card" id="dlc2-card">
+        <div class="miller-hook-tag waiting" id="dlc2-tag">ENCRYPTED · 解密中</div>
+        <p class="miller-hook-text">
+            <span id="dlc2-decrypting">
+                <span class="miller-decrypt-code">▚▞ 信号异常 ▞▚</span><br>
+                <span class="miller-decrypt-line">正在尝试恢复加密频道……</span>
+            </span>
+            <span id="dlc2-msg" hidden>
+                “我知道你拿了什么，也知道他在哪。<br>
+                来萨米见。—— 米勒”
+            </span>
+        </p>
+        <a class="miller-hook-btn" id="dlc2-btn" href="dlc2_e01.html" hidden>接入终章 →</a>
+    </div>
+</div>
+
+<footer class="dlc-footer">
+    EX-05 · 体系外 · 共犯视角<br>
+    本页面为《明日方舟》世界观同人创作，与现实无关。
+</footer>
+
+<script src="js/main.js"><\/script>
+<script>
+/* DLC2：结局 C 达成后，卡片在下方解密（不锁定页面滚动） */
+document.addEventListener('DOMContentLoaded', () => {
+    const hook = document.getElementById('dlc2-hook');
+    if (!hook || !window.DlcStore || DlcStore.get('dlc1_completed') !== '1') return;
+
+    // 结局正文立即可读；入口卡片立即进入解密中状态
+    hook.hidden = false;
+
+    setTimeout(() => {
+        const card = document.getElementById('dlc2-card');
+        const tag = document.getElementById('dlc2-tag');
+        const decrypting = document.getElementById('dlc2-decrypting');
+        const msg = document.getElementById('dlc2-msg');
+        const btn = document.getElementById('dlc2-btn');
+        if (card) card.classList.add('ready');
+        if (tag) {
+            tag.classList.remove('waiting');
+            tag.textContent = 'DECRYPTED · 解密完成';
+        }
+        if (decrypting) decrypting.hidden = true;
+        if (msg) msg.hidden = false;
+        if (btn) btn.hidden = false;
+    }, 20000);
+});
+
+/* 黑雪：密度为结局 A 的 1.5 倍（约 120 片） */
+(function () {
+    const layer = document.createElement('div');
+    layer.id = 'dlc-snow';
+    document.body.appendChild(layer);
+    for (let i = 0; i < 120; i++) {
+        const flake = document.createElement('span');
+        flake.className = 'dlc-flake';
+        const size = 3.5 + Math.random() * 6;
+        flake.style.width = size + 'px';
+        flake.style.height = size + 'px';
+        flake.style.left = Math.random() * 100 + 'vw';
+        flake.style.setProperty('--drift', (Math.random() * 160 - 80) + 'px');
+        flake.style.animationDuration = (7 + Math.random() * 9).toFixed(1) + 's';
+        flake.style.animationDelay = (-Math.random() * 12).toFixed(1) + 's';
+        layer.appendChild(flake);
+    }
+})();
+<\/script>
+</body>
+</html>
+
+</script>
+<script type="text/plain" id="pg-dlc_404">
+<!-- 👁️我在看着你👁️ -->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - 皿良咨询台</title>
+    <link rel="stylesheet" href="css/dlc.css">
+    <style>
+        .dlc-404 {
+            min-height: 70vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 60px 24px;
+        }
+        .dlc-404 .code {
+            font-family: "Cascadia Mono", Consolas, monospace;
+            font-size: clamp(64px, 14vw, 130px);
+            line-height: 1;
+            color: var(--dlc-strong);
+            opacity: .55;
+            letter-spacing: 8px;
+        }
+        .dlc-404 .msg {
+            margin-top: 18px;
+            color: var(--dlc-muted);
+            font-size: 14px;
+        }
+        .dlc-404 .back {
+            margin-top: 30px;
+            color: var(--dlc-accent);
+            text-decoration: none;
+            border: 1px solid var(--dlc-line);
+            padding: 10px 30px;
+            border-radius: 999px;
+            font-size: 14px;
+        }
+        .dlc-404 .back:hover { border-color: var(--dlc-accent); }
+    </style>
+</head>
+<body data-page="dlc404">
+
+<div class="dlc-404">
+    <div class="code">404</div>
+    <div class="msg">本台没有这个页面。<br>关键词不对，或者它根本不在这里。</div>
+    <a class="back" href="__back__">← 返回</a>
+</div>
+
+<footer class="dlc-footer">
+    EX · 体系外 · 未经审核<br>
+    本页面为《明日方舟》世界观同人创作，与现实无关。
+</footer>
+
+<script src="js/main.js"><\/script>
+</body>
+</html>
+
+</script>
+<script type="text/plain" id="pg-true_end">
+<!-- 👁️我在看着你👁️ -->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>·</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html, body { height: 100%; background: #020202; overflow: hidden; }
+        body {
+            user-select: none;
+            -webkit-user-select: none;
+            cursor: crosshair;
+            font-family: "Noto Serif SC", "Songti SC", SimSun, Georgia, serif;
+        }
+
+        /* 全屏舞台 */
+        .te-stage {
+            position: fixed; inset: 0;
+            background:
+                radial-gradient(ellipse at 50% 42%, rgba(160,0,0,.18), transparent 55%),
+                radial-gradient(ellipse at center, transparent 30%, rgba(0,0,0,.85) 82%),
+                #020202;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        /* 噪点层 */
+        .te-grain {
+            position: absolute; inset: -60%;
+            pointer-events: none;
+            opacity: .09;
+            mix-blend-mode: overlay;
+            background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.4 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+            animation: te-grain .5s steps(2) infinite;
+        }
+        @keyframes te-grain {
+            0% { transform: translate(0, 0); }
+            50% { transform: translate(-2%, 1.5%); }
+            100% { transform: translate(2%, -1%); }
+        }
+
+        /* 眼睛（CSS 绘制，非素材） */
+        .te-eye-wrap {
+            position: relative;
+            width: 220px; height: 220px;
+            margin-bottom: 26px;
+            animation: te-eye-breathe 6s ease-in-out infinite;
+        }
+        @keyframes te-eye-breathe {
+            0%, 100% { transform: scale(1); filter: drop-shadow(0 0 26px rgba(200,0,0,.35)); }
+            50% { transform: scale(1.045); filter: drop-shadow(0 0 46px rgba(220,0,0,.55)); }
+        }
+        .te-eye {
+            position: absolute; inset: 0;
+            border-radius: 50%;
+            background: radial-gradient(circle at 50% 45%, #000 0 18%, #1c0505 30%, #050202 55%, #000 100%);
+            border: 1px solid rgba(160,30,30,.5);
+            box-shadow: inset 0 0 50px rgba(120,0,0,.45);
+            overflow: hidden;
+        }
+        .te-iris {
+            position: absolute;
+            left: 50%; top: 50%;
+            width: 54%; height: 54%;
+            margin: -27% 0 0 -27%;
+            border-radius: 50%;
+            background:
+                radial-gradient(circle, #ff3a2a 0%, #a80606 38%, #400000 72%, #000 100%);
+            box-shadow: 0 0 28px rgba(255,40,20,.55), inset 0 0 18px rgba(0,0,0,.8);
+            transition: transform .18s ease-out;
+        }
+        .te-pupil {
+            position: absolute;
+            left: 50%; top: 50%;
+            width: 46%; height: 46%;
+            margin: -23% 0 0 -23%;
+            border-radius: 50%;
+            background: #000;
+            box-shadow: inset 0 0 8px rgba(0,0,0,.9);
+        }
+
+        /* 中央文字：默认全隐，突脸时瞬现 */
+        .te-line-top {
+            color: rgba(210,205,205,.82);
+            letter-spacing: .28em;
+            font-size: clamp(14px, 2.4vw, 20px);
+            font-weight: 700;
+            margin-bottom: 18px;
+            opacity: 0;
+        }
+        .te-line-main {
+            color: #b00000;
+            font-weight: 900;
+            font-size: clamp(58px, 14vw, 190px);
+            letter-spacing: .12em;
+            line-height: 1.1;
+            text-shadow: 0 0 28px rgba(190,0,0,.65), 0 0 90px rgba(120,0,0,.5);
+            opacity: 0;
+            transform: scale(.2);
+        }
+        .te-line-bot {
+            color: rgba(210,205,205,.6);
+            letter-spacing: .2em;
+            font-size: clamp(12px, 2vw, 17px);
+            margin-top: 20px;
+            opacity: 0;
+        }
+
+        /* 突脸瞬间：文字全部显现 + 猛冲抖动 + 眼球爆闪 */
+        .te-pop .te-line-top,
+        .te-pop .te-line-bot {
+            opacity: 1;
+        }
+        .te-pop .te-line-main {
+            opacity: 1;
+            animation: te-burst .55s cubic-bezier(.12,.8,.2,1) forwards;
+        }
+        .te-pop .te-line-top {
+            animation: te-jump .5s ease forwards;
+        }
+        .te-pop .te-line-bot {
+            animation: te-jump .5s ease forwards .08s;
+        }
+        .te-pop .te-eye-wrap {
+            animation: te-eye-lunge .5s ease forwards;
+        }
+        @keyframes te-burst {
+            0% { opacity: 0; transform: scale(.15); filter: brightness(3); }
+            18% { opacity: 1; transform: scale(1.12); filter: brightness(2.2); }
+            42% { transform: scale(.94); }
+            70% { transform: scale(1.04); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+        @keyframes te-jump {
+            0% { opacity: 0; transform: translateY(26px) scale(1.4); filter: brightness(2); }
+            20% { opacity: 1; }
+            60% { transform: translateY(-6px) scale(.98); }
+            100% { opacity: 1; transform: none; filter: none; }
+        }
+        @keyframes te-eye-lunge {
+            0% { transform: scale(1); }
+            25% { transform: scale(1.35); }
+            60% { transform: scale(.96); }
+            100% { transform: scale(1); }
+        }
+
+        /* 屏幕短暂红闪一下 */
+        .te-flash {
+            position: fixed; inset: 0;
+            background: rgba(190,0,0,.45);
+            opacity: 0;
+            pointer-events: none;
+            z-index: 3;
+            transition: opacity .08s ease;
+        }
+        .te-flash.on { opacity: 1; }
+
+        .te-exit {
+            position: fixed;
+            right: 22px; bottom: 20px;
+            color: rgba(200,60,50,.55);
+            font-size: 12px;
+            letter-spacing: .2em;
+            text-decoration: none;
+            font-family: "Cascadia Mono", Consolas, monospace;
+            transition: color .2s;
+            z-index: 5;
+        }
+        .te-exit:hover { color: #e08a83; }
+
+        .te-note {
+            position: fixed;
+            left: 22px; bottom: 20px;
+            color: rgba(150,140,140,.28);
+            font-size: 11px;
+            letter-spacing: .12em;
+            font-family: "Cascadia Mono", Consolas, monospace;
+            z-index: 5;
+        }
+    </style>
+</head>
+<body>
+
+<div class="te-stage" id="te-stage">
+    <div class="te-grain"></div>
+
+    <div class="te-eye-wrap" id="te-eye-wrap">
+        <div class="te-eye">
+            <div class="te-iris" id="te-iris">
+                <div class="te-pupil"></div>
+            </div>
+        </div>
+    </div>
+
+    <p class="te-line-top">你在找它？</p>
+    <p class="te-line-main">真结局</p>
+    <p class="te-line-bot">它一直都在你身后。</p>
+</div>
+<div class="te-flash" id="te-flash"></div>
+
+<a class="te-exit" href="javascript:history.length > 1 ? history.back() : location.href='index.html'">离开</a>
+<span class="te-note">REC · 756号中继</span>
+
+<script>
+/* 先黑场吊胃口，再"突脸" */
+(function () {
+    const stage = document.getElementById('te-stage');
+    const flash = document.getElementById('te-flash');
+
+    function burst() {
+        stage.classList.add('te-pop');
+        flash.classList.add('on');
+        setTimeout(() => flash.classList.remove('on'), 120);
+        // 后续轻微闪烁，保持不安感
+        setInterval(() => {
+            if (Math.random() < .18) {
+                flash.classList.add('on');
+                setTimeout(() => flash.classList.remove('on'), 90);
+            }
+        }, 4200);
+    }
+
+    setTimeout(burst, 2300);
+})();
+
+/* 眼睛追随鼠标 */
+(function () {
+    const iris = document.getElementById('te-iris');
+    const wrap = document.getElementById('te-eye-wrap');
+    const maxShift = 16;
+    let tx = 0, ty = 0, cx = 0, cy = 0;
+
+    window.addEventListener('mousemove', (e) => {
+        const r = wrap.getBoundingClientRect();
+        const ex = r.left + r.width / 2;
+        const ey = r.top + r.height / 2;
+        const dx = (e.clientX - ex) / Math.max(r.width, 1);
+        const dy = (e.clientY - ey) / Math.max(r.height, 1);
+        tx = Math.max(-1, Math.min(1, dx)) * maxShift;
+        ty = Math.max(-1, Math.min(1, dy)) * maxShift;
+    });
+
+    function tick() {
+        cx += (tx - cx) * .08;
+        cy += (ty - cy) * .08;
+        iris.style.transform = 'translate(' + cx.toFixed(2) + 'px,' + cy.toFixed(2) + 'px)';
+        requestAnimationFrame(tick);
+    }
+    tick();
+})();
+
+/* 右键提示：不阻止，但给个小彩蛋 */
+document.addEventListener('contextmenu', (e) => {
+    const n = document.querySelector('.te-note');
+    n.textContent = 'REC · 别找了。';
+    setTimeout(() => { n.textContent = 'REC · 756号中继'; }, 1800);
+});
+
+/* 键盘：Esc 返回 */
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+        if (history.length > 1) history.back(); else location.href = 'index.html';
+    }
+});
+<\/script>
+</body>
+</html>
+
+</script>
+
+    <script src="js/router.js"></script>
+    <script>
+window.__ZFQ_CONFIG__ = {
+  siteFile: 'minliang.html',
+  defaultFile: 'minliang.html',
+  fallbackFile: 'dlc_404.html',
+  pages: [{id: 'minliang', file: 'minliang.html'}, {id: 'second', file: 'second.html'}, {id: 'excel', file: 'excel.html'}, {id: 'truth', file: 'truth.html'}, {id: 'usurp', file: 'usurp.html'}, {id: 'dlc_404', file: 'dlc_404.html'}, {id: 'true_end', file: 'true_end.html'}],
+  cross: {'ending.html': {href: 'travel.html#v-ending'}, 'dlc2_e01.html': {href: 'miller.html#v-dlc2_e01'}},
+  bgmMap: {'minliang': 'minliang', 'second': 'minliang', 'excel': 'minliang', 'truth': 'minliang', 'usurp': 'be'},
+  bgmAssets: {'minliang': {file: 'minliang.mp3', volume: 0.08, gap: 0}, 'be': {file: 'BE.mp3', volume: 0.08, gap: 0}}
+};
+window.__ZFQ_PAGES__ = {'minliang': {id: 'minliang', file: 'minliang.html'}, 'second': {id: 'second', file: 'second.html'}, 'excel': {id: 'excel', file: 'excel.html'}, 'truth': {id: 'truth', file: 'truth.html'}, 'usurp': {id: 'usurp', file: 'usurp.html'}, 'dlc_404': {id: 'dlc_404', file: 'dlc_404.html'}, 'true_end': {id: 'true_end', file: 'true_end.html'}};
+
+    </script>
 </body>
 </html>

@@ -93,10 +93,47 @@ function normalizeKeyword(raw) {
     return (raw || '').trim().replace(/\s+/g, '').toLowerCase();
 }
 
+/* ---------- 合并壳层导航桥 ----------
+   站内视图切换：由父页面统一路由（跨站则父页面跳转对应站点文件）；
+   外部 http(s) 链接交给父页面新窗口打开。 */
+function zfqNav(url) {
+    url = String(url || '');
+    try {
+        if (/^https?:\/\//i.test(url)) {
+            if (window.parent && window.parent !== window) {
+                window.parent.postMessage({ type: 'zfq-open', url: url }, '*');
+            } else {
+                window.open(url, '_blank', 'noopener');
+            }
+            return;
+        }
+        if (window.parent && window.parent !== window) {
+            window.parent.postMessage({ type: 'zfq-nav', url: url }, '*');
+        } else {
+            window.location.href = url;
+        }
+    } catch (e) {
+        if (/^https?:/i.test(url)) window.open(url, '_blank');
+        else window.location.href = url;
+    }
+}
+
+/* srcdoc 无法携带真实 query，由父页面注入 __VIEW_QUERY */
+function viewQueryString() {
+    try { return window.__VIEW_QUERY || ''; } catch (e) { return ''; }
+}
+
 /* 当前页面所属站点：皿良站（DLC 红黑体系）vs 旅行社站 */
 function currentSite() {
     const page = document.body ? document.body.getAttribute('data-page') : '';
     return ['minliang', 'second', 'excel', 'truth', 'usurp'].includes(page) ? 'dlc' : 'travel';
+}
+
+/* DLC1 线性流程：必须按 挡路 → 第二 → minliangpiche 的顺序搜索 */
+function dlcStep() {
+    let s = parseInt(DlcStore.get('dlc_dev_step') || '0', 10) || 0;
+    if (DlcStore.get(DLC1_COMPLETED) === '1' && s < 3) s = 3;
+    return s;
 }
 
 function searchQuery(raw) {
@@ -114,15 +151,33 @@ function searchQuery(raw) {
     }
     // 仅在结局选择页触发：搜索 325 跳转彩蛋视频
     if (document.body.getAttribute('data-page') === 'ending' && key === '325') {
-        window.location.href = ENDING_EASTER_EGG;
+        zfqNav(ENDING_EASTER_EGG);
         return;
     }
     const site = currentSite();
     const target = (site === 'dlc' ? DLC_KEYWORDS : TRAVEL_KEYWORDS)[key] || null;
+    if (site === 'dlc' && target) {
+        const step = dlcStep();
+        if (key === 'iamalwayssecond' || key === '第二') {
+            if (step < 1) {
+                zfqNav('dlc_404.html?q=' + encodeURIComponent(raw.trim()));
+                return;
+            }
+            DlcStore.set('dlc_dev_step', '2');
+        } else if (key === 'minliangpiche') {
+            if (step < 2) {
+                zfqNav('dlc_404.html?q=' + encodeURIComponent(raw.trim()));
+                return;
+            }
+            DlcStore.set('dlc_dev_step', '3');
+        } else if (key === 'hewasinmyway' || key === '挡路' || key === '挡我路') {
+            DlcStore.set('dlc_dev_step', '1');
+        }
+    }
     if (target) {
-        window.location.href = target;
+        zfqNav(target);
     } else {
-        window.location.href = (site === 'dlc' ? 'dlc_404.html' : '404_default.html') + '?q=' + encodeURIComponent(raw.trim());
+        zfqNav((site === 'dlc' ? 'dlc_404.html' : '404_default.html') + '?q=' + encodeURIComponent(raw.trim()));
     }
 }
 
@@ -172,7 +227,7 @@ function initDlcJournal() {
         moduleEl.addEventListener('click', (e) => {
             if (e.target.closest('a')) return; // 按钮自身的链接
             if (moduleEl.getAttribute('data-locked') === '0') {
-                window.location.href = 'minliang.html';
+                zfqNav('minliang.html');
             }
         });
     }
@@ -290,7 +345,7 @@ function initOrderPage() {
     form.addEventListener('submit', (e) => { e.preventDefault(); tryQuery(); });
 
     // 搜索框直达：自动填入并展示
-    const params = new URLSearchParams(window.location.search);
+    const params = new URLSearchParams(viewQueryString());
     if (params.get('auto') === VALID_ORDER) {
         input.value = VALID_ORDER;
         revealOrder();
@@ -302,7 +357,7 @@ function initLivestreamPage() {
     const scenicEls = document.querySelectorAll('[data-mode="scenic"]');
     const archiveEls = document.querySelectorAll('[data-mode="archive"]');
     const orderOk = SafeStore.get('cairn_order_ok') === '1';
-    const wantArchive = new URLSearchParams(window.location.search).get('archive') === '1';
+    const wantArchive = new URLSearchParams(viewQueryString()).get('archive') === '1';
 
     if (!orderOk && !wantArchive) {
         archiveEls.forEach(el => el.style.display = 'none');
@@ -317,7 +372,7 @@ function initLivestreamPage() {
 
 /* ---------- 404 提示页 ---------- */
 function initHintPage() {
-    const type = new URLSearchParams(window.location.search).get('type');
+    const type = new URLSearchParams(viewQueryString()).get('type');
     const area = document.getElementById('hint-area');
     if (!area) return;
     if (type === '325') {
@@ -345,14 +400,14 @@ function initEndingPage() {
     if (btnCovered) {
         btnCovered.addEventListener('click', (e) => {
             e.preventDefault();
-            window.location.href = dlcDone ? 'usurp.html' : 'covered.html';
+            zfqNav(dlcDone ? 'usurp.html' : 'covered.html');
         });
     }
     if (btnUsurp) {
         btnUsurp.addEventListener('click', (e) => {
             e.preventDefault();
             if (!dlcDone) return;
-            window.location.href = 'usurp.html';
+            zfqNav('usurp.html');
         });
     }
     // 右：揭露真相 → lost.html（本体状态）；DLC 完成后拦截
@@ -363,7 +418,7 @@ function initEndingPage() {
                 showToast('你想让自己被捕吗？');
                 return;
             }
-            window.location.href = 'lost.html';
+            zfqNav('lost.html');
         });
     }
 
@@ -406,7 +461,7 @@ function boot() {
 
     if (page === 'hint') initHintPage();
     if (page === 'notfound') {
-        const q = new URLSearchParams(window.location.search).get('q');
+        const q = new URLSearchParams(viewQueryString()).get('q');
         const trace = document.getElementById('query-trace');
         if (trace) {
             trace.textContent = q ? '您搜索的“' + q + '”不存在或已被归档。' : '搜索词为空。';
@@ -423,13 +478,6 @@ function boot() {
 
 /* 页面间跳转时保留“是否看过订单”的标记 */
 document.addEventListener('DOMContentLoaded', boot);
-
-/* 控制台彩蛋（仅首页） */
-if (document.body && document.body.getAttribute('data-page') === 'index') {
-    console.log('%c响石旅行社 CAIRN TRAVEL', 'font-family:serif;font-size:22px;color:#8f5f26;');
-    console.log('%c“哪儿都能去，每一位游客都能平安归来。”', 'font-size:13px;color:#837a68;');
-    console.log('%c雪会停的。', 'font-size:12px;color:#8f5f26;');
-}
 
 /* 对外暴露（供 HTML 内联调用兜底） */
 window.handleSearch = handleSearch;

@@ -1,0 +1,2139 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>响石旅行社 · 萨米专区（合并站）</title>
+    <style>
+        html, body { margin: 0; padding: 0; height: 100%; background: #000; }
+        #view-frame { display: block; width: 100%; height: 100vh; border: 0; }
+    </style>
+</head>
+<body>
+    <!-- BGM 挂载点：后续在此文件顶层加入 <audio>，站内切换视图不会中断 -->
+    <!-- 站点 BGM：按视图映射播放，站内切换视图不中断 -->
+    <audio data-bgm="travel" src="assets/travel.mp3" preload="none"></audio>
+    <audio data-bgm="travel_deep" src="assets/travel_deep.mp3" preload="none"></audio>
+    <audio data-bgm="ne" src="assets/NE.mp3" preload="none"></audio>
+
+    <iframe id="view-frame" title="响石旅行社 · 萨米专区（合并站）"></iframe>
+
+<script type="text/plain" id="pg-index">
+<!-- 👁️我在看着你👁️ -->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>响石旅行社 Cairn Travel Agency · 哪儿都能去</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body class="phase-1" data-page="index" data-nav="index">
+
+<header class="site-header">
+    <div class="header-inner">
+        <a class="logo" href="index.html">
+            <img class="logo-mark" src="assets/头像_响石.png" alt="响石旅行社">
+            <span class="logo-text">
+                <span class="logo-cn">响石旅行社 · 萨米专区</span><br>
+                <span class="logo-en">Cairn Travel Agency</span>
+            </span>
+        </a>
+        <form class="search-form" role="search" onsubmit="return false;">
+            <span class="search-box">
+                <span class="search-icon">⌕</span>
+                <input id="search-input" type="text" autocomplete="off" spellcheck="false" placeholder="搜索目的地、订单号、关键词…">
+                <button class="search-btn" type="button" onclick="handleSearch()">搜索</button>
+            </span>
+        </form>
+    </div>
+    <nav class="site-nav">
+        <div class="nav-inner">
+            <a href="index.html">首页</a>
+            <a href="routes.html">线路介绍</a>
+            <a href="about.html">关于我们</a>
+            <a href="reviews.html">客户评价</a>
+            <a href="order.html">订单查询</a>
+        </div>
+    </nav>
+</header>
+
+<main>
+    <div class="hero-photo">
+        <img src="assets/度假胜地.png" alt="萨米低地风光">
+        <div class="hero-caption">
+            <span class="rune-line">SAMI</span>
+            <h1>响石旅行社 · 萨米专区</h1>
+            <p>CAIRN TRAVEL AGENCY · 萨米 · 哪儿都能去 · <span class="kw">零失联记录</span> ✓</p>
+        </div>
+    </div>
+
+    <section class="panel">
+        <h2>关于我们</h2>
+        <p>
+            响石旅行社·萨米专区，自泰拉历1095年运营至今。五年来，由专区向导
+            费尔南·伯恩（代号“响石”）接待的两百余名游客，深入雪原、林线与极光带。
+        </p>
+        <p>我们的承诺：<span class="kw">零失联记录</span> ✓</p>
+        <p class="small muted">详情请访问【<span class="kw">关于我们</span>】页面。</p>
+    </section>
+
+    <section class="panel">
+        <h2>精品<span class="kw">线路</span></h2>
+        <div class="route-grid">
+            <div class="route-card">
+                <h3><span class="kw">萨米冰原探险</span>（3天2夜）</h3>
+                <p class="tag">直播跟拍可选 · 冬季限定</p>
+            </div>
+            <div class="route-card">
+                <h3>极光观测之旅</h3>
+                <p class="tag">两晚连住 · 极光概率保障</p>
+            </div>
+            <div class="route-card">
+                <h3>原住民文化体验</h3>
+                <p class="tag">石堆与传说 · 向导全程讲解</p>
+            </div>
+        </div>
+        <p class="small muted" style="margin-top:12px;">查看完整行程与费用，请在顶部搜索框输入“<span class="kw">萨米冰原探险</span>”。</p>
+    </section>
+
+    <section class="panel">
+        <h2>最新动态</h2>
+        <ul class="news-list">
+            <li>
+                <time>1100.12.20</time>
+                <a href="news.html#n-1220">关于近期服务调整的说明</a>
+            </li>
+            <li>
+                <time>1100.12.18</time>
+                <a href="news.html#n-1218">【重要】关于<span class="kw">周符卿</span>先生行程的情况说明</a>
+            </li>
+            <li>
+                <time>1100.12.03</time>
+                <a href="news.html#n-1203">知名主播<span class="kw">周符卿</span>预订萨米探险行程</a>
+            </li>
+        </ul>
+    </section>
+
+    <section class="panel">
+        <h2><span class="kw">客户评价</span>预览</h2>
+        <div class="review-card" style="margin-bottom:0;">
+            <div class="review-head">
+                <span class="avatar">米</span>
+                <span class="reviewer">米勒</span>
+                <span class="review-date">1100.11</span>
+            </div>
+            <div class="stars">★★★★★</div>
+            <div class="review-body">“响石女士太专业了！遇到暴风雪时她冷静地找到避难所，还用‘听石头’的方法确认了撤退方向。全员安全返回！”</div>
+        </div>
+        <p class="small muted" style="margin-top:14px;">
+            响石旅行社，五年 <span class="kw">零失联记录</span> ✓ · 更多评价请查看【<span class="kw">客户评价</span>】专区。
+        </p>
+    </section>
+
+    <section class="panel soft">
+        <h2>联系方式</h2>
+        <p>服务咨询请前往【<span class="kw">关于我们</span>】页面，或于萨米边境线沿途驿站寻找石堆标记。</p>
+        <div class="agency-quote" style="margin-top:14px;">“哪儿都能去，每一位游客都能平安归来。”</div>
+    </section>
+</main>
+
+<footer class="site-footer">
+    <div>响石旅行社 Cairn Travel Agency</div>
+    <div class="progress-pill">进度 01/14</div>
+    <div class="disclaimer">本网站内容基于《明日方舟》世界观创作，与现实无关。</div>
+</footer>
+
+<!-- 右下角每日抽奖广告（可关闭；每日一抽） -->
+<div class="lottery-float legend-float" id="lottery-float" role="button" tabindex="0" aria-label="打开每日抽奖">
+    <span class="lf-spark s1" aria-hidden="true">✦</span>
+    <span class="lf-spark s2" aria-hidden="true">✧</span>
+    <span class="lf-spark s3" aria-hidden="true">✨</span>
+    <span class="lf-icon">🎡</span>
+    <span class="lf-badge" aria-hidden="true">奖</span>
+    <span class="lf-copy">
+        <span class="lf-kicker">✦ 火爆来袭 ✦</span>
+        <span class="lf-title">幸运大转盘</span>
+        <span class="lf-sub"><b>萨米三日游</b><br>点击就送 · 每日一抽</span>
+    </span>
+    <span class="lf-cta">点我抽奖 →</span>
+    <span class="lf-close" id="lottery-float-close" title="关闭" role="button" aria-label="关闭广告">×</span>
+</div>
+
+<!-- 抽奖弹窗 -->
+<div class="lottery-mask" id="lottery-mask" hidden>
+    <div class="lottery-modal legend-modal" role="dialog" aria-modal="true" aria-label="幸运大转盘">
+        <span class="lm-corner c-tl" aria-hidden="true">✦</span>
+        <span class="lm-corner c-tr" aria-hidden="true">✦</span>
+        <span class="lm-corner c-bl" aria-hidden="true">✦</span>
+        <span class="lm-corner c-br" aria-hidden="true">✦</span>
+        <button type="button" class="lm-close" id="lottery-modal-close" aria-label="关闭">×</button>
+        <h3 class="lm-title">响石旅行社 · 幸运大转盘</h3>
+        <p class="lm-hot" aria-hidden="true">🔥 火爆进行中 · 每日一抽 🔥</p>
+        <p class="lm-shout">点一下！大奖就是你的——<b>萨米三日游</b>！</p>
+        <p class="lm-sub" id="lottery-sub">每天一次机会 · 转出你的萨米之旅</p>
+        <div class="wheel-shell">
+            <span class="wheel-pointer" aria-hidden="true">▼</span>
+            <div class="wheel-spin" id="lottery-spin">
+                <canvas id="lottery-canvas" width="600" height="600" aria-label="抽奖转盘"></canvas>
+            </div>
+        </div>
+        <div class="lottery-result" id="lottery-result" aria-live="polite"></div>
+        <button type="button" class="lottery-btn" id="lottery-start">点击抽奖</button>
+    </div>
+</div>
+
+<script src="js/main.js"><\/script>
+<script>
+/* 每日抽奖转盘（仅首页）：大奖“萨米三日游”只作展示，实际结果只会落在代金券与谢谢参与上 */
+(function () {
+    'use strict';
+
+    const FLOAT = document.getElementById('lottery-float');
+    const FLOAT_CLOSE = document.getElementById('lottery-float-close');
+    const MASK = document.getElementById('lottery-mask');
+    const MODAL_CLOSE = document.getElementById('lottery-modal-close');
+    const SUB = document.getElementById('lottery-sub');
+    const RESULT = document.getElementById('lottery-result');
+    const START = document.getElementById('lottery-start');
+    const SPIN = document.getElementById('lottery-spin');
+    const CANVAS = document.getElementById('lottery-canvas');
+    const ctx = CANVAS ? CANVAS.getContext('2d') : null;
+    if (!FLOAT || !MASK || !START || !CANVAS || !ctx) return;
+
+    /* 盘面（视觉奖项） */
+    const SECTORS = [
+        { id: 'trip',    label: '萨米三日游' },
+        { id: 'v50',     label: '50龙门币券' },
+        { id: 'thanks',  label: '谢谢参与' },
+        { id: 'v20',     label: '20龙门币券' },
+        { id: 'v10',     label: '10龙门币券' },
+        { id: 'v5',      label: '5龙门币券' }
+    ];
+    const COLORS = {
+        trip:   '#a63c33',
+        v50:    '#b97e3a',
+        v20:    '#d0a050',
+        v10:    '#e2bc78',
+        v5:     '#eed5a4',
+        thanks: '#d7cfbd'
+    };
+
+    /* 真实奖池：不含 trip（大奖永远不会被抽中） */
+    const PRIZE_TEXT = {
+        trip:   '🎉 恭喜抽中大奖：萨米三日游！',
+        v5:     '🎊 恭喜获得 5 龙门币代金券！',
+        v10:    '🎊 恭喜获得 10 龙门币代金券！',
+        v20:    '🎊 恭喜获得 20 龙门币代金券！',
+        v50:    '🎊 恭喜获得 50 龙门币代金券！',
+        thanks: '很遗憾，谢谢参与。明天再来试试手气。'
+    };
+    const WEIGHTS = { v5: 30, thanks: 30, v10: 20, v20: 14, v50: 6 };
+
+    /* 每日 key（真实日期，跨天自动刷新） */
+    function todayKey() {
+        const d = new Date();
+        return d.getFullYear() + '-' +
+            String(d.getMonth() + 1).padStart(2, '0') + '-' +
+            String(d.getDate()).padStart(2, '0');
+    }
+
+    /* localStorage 兜底存储 */
+    const mem = {};
+    let lsOK = true;
+    try { localStorage.setItem('__cairn_lottery_t', '1'); localStorage.removeItem('__cairn_lottery_t'); }
+    catch (e) { lsOK = false; }
+    function storeGet(key) {
+        if (lsOK) { try { const v = localStorage.getItem(key); if (v !== null) return v; } catch (e) {} }
+        return Object.prototype.hasOwnProperty.call(mem, key) ? mem[key] : null;
+    }
+    function storeSet(key, val) {
+        mem[key] = val;
+        if (lsOK) { try { localStorage.setItem(key, val); } catch (e) {} }
+    }
+
+    /* 按日期打乱盘面顺序（每天看起来都不一样） */
+    function hashStr(s) {
+        let h = 2166136261;
+        for (let i = 0; i < s.length; i++) {
+            h ^= s.charCodeAt(i);
+            h = Math.imul(h, 16777619);
+        }
+        return h >>> 0;
+    }
+    function mulberry32(a) {
+        return function () {
+            a |= 0; a = (a + 0x6D2B79F5) | 0;
+            let t = Math.imul(a ^ (a >>> 15), 1 | a);
+            t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+            return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+        };
+    }
+    const daySectors = SECTORS.slice();
+    {
+        const rnd = mulberry32(hashStr(todayKey()));
+        for (let i = daySectors.length - 1; i > 0; i--) {
+            const j = Math.floor(rnd() * (i + 1));
+            const tmp = daySectors[i];
+            daySectors[i] = daySectors[j];
+            daySectors[j] = tmp;
+        }
+    }
+
+    function drawWheel() {
+        const S = CANVAS.width;
+        const cx = S / 2;
+        const cy = S / 2;
+        ctx.clearRect(0, 0, S, S);
+
+        ctx.beginPath();
+        ctx.arc(cx, cy, S / 2 - 2, 0, Math.PI * 2);
+        ctx.fillStyle = '#f7efdf';
+        ctx.fill();
+
+        const R = S / 2 - 20;
+        const n = daySectors.length;
+        const arc = (Math.PI * 2) / n;
+        daySectors.forEach((sec, i) => {
+            const start = -Math.PI / 2 + i * arc;
+            ctx.beginPath();
+            ctx.moveTo(cx, cy);
+            ctx.arc(cx, cy, R, start, start + arc);
+            ctx.closePath();
+            ctx.fillStyle = COLORS[sec.id] || '#e8dcc4';
+            ctx.fill();
+            ctx.strokeStyle = 'rgba(255,255,255,.9)';
+            ctx.lineWidth = 3;
+            ctx.stroke();
+
+            ctx.save();
+            ctx.translate(cx, cy);
+            ctx.rotate(start + arc / 2);
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.fillStyle = sec.id === 'trip' ? '#fff8f3' : '#3c3427';
+            ctx.font = '700 28px "Noto Sans SC","PingFang SC","Microsoft YaHei",sans-serif';
+            ctx.fillText(sec.label, R * 0.63, 0);
+            ctx.restore();
+        });
+
+        /* 中心轴 */
+        ctx.beginPath();
+        ctx.arc(cx, cy, 46, 0, Math.PI * 2);
+        ctx.fillStyle = '#fffdf7';
+        ctx.fill();
+        ctx.lineWidth = 4;
+        ctx.strokeStyle = 'rgba(169,119,60,.45)';
+        ctx.stroke();
+    }
+
+    function weightedPick() {
+        const keys = Object.keys(WEIGHTS);
+        const total = keys.reduce(function (s, k) { return s + WEIGHTS[k]; }, 0);
+        let r = Math.random() * total;
+        for (let i = 0; i < keys.length; i++) {
+            r -= WEIGHTS[keys[i]];
+            if (r < 0) return keys[i];
+        }
+        return 'thanks';
+    }
+
+    function showResult(id) {
+        RESULT.classList.toggle('is-fail', id === 'thanks');
+        RESULT.textContent = PRIZE_TEXT[id] || PRIZE_TEXT.thanks;
+    }
+
+    function applyTodayState() {
+        const rec = storeGet('cairn_lottery_' + todayKey());
+        if (rec) {
+            let data = null;
+            try { data = JSON.parse(rec); } catch (e) {}
+            if (data && data.id) {
+                showResult(data.id);
+                START.disabled = true;
+                START.textContent = '今日已抽过';
+                SUB.textContent = '下一次机会将于明日刷新';
+                return;
+            }
+        }
+        RESULT.textContent = '';
+        START.disabled = false;
+        START.textContent = '点击抽奖';
+        SUB.textContent = '每天一次机会 · 转出你的萨米之旅';
+    }
+
+    function openLottery() {
+        drawWheel();
+        applyTodayState();
+        MASK.hidden = false;
+        document.body.style.overflow = 'hidden';
+    }
+    function closeLottery() {
+        MASK.hidden = true;
+        document.body.style.overflow = '';
+    }
+
+    FLOAT.addEventListener('click', openLottery);
+    FLOAT.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            openLottery();
+        }
+    });
+    FLOAT_CLOSE.addEventListener('click', function (e) {
+        e.stopPropagation();
+        /* 单次关闭：不写入存储，刷新/重新进入页面后广告会再次出现 */
+        FLOAT.classList.add('is-closed');
+    });
+    MODAL_CLOSE.addEventListener('click', closeLottery);
+    MASK.addEventListener('click', function (e) {
+        if (e.target === MASK) closeLottery();
+    });
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && !MASK.hidden) closeLottery();
+    });
+
+    let currentRotation = 0;
+    let spinning = false;
+    START.addEventListener('click', function () {
+        if (spinning) return;
+
+        const chosen = weightedPick();
+        const target = daySectors.findIndex(function (s) { return s.id === chosen; });
+        const n = daySectors.length;
+        const centerFromTop = (target + 0.5) * (360 / n);
+        const desired = (360 - centerFromTop) % 360;
+        const current = ((currentRotation % 360) + 360) % 360;
+        const delta = (desired - current + 360) % 360;
+        const next = currentRotation + delta + 360 * 5;
+
+        spinning = true;
+        START.disabled = true;
+        START.textContent = '开奖中…';
+        RESULT.textContent = '';
+        SUB.textContent = '转盘正在减速……';
+
+        currentRotation = next;
+        CANVAS.style.transition = 'transform 4.6s cubic-bezier(.08,.75,.16,1)';
+        CANVAS.style.transform = 'rotate(' + next + 'deg)';
+
+        setTimeout(function () {
+            spinning = false;
+            storeSet('cairn_lottery_' + todayKey(), JSON.stringify({ id: chosen }));
+            showResult(chosen);
+            START.textContent = '今日已抽过';
+            SUB.textContent = '下一次机会将于明日刷新';
+        }, 4800);
+    });
+
+})();
+<\/script>
+</body>
+</html>
+
+</script>
+<script type="text/plain" id="pg-news">
+<!-- 👁️我在看着你👁️ -->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>最新动态 - 响石旅行社</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body class="phase-1" data-page="news">
+
+<header class="site-header">
+    <div class="header-inner">
+        <a class="logo" href="index.html">
+            <img class="logo-mark" src="assets/头像_响石.png" alt="响石旅行社">
+            <span class="logo-text">
+                <span class="logo-cn">响石旅行社 · 萨米专区</span><br>
+                <span class="logo-en">Cairn Travel Agency</span>
+            </span>
+        </a>
+        <form class="search-form" role="search" onsubmit="return false;">
+            <span class="search-box">
+                <span class="search-icon">⌕</span>
+                <input id="search-input" type="text" autocomplete="off" spellcheck="false" placeholder="搜索目的地、订单号、关键词…">
+                <button class="search-btn" type="button" onclick="handleSearch()">搜索</button>
+            </span>
+        </form>
+    </div>
+    <nav class="site-nav">
+        <div class="nav-inner">
+            <a href="index.html">首页</a>
+            <a href="routes.html">线路介绍</a>
+            <a href="about.html">关于我们</a>
+            <a href="reviews.html">客户评价</a>
+            <a href="order.html">订单查询</a>
+        </div>
+    </nav>
+</header>
+
+<main>
+    <p class="kicker">NEWSROOM</p>
+    <h1 class="page-title">最新动态</h1>
+    <p class="page-sub">响石旅行社 · 官方公告与行程资讯</p>
+
+    <article class="panel article" id="n-1220">
+        <h2>关于近期服务调整的说明</h2>
+        <div class="meta">泰拉历 1100.12.20 · 响石旅行社 运营部</div>
+        <p class="lead">致各位游客：冬季行程将迎来小幅调整，请以本说明为准。</p>
+        <p>
+            为应对萨米地区冬季风雪与边境形势变化，本社自即日起对部分服务做出调整：
+            萨米冰原探险线路的集合时间提前至清晨，装备清单新增防风面罩与信号备用电源；
+            极光观测之旅维持原行程不变。
+        </p>
+        <p>
+            同时，近期部分行程的“直播跟拍服务”将视天气与边境通讯状况预约开放。
+            如遇通讯中断，请勿惊慌，跟随向导原地等待即可。
+        </p>
+        <p>感谢各位的理解与支持。响石旅行社，一直在路上。</p>
+    </article>
+
+    <article class="panel article" id="n-1218">
+        <h2>【重要】关于周符卿先生行程的情况说明</h2>
+        <div class="meta">泰拉历 1100.12.18 · 响石旅行社 运营部</div>
+        <p class="lead">就近期网友对萨米探险行程的疑问，本社统一答复如下。</p>
+        <p>
+            周符卿先生预订的“萨米冰原探险 + 直播服务”行程已于泰拉历1100.12.18顺利完成，
+            客户已安全返回。此前直播信号中断系萨米地区特殊地理环境所致，属于冬季线路常见现象，
+            请广大观众放心。
+        </p>
+        <p>
+            响石旅行社对每一位游客负责。如需查询订单详情，请访问【<span class="kw">订单查询</span>】系统；
+            其他疑问欢迎通过原渠道留言。
+        </p>
+    </article>
+
+    <article class="panel article" id="n-1203">
+        <h2>知名主播周符卿预订萨米探险行程</h2>
+        <div class="meta">泰拉历 1100.12.03 · 响石旅行社 市场部</div>
+        <p class="lead">下一位与我们走进萨米雪原的，是一位老朋友。</p>
+        <p>
+            知名大主播周符卿已正式确认，将于泰拉历1100.12.15参加由本社组织的
+            “萨米冰原探险（3天2夜）”行程，并全程开启直播。出发前他对响石女士的专业素养赞不绝口，
+            并亲自挑选了订单尾号——他说，好记。
+        </p>
+        <p>12.16中午十二点，直播间首播，与大家一起看萨米。家人们，不见不散。</p>
+    </article>
+
+    <p style="text-align:center;"><a class="btn" href="index.html">← 返回首页</a></p>
+</main>
+
+<footer class="site-footer">
+    <div>响石旅行社 Cairn Travel Agency</div>
+    <div class="progress-pill">站内动态 · 不属于主线页面</div>
+    <div class="disclaimer">本网站内容基于《明日方舟》世界观创作，与现实无关。</div>
+</footer>
+
+<script src="js/main.js"><\/script>
+</body>
+</html>
+
+</script>
+<script type="text/plain" id="pg-routes">
+<!-- 👁️我在看着你👁️ -->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>线路介绍 · 萨米冰原探险 - 响石旅行社</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body class="phase-1" data-page="routes" data-nav="routes">
+
+<header class="site-header">
+    <div class="header-inner">
+        <a class="logo" href="index.html">
+            <img class="logo-mark" src="assets/头像_响石.png" alt="响石旅行社">
+            <span class="logo-text">
+                <span class="logo-cn">响石旅行社 · 萨米专区</span><br>
+                <span class="logo-en">Cairn Travel Agency</span>
+            </span>
+        </a>
+        <form class="search-form" role="search" onsubmit="return false;">
+            <span class="search-box">
+                <span class="search-icon">⌕</span>
+                <input id="search-input" type="text" autocomplete="off" spellcheck="false" placeholder="搜索目的地、订单号、关键词…">
+                <button class="search-btn" type="button" onclick="handleSearch()">搜索</button>
+            </span>
+        </form>
+    </div>
+    <nav class="site-nav">
+        <div class="nav-inner">
+            <a href="index.html">首页</a>
+            <a href="routes.html">线路介绍</a>
+            <a href="about.html">关于我们</a>
+            <a href="reviews.html">客户评价</a>
+            <a href="order.html">订单查询</a>
+        </div>
+    </nav>
+</header>
+
+<main>
+    <div class="hero-photo">
+        <img src="assets/冰原.png" alt="萨米冰原">
+        <div class="hero-caption">
+            <h1>线路介绍 · 萨米冰原探险</h1>
+            <p>3天2夜 · 低地市集出发 · 直升机接驳离开</p>
+        </div>
+    </div>
+
+    <section class="panel">
+        <h2>行程安排</h2>
+        <div style="border-left:2px solid var(--line); margin-top:6px;">
+            <div style="padding:12px 0 12px 18px; border-bottom:1px dashed var(--line);">
+                <strong class="mono">DAY 1</strong>
+                <div>低地市集集合 · 装备检查</div>
+            </div>
+            <div style="padding:12px 0 12px 18px; border-bottom:1px dashed var(--line);">
+                <strong class="mono">DAY 2</strong>
+                <div>
+                    徒步穿越冰原，途经<span class="kw">废弃信号放大站756号</span>（外观参观）。
+                    该站仍可作短波中继，本社直播服务由此接入。
+                </div>
+            </div>
+            <div style="padding:12px 0 0 18px;">
+                <strong class="mono">DAY 3</strong>
+                <div>冬牙山脉北麓观景 · 直升机接驳返回</div>
+            </div>
+        </div>
+
+        <div class="box" style="margin-top:22px;">
+            <p><strong>费用：</strong>面议。含保险。不含寻回服务。</p>
+            <p class="small muted" style="margin-top:4px;">※ “不含寻回服务”系旧版模板残留，正在修订。</p>
+        </div>
+    </section>
+
+    <section class="panel">
+        <h2>沿途看点</h2>
+        <div class="photo-frame">
+            <img src="assets/756号.png" alt="废弃信号放大站756号">
+            <div class="photo-cap">废弃信号放大站756号 · 外观（资料图）。该站已废弃多年，仅保留短波中继功能。</div>
+        </div>
+    </section>
+
+    <p style="text-align:center; color:var(--muted); font-size:13.5px;">萨米地区天气多变，行程可能临时调整，请以向导安排为准。</p>
+</main>
+
+<footer class="site-footer">
+    <div>响石旅行社 Cairn Travel Agency</div>
+    <div class="progress-pill">进度 02/14</div>
+    <div class="disclaimer">本网站内容基于《明日方舟》世界观创作，与现实无关。</div>
+</footer>
+
+<script src="js/main.js"><\/script>
+</body>
+</html>
+
+</script>
+<script type="text/plain" id="pg-about">
+<!-- 👁️我在看着你👁️ -->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>关于我们 - 响石旅行社</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body class="phase-1" data-page="about" data-nav="about">
+
+<header class="site-header">
+    <div class="header-inner">
+        <a class="logo" href="index.html">
+            <img class="logo-mark" src="assets/头像_响石.png" alt="响石旅行社">
+            <span class="logo-text">
+                <span class="logo-cn">响石旅行社 · 萨米专区</span><br>
+                <span class="logo-en">Cairn Travel Agency</span>
+            </span>
+        </a>
+        <form class="search-form" role="search" onsubmit="return false;">
+            <span class="search-box">
+                <span class="search-icon">⌕</span>
+                <input id="search-input" type="text" autocomplete="off" spellcheck="false" placeholder="搜索目的地、订单号、关键词…">
+                <button class="search-btn" type="button" onclick="handleSearch()">搜索</button>
+            </span>
+        </form>
+    </div>
+    <nav class="site-nav">
+        <div class="nav-inner">
+            <a href="index.html">首页</a>
+            <a href="routes.html">线路介绍</a>
+            <a href="about.html">关于我们</a>
+            <a href="reviews.html">客户评价</a>
+            <a href="order.html">订单查询</a>
+        </div>
+    </nav>
+</header>
+
+<main>
+    <p class="kicker">ABOUT</p>
+    <h1 class="page-title">关于我们</h1>
+    <p class="page-sub">“哪儿都能去，每一位游客都能平安归来。”</p>
+
+    <div class="split">
+        <div>
+            <div class="panel">
+                <div class="photo-frame">
+                    <img src="assets/立绘_响石_1.png" alt="费尔南·伯恩（响石）">
+                    <div class="photo-cap">向导 · 费尔南·伯恩，代号“响石”（Cairn）。</div>
+                </div>
+                <div class="agency-quote" style="margin-top:16px;">
+                    游客们都说：一看就很专业。<br>
+                    她的解释是：“呃……那是我<span class="kw">迷路</span>了，在想办法。”
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <section class="panel">
+                <h2>旅行社简介</h2>
+                <p>响石旅行社·萨米专区 | 成立于泰拉历1095年 | 服务游客 200 名 | 失联记录 0 次</p>
+                <p class="small muted">萨米专区小团出行，向导全程跟随，不外包、不拼团。</p>
+            </section>
+
+            <section class="panel">
+                <h2>核心团队</h2>
+                <div style="display:flex; gap:14px; align-items:center;">
+                    <span class="avatar" style="width:58px; height:58px;">
+                        <img src="assets/头像_响石.png" alt="响石">
+                    </span>
+                    <div>
+                        <div><strong>费尔南·伯恩</strong>　代号：<span class="kw">响石</span>（Cairn）</div>
+                        <div class="small muted">创始人 &amp; 唯一导游 · 哥伦比亚人 · 感染者 · 5年萨米向导经验</div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="panel">
+                <h2>职业特点</h2>
+                <p class="small muted">业内称“响石三技”：</p>
+                <ul>
+                    <li><strong>观风滚草</strong>——看风滚草的滚动和影子判断地形</li>
+                    <li><strong>听石堆</strong>——敲击萨米指路石堆“听”方位</li>
+                    <li><strong>掸沙观风</strong>——扬沙判断风场与天气</li>
+                </ul>
+            </section>
+
+            <section class="panel soft">
+                <h2>我们的承诺</h2>
+                <p><span class="kw">零失联记录</span> ✓ 五年，每一位游客都平安回到了家人身边。</p>
+            </section>
+        </div>
+    </div>
+</main>
+
+<footer class="site-footer">
+    <div>响石旅行社 Cairn Travel Agency</div>
+    <div class="progress-pill">进度 03/14</div>
+    <div class="disclaimer">本网站内容基于《明日方舟》世界观创作，与现实无关。</div>
+</footer>
+
+<script src="js/main.js"><\/script>
+</body>
+</html>
+
+</script>
+<script type="text/plain" id="pg-reviews">
+<!-- 👁️我在看着你👁️ -->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>客户评价 - 响石旅行社</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body class="phase-1 phase-transition" data-page="reviews" data-nav="reviews">
+
+<header class="site-header">
+    <div class="header-inner">
+        <a class="logo" href="index.html">
+            <img class="logo-mark" src="assets/头像_响石.png" alt="响石旅行社">
+            <span class="logo-text">
+                <span class="logo-cn">响石旅行社 · 萨米专区</span><br>
+                <span class="logo-en">Cairn Travel Agency</span>
+            </span>
+        </a>
+        <form class="search-form" role="search" onsubmit="return false;">
+            <span class="search-box">
+                <span class="search-icon">⌕</span>
+                <input id="search-input" type="text" autocomplete="off" spellcheck="false" placeholder="搜索目的地、订单号、关键词…">
+                <button class="search-btn" type="button" onclick="handleSearch()">搜索</button>
+            </span>
+        </form>
+    </div>
+    <nav class="site-nav">
+        <div class="nav-inner">
+            <a href="index.html">首页</a>
+            <a href="routes.html">线路介绍</a>
+            <a href="about.html">关于我们</a>
+            <a href="reviews.html">客户评价</a>
+            <a href="order.html">订单查询</a>
+        </div>
+    </nav>
+</header>
+
+<main>
+    <p class="kicker">REVIEWS</p>
+    <h1 class="page-title">客户评价</h1>
+    <p class="page-sub">来自萨米专区两百余位游客中的一部分声音</p>
+
+    <div class="review-card">
+        <div class="review-head">
+            <span class="avatar">米</span>
+            <span class="reviewer">米勒</span>
+            <span class="review-date">1100.11</span>
+        </div>
+        <div class="stars">★★★★★</div>
+        <div class="review-body">
+            遇到暴风雪时响石女士冷静地找到避难所，还用“听石头”的方法确认了撤退方向。全员安全返回！
+        </div>
+    </div>
+
+    <div class="review-card">
+        <div class="review-head">
+            <span class="avatar">游</span>
+            <span class="reviewer">女游客C</span>
+            <span class="review-date">1100.10</span>
+        </div>
+        <div class="stars">★★★★★</div>
+        <div class="review-body">
+            震撼的极光，深度的文化体验。她的职业习惯看起来神秘但确实有用。五星好评！
+        </div>
+    </div>
+
+    <div class="review-card">
+        <div class="review-head">
+            <span class="avatar">南</span>
+            <span class="reviewer">南山先生</span>
+            <span class="review-date">1100.09</span>
+        </div>
+        <div class="stars">★☆☆☆☆</div>
+        <div class="review-body">
+            导游要我们闭嘴听山。我们在雪地里站了半小时，什么都没听见。她说是我们声音太大了。
+        </div>
+        <div class="reply">
+            <span class="who">商家回复：</span>山说了，您下次还来。
+        </div>
+    </div>
+
+    <div class="review-card">
+        <div class="review-head">
+            <span class="avatar">周</span>
+            <span class="reviewer">周符卿</span>
+            <span class="review-date">1100.12.03</span>
+        </div>
+        <div class="stars">★★★★★</div>
+        <div class="review-body">
+            作为主播，我正在筹备萨米地区的直播探险。响石女士的专业素养没得挑。
+            订单号：<span class="kw">SA11001215-???</span>（后三位因隐私已隐藏）
+            <div class="small muted" style="margin-top:8px;">—— 尾号是我自己挑的，好记。12.16中午十二点首播，家人们不见不散！</div>
+        </div>
+    </div>
+
+    <div class="review-card" id="rosmontis-review">
+        <div class="review-head">
+            <span class="avatar" id="ros-avatar">罗</span>
+            <span class="reviewer" id="ros-name">罗斯蒙蒂斯</span>
+            <span class="review-date">1100.12.08</span>
+        </div>
+        <div class="stars">★★★★★</div>
+        <div class="review-body">
+            萨米的风景确实很好！可惜回来以后全忘了……
+        </div>
+    </div>
+
+    <div class="review-card warning">
+        <div class="review-head">
+            <span class="avatar">?</span>
+            <span class="reviewer">匿名用户</span>
+            <span class="review-date">1100.12.16</span>
+        </div>
+        <div class="stars" style="color:var(--muted);">⚠️ 未评分</div>
+        <div class="review-body">
+            为什么官网还在正常营业？关于<span class="kw">那场直播</span>的事……
+            我看了回放，<strong>15:25</strong>那里画面突然就黑了。到底发生了什么？
+        </div>
+    </div>
+
+    <section class="panel" style="margin-top:30px;">
+        <h2>关于近期疑问的说明</h2>
+        <p>
+            该行程已于1100.12.18顺利完成，客户已安全返回。
+            此前通讯中断系萨米地区特殊地理环境所致。
+            响石旅行社继续保持<strong>零失联记录</strong>。
+        </p>
+        <p>如需查询订单详情，请访问【<span class="kw">订单查询</span>】系统。</p>
+    </section>
+</main>
+
+<footer class="site-footer">
+    <div>响石旅行社 Cairn Travel Agency</div>
+    <div class="progress-pill">进度 04/14</div>
+    <div class="disclaimer">本网站内容基于《明日方舟》世界观创作，与现实无关。</div>
+</footer>
+
+<script src="js/main.js"><\/script>
+<script>
+/* 彩蛋：罗斯蒙蒂斯 → 萨米文 ROSMONTIS → 迷迭香 */
+(function () {
+    const name = document.getElementById('ros-name');
+    const avatar = document.getElementById('ros-avatar');
+    if (!name || !avatar) return;
+
+    function stepOne() {
+        if (name.getAttribute('data-step') === '2') return;
+        name.setAttribute('data-step', '1');
+        name.classList.add('rune-name');
+        name.textContent = 'ROSMONTIS';
+        avatar.setAttribute('data-ready', '1');
+        avatar.classList.add('ready');
+        avatar.tabIndex = 0;
+    }
+
+    function stepTwo() {
+        if (avatar.getAttribute('data-ready') !== '1') return;
+        if (avatar.getAttribute('data-step') === '2') return;
+        avatar.setAttribute('data-step', '2');
+        avatar.innerHTML = '<img src="assets/头像_迷迭香.png" alt="迷迭香">';
+        name.textContent = '迷迭香';
+        name.classList.remove('rune-name');
+        name.setAttribute('data-step', '2');
+        name.removeAttribute('role');
+        name.removeAttribute('tabindex');
+        avatar.classList.remove('ready');
+        avatar.removeAttribute('tabindex');
+    }
+
+    name.addEventListener('click', stepOne);
+    name.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            stepOne();
+        }
+    });
+    avatar.addEventListener('click', stepTwo);
+    avatar.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            stepTwo();
+        }
+    });
+})();
+<\/script>
+</body>
+</html>
+
+</script>
+<script type="text/plain" id="pg-order">
+<!-- 👁️我在看着你👁️ -->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>订单查询系统 - 响石旅行社</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body class="phase-2" data-page="order" data-nav="order">
+
+<header class="site-header">
+    <div class="header-inner">
+        <a class="logo" href="index.html">
+            <img class="logo-mark" src="assets/头像_响石.png" alt="响石旅行社">
+            <span class="logo-text">
+                <span class="logo-cn">响石旅行社 · 萨米专区</span><br>
+                <span class="logo-en">Cairn Travel Agency</span>
+            </span>
+        </a>
+        <form class="search-form" role="search" onsubmit="return false;">
+            <span class="search-box">
+                <span class="search-icon">⌕</span>
+                <input id="search-input" type="text" autocomplete="off" spellcheck="false" placeholder="搜索目的地、订单号、关键词…">
+                <button class="search-btn" type="button" onclick="handleSearch()">搜索</button>
+            </span>
+        </form>
+    </div>
+    <nav class="site-nav">
+        <div class="nav-inner">
+            <a href="index.html">首页</a>
+            <a href="routes.html">线路介绍</a>
+            <a href="about.html">关于我们</a>
+            <a href="reviews.html">客户评价</a>
+            <a href="order.html">订单查询</a>
+        </div>
+    </nav>
+</header>
+
+<main>
+    <p class="kicker">ORDER</p>
+    <h1 class="page-title">订单查询系统</h1>
+    <p class="page-sub">请输入完整订单号。你也可以把订单号直接输入站内搜索框。</p>
+
+    <section class="panel">
+        <form id="order-form" style="max-width:640px; margin:0 auto;">
+            <label class="small muted" for="order-input">完整订单号</label>
+            <input class="field" id="order-input" type="text" autocomplete="off" spellcheck="false"
+                   placeholder="SA11001215-XXX" style="margin-top:8px; text-align:center; font-family:var(--font-mono);">
+            <div style="display:flex; justify-content:center; margin-top:14px;">
+                <button class="btn primary" type="submit">查询订单</button>
+            </div>
+        </form>
+        <div class="error-msg" id="order-error"></div>
+
+        <div id="order-result" class="hidden-result" style="margin-top:30px;">
+            <div class="order-card">
+                <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;">
+                    <h2 style="margin:0;">订单详情</h2>
+                    <span class="status-badge">✓ 已完成</span>
+                </div>
+                <dl class="kv" style="margin-top:16px;">
+                    <dt>订单号</dt><dd class="mono">SA11001215-325</dd>
+                    <dt>客户</dt><dd>周符卿（男）</dd>
+                    <dt>行程</dt><dd>萨米冰原探险 + <span class="kw">直播服务</span></dd>
+                    <dt>向导</dt><dd>费尔南·伯恩（响石）</dd>
+                    <dt>出发</dt><dd>泰拉历1100.12.15 · 3天2夜</dd>
+                    <dt>状态</dt><dd>✓ 已完成</dd>
+                </dl>
+
+                <div class="box" id="archive-access">
+                    <h3 style="margin-top:0;">▼ 直播存档访问</h3>
+                    <p>
+                        本行程包含全程直播服务，录像经<span class="kw">756号</span>信号放大站中继归档至本站服务器。
+                    </p>
+                    <p>如需调取，请在顶部搜索栏输入中继站编号。</p>
+                    <p class="small muted" style="margin-top:10px;">编号提示：见线路介绍 · 萨米冰原探险 DAY 2。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer class="site-footer">
+    <div>响石旅行社 Cairn Travel Agency</div>
+    <div class="progress-pill">进度 05/14</div>
+    <div class="disclaimer">本网站内容基于《明日方舟》世界观创作，与现实无关。</div>
+</footer>
+
+<script src="js/main.js"><\/script>
+</body>
+</html>
+
+</script>
+<script type="text/plain" id="pg-livestream">
+<!-- 👁️我在看着你👁️ -->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>直播存档 - 响石旅行社</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body class="phase-2" data-page="livestream">
+
+<header class="site-header">
+    <div class="header-inner">
+        <a class="logo" href="index.html">
+            <img class="logo-mark" src="assets/头像_响石.png" alt="响石旅行社">
+            <span class="logo-text">
+                <span class="logo-cn">响石旅行社 · 萨米专区</span><br>
+                <span class="logo-en">Cairn Travel Agency</span>
+            </span>
+        </a>
+        <form class="search-form" role="search" onsubmit="return false;">
+            <span class="search-box">
+                <span class="search-icon">⌕</span>
+                <input id="search-input" type="text" autocomplete="off" spellcheck="false" placeholder="搜索目的地、订单号、关键词…">
+                <button class="search-btn" type="button" onclick="handleSearch()">搜索</button>
+            </span>
+        </form>
+    </div>
+    <nav class="site-nav">
+        <div class="nav-inner">
+            <a href="index.html">首页</a>
+            <a href="routes.html">线路介绍</a>
+            <a href="about.html">关于我们</a>
+            <a href="reviews.html">客户评价</a>
+            <a href="order.html">订单查询</a>
+        </div>
+    </nav>
+</header>
+
+<main>
+    <!-- 未授权模式：信号站景点解说 -->
+    <section data-mode="scenic" style="display:none;">
+        <p class="kicker">SCENERY · DAY 2</p>
+        <h1 class="page-title">废弃信号放大站756号 · 景点解说</h1>
+        <p class="page-sub">萨米冰原探险线路 · 沿途外观参观</p>
+        <div class="panel">
+            <div class="photo-frame">
+                <img src="assets/756号.png" alt="废弃信号放大站756号">
+                <div class="photo-cap">废弃信号放大站756号 · 外观（资料图）。</div>
+            </div>
+            <div style="margin-top:18px;">
+                <p>
+                    756号曾是萨米边境的一处信号放大站，如今早已废弃，只保留短波中继功能。
+                    该站仍可作短波中继，本社直播服务由此接入。
+                </p>
+                <p class="small muted">本页为线路解说页面。如需调取与某位游客有关的直播档案，请先在订单查询系统中完成验证。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 授权模式：直播存档 -->
+    <section data-mode="archive">
+        <p class="kicker">ARCHIVE · RESTRICTED</p>
+        <h1 class="page-title">直播存档《萨米冰原探险》</h1>
+        <p class="page-sub">主播：周符卿 · 时间：1100-12-16 12:00~17:27（信号于 15:25 中断）</p>
+
+        <div class="video-frame">
+            <div class="video-top">
+                <span class="record-dot"></span>
+                <span class="video-title">LIVE ARCHIVE · REC</span>
+                <span class="small muted" style="margin-left:auto; font-family:var(--font-mono);">SA11001215-325</span>
+            </div>
+            <div class="video-bar">
+                <span class="play-sym">▶</span>
+                <div class="timeline">
+                    <div class="fill"></div>
+                    <div class="cut-marker" title="信号中断"></div>
+                </div>
+                <span class="time-stamp">15:25 / 17:27</span>
+            </div>
+            <div class="shot-grid">
+                <div class="shot">
+                    <img src="assets/低地市集.png" alt="12:30">
+                    <div class="cap"><span>12:30</span><span>出发</span></div>
+                </div>
+                <div class="shot">
+                    <img src="assets/冰原.png" alt="13:00">
+                    <div class="cap"><span>13:00</span><span>徒步中</span></div>
+                </div>
+                <div class="shot">
+                    <img src="assets/雪林.png" alt="13:30">
+                    <div class="cap"><span>13:30</span><span>雪景</span></div>
+                </div>
+                <div class="shot">
+                    <img src="assets/部族聚落.png" alt="14:00">
+                    <div class="cap"><span>14:00</span><span>休息</span></div>
+                </div>
+                <div class="shot">
+                    <img src="assets/雪原.png" alt="14:30">
+                    <div class="cap"><span>14:30</span><span>继续前进</span></div>
+                </div>
+                <div class="shot">
+                    <img src="assets/雪林2.png" alt="15:00">
+                    <div class="cap"><span>15:00</span><span>正常</span></div>
+                </div>
+                <div class="shot glitched">
+                    <img src="assets/污染.png" alt="15:25 异常">
+                    <div class="cap" style="color:#e08a83;"><span>15:25</span><span>⚠️ 异常</span></div>
+                </div>
+                <div class="shot">
+                    <div class="noise-box">NO SIGNAL</div>
+                    <div class="cap"><span>16:00</span><span>信号丢失</span></div>
+                </div>
+                <div class="shot">
+                    <div class="noise-box">NO SIGNAL</div>
+                    <div class="cap"><span>16:30</span><span>信号丢失</span></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel">
+            <h2>▼ 技术说明</h2>
+            <p>
+                直播信号于 <strong class="danger">15:25</strong> 突然中断，后续画面完全丢失。
+                存档由756号信号放大站中继，画面经多段修复后仍存在严重损坏。
+            </p>
+            <div class="box alert">
+                <strong>⚠️ 15:25 截图严重损坏</strong>
+                <p style="margin-top:4px;">点击查看<span class="broken-link">关键帧分析</span>……（页面链接丢失）</p>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer class="site-footer">
+    <div>响石旅行社 Cairn Travel Agency</div>
+    <span class="progress-pill" data-mode="archive">进度 06/14</span>
+    <span class="progress-pill" data-mode="scenic" style="display:none;">景点解说 · 不计入主线</span>
+    <div class="disclaimer">本网站内容基于《明日方舟》世界观创作，与现实无关。</div>
+</footer>
+
+<script src="js/main.js"><\/script>
+</body>
+</html>
+
+</script>
+<script type="text/plain" id="pg-frame_0325">
+<!-- 👁️我在看着你👁️ -->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>关键帧分析报告 - 响石旅行社</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body class="phase-3" data-page="frame">
+
+<header class="site-header">
+    <div class="header-inner">
+        <a class="logo" href="index.html">
+            <img class="logo-mark" src="assets/头像_响石.png" alt="响石旅行社">
+            <span class="logo-text">
+                <span class="logo-cn">响石旅行社 · 萨米专区</span><br>
+                <span class="logo-en">Cairn Travel Agency</span>
+            </span>
+        </a>
+        <form class="search-form" role="search" onsubmit="return false;">
+            <span class="search-box">
+                <span class="search-icon">⌕</span>
+                <input id="search-input" type="text" autocomplete="off" spellcheck="false" placeholder="搜索目的地、订单号、关键词…">
+                <button class="search-btn" type="button" onclick="handleSearch()">搜索</button>
+            </span>
+        </form>
+    </div>
+    <nav class="site-nav">
+        <div class="nav-inner">
+            <a href="index.html">首页</a>
+            <a href="routes.html">线路介绍</a>
+            <a href="about.html">关于我们</a>
+            <a href="reviews.html">客户评价</a>
+            <a href="order.html">订单查询</a>
+        </div>
+    </nav>
+</header>
+
+<main>
+    <p class="kicker">FRAME ANALYSIS</p>
+    <h1 class="page-title">关键帧分析报告</h1>
+    <p class="page-sub" style="margin-bottom:8px;">时间戳 <strong class="danger">15:25</strong> · 状态：严重损坏 · 来源：直播存档 756号中继</p>
+    <div class="file-tag" style="margin-bottom:24px;">DOC-0325 · UNVERIFIED</div>
+
+    <div class="panel" style="margin-bottom:22px;">
+        <div class="photo-frame glitched" style="border-color:rgba(178,75,69,.65);">
+            <img src="assets/污染.png" alt="15:25 关键帧（损坏）">
+            <div class="photo-cap" style="color:var(--danger);">15:25 原始帧（修复后）——画面主体颜色异常，右侧存在无法解析的轮廓。</div>
+        </div>
+    </div>
+
+    <div class="panel report">
+        <h2>▼ 异常特征</h2>
+        <div class="line" style="padding:10px 0; border-bottom:1px dashed var(--line);">
+            <strong>1. 雪花颜色异常</strong><br>
+            正常：RGB (255,255,255) 白色<br>
+            异常：RGB (0,0,0) <span class="kw">黑色</span>
+        </div>
+        <div class="line" style="padding:10px 0; border-bottom:1px dashed var(--line);">
+            <strong>2. 未知物体</strong><br>
+            画面右侧出现<span class="kw">黑烟状</span>人形轮廓，无固定实体
+        </div>
+        <div class="line" style="padding:10px 0; border-bottom:1px dashed var(--line);">
+            <strong>3. 人物定位</strong><br>
+            周符卿：画面中央　·　响石女士：未出现在画面中
+        </div>
+        <div class="line" style="padding:10px 0 4px;">
+            <strong>4. 档案匹配</strong><br>
+            异常特征符合机密档案记录：<span class="kw">邪魔的利刃</span><br>
+            <span style="color:var(--muted); font-size:12.5px;">（原编号 U15“皇帝的利刃”的失控形态）</span><br>
+            <span style="color:var(--danger);">⚠️ 该档案涉及敏感信息</span>
+        </div>
+    </div>
+
+    <p class="small muted" style="text-align:center;">分析由存档服务器自动生成 · 未经官方审核</p>
+</main>
+
+<footer class="site-footer">
+    <div>响石旅行社 Cairn Travel Agency</div>
+    <div class="progress-pill">进度 07/14</div>
+    <div class="disclaimer">本网站内容基于《明日方舟》世界观创作，与现实无关。</div>
+</footer>
+
+<script src="js/main.js"><\/script>
+</body>
+</html>
+
+</script>
+<script type="text/plain" id="pg-blade">
+<!-- 👁️我在看着你👁️ -->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>机密档案 · 邪魔的利刃 - 响石旅行社</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body class="phase-3" data-page="blade">
+
+<header class="site-header">
+    <div class="header-inner">
+        <a class="logo" href="index.html">
+            <img class="logo-mark" src="assets/头像_响石.png" alt="响石旅行社">
+            <span class="logo-text">
+                <span class="logo-cn">响石旅行社 · 萨米专区</span><br>
+                <span class="logo-en">Cairn Travel Agency</span>
+            </span>
+        </a>
+        <form class="search-form" role="search" onsubmit="return false;">
+            <span class="search-box">
+                <span class="search-icon">⌕</span>
+                <input id="search-input" type="text" autocomplete="off" spellcheck="false" placeholder="搜索目的地、订单号、关键词…">
+                <button class="search-btn" type="button" onclick="handleSearch()">搜索</button>
+            </span>
+        </form>
+    </div>
+    <nav class="site-nav">
+        <div class="nav-inner">
+            <a href="index.html">首页</a>
+            <a href="routes.html">线路介绍</a>
+            <a href="about.html">关于我们</a>
+            <a href="reviews.html">客户评价</a>
+            <a href="order.html">订单查询</a>
+        </div>
+    </nav>
+</header>
+
+<main>
+    <div style="display:flex; align-items:center; gap:14px; flex-wrap:wrap; margin-bottom:14px;">
+        <span class="classify-seal">机密</span>
+        <span class="file-tag">编号 DB · 失控体 · 极度危险</span>
+    </div>
+
+    <h1 class="page-title glitch-flicker">邪魔的利刃</h1>
+    <p class="page-sub">失控体档案 · 原编制：乌萨斯帝国内卫 · 观测地：萨米地区</p>
+
+    <section class="panel">
+        <h2>档案主体</h2>
+        <div class="blade-dossier">
+            <div class="subject-photo">
+                <span class="stamp">绝密</span>
+                <img src="assets/头像_敌人_“邪魔的利刃”.png" alt="邪魔的利刃（影像已遮蔽）">
+                <span class="censor-bar bar-a"></span>
+                <span class="censor-bar bar-b"></span>
+                <span class="censor-tag">影像来源：756号中继 · 已遮蔽</span>
+            </div>
+            <dl class="kv">
+                <dt>名称</dt><dd>邪魔的利刃</dd>
+                <dt>原编号</dt><dd>U15 · “皇帝的利刃”</dd>
+                <dt>状态</dt><dd>失控 / 脱离编制</dd>
+                <dt>分类</dt><dd>远距离 · 物理 · 地面</dd>
+                <dt>威胁等级</dt><dd>极度危险 · 接触即伤亡</dd>
+                <dt>备注</dt><dd>影像经反色与条码处理，<span class="redacted">██</span>部分不予公开。</dd>
+            </dl>
+        </div>
+    </section>
+
+    <section class="panel">
+        <h2>▼ 档案摘要</h2>
+        <p>
+            “<span class="kw">邪魔的利刃</span>”并非独立编制，而是“皇帝的利刃”的失控形态——
+            作为乌萨斯某种意志的体现，皇帝的利刃被制造出来时便与北地邪魔的碎片同炉。
+            当束缚仪式失效，躯体便会向更深处滑落，最终变成连昔日同僚都必须猎杀的存在。
+        </p>
+        <p class="quote">
+            “皇帝的利刃生要见人，死要见国度，决不允许以此等失控的状态存在于世。
+            它将被生前所有同僚猎杀，直至彻底消亡。”
+        </p>
+        <p class="small muted">—— 摘自乌萨斯内卫内部处决令，落款与姓名已涂黑</p>
+    </section>
+
+    <section class="panel">
+        <h2>▼ 识别特征</h2>
+        <p>
+            接近目标时，周围雪花会<span class="kw">变为黑色</span>。
+            影像中的轮廓呈黑烟状，无固定实体，仅能通过雪花变色与地面焦痕判断其存在。
+        </p>
+    </section>
+
+    <section class="panel">
+        <h2>▼ 能力参数（节选）</h2>
+        <dl class="kv">
+            <dt>攻击</dt><dd>远距离 · 物理 · 对“国度”内目标伤害大幅提升</dd>
+            <dt>特殊</dt><dd>持续在自身周围生成“国度”，其中单位攻速大幅下降</dd>
+            <dt>等级</dt><dd>领袖级 · 单个个体足以屠剿数支小队</dd>
+            <dt>战例</dt><dd>乌萨斯北部边境清剿记录、萨米雪原异常事件</dd>
+        </dl>
+    </section>
+
+    <section class="panel">
+        <h2>▼ 最近活动记录</h2>
+        <dl class="kv">
+            <dt>时间</dt><dd>泰拉历1100.12.16</dd>
+            <dt>地点</dt><dd>萨米地区</dd>
+            <dt>目标</dt><dd>一名乌萨斯叛徒（已确认消灭）</dd>
+            <dt>备注</dt><dd>疑似误伤平民。相关知情人已由后续小组<span class="kw">跟进</span>。</dd>
+        </dl>
+    </section>
+
+    <section class="panel box alert" style="border-left-width:4px;">
+        <h2 style="margin-top:0;">▼ 相关情报</h2>
+        <p>
+            据独眼巨人<span class="kw">凛视</span>的预言，此次事件早有预兆。
+            但预言中提到的“选择”……似乎并未发生。
+        </p>
+    </section>
+</main>
+
+<footer class="site-footer">
+    <div>响石旅行社 Cairn Travel Agency</div>
+    <div class="progress-pill">进度 08/14</div>
+    <div class="disclaimer">本网站内容基于《明日方舟》世界观创作，与现实无关。</div>
+</footer>
+
+<script src="js/main.js"><\/script>
+</body>
+</html>
+
+</script>
+<script type="text/plain" id="pg-prophecy">
+<!-- 👁️我在看着你👁️ -->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>预言记录 - 响石旅行社</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body class="phase-3" data-page="prophecy">
+
+<header class="site-header">
+    <div class="header-inner">
+        <a class="logo" href="index.html">
+            <img class="logo-mark" src="assets/头像_响石.png" alt="响石旅行社">
+            <span class="logo-text">
+                <span class="logo-cn">响石旅行社 · 萨米专区</span><br>
+                <span class="logo-en">Cairn Travel Agency</span>
+            </span>
+        </a>
+        <form class="search-form" role="search" onsubmit="return false;">
+            <span class="search-box">
+                <span class="search-icon">⌕</span>
+                <input id="search-input" type="text" autocomplete="off" spellcheck="false" placeholder="搜索目的地、订单号、关键词…">
+                <button class="search-btn" type="button" onclick="handleSearch()">搜索</button>
+            </span>
+        </form>
+    </div>
+    <nav class="site-nav">
+        <div class="nav-inner">
+            <a href="index.html">首页</a>
+            <a href="routes.html">线路介绍</a>
+            <a href="about.html">关于我们</a>
+            <a href="reviews.html">客户评价</a>
+            <a href="order.html">订单查询</a>
+        </div>
+    </nav>
+</header>
+
+<main>
+    <div style="text-align:center;">
+        <span class="file-tag">预言记录 · 未分类文档</span>
+        <div class="rune-word">PROPHECY</div>
+    </div>
+
+    <div class="panel" style="margin-top:26px;">
+        <div style="display:flex; align-items:center; justify-content:center; gap:14px; flex-wrap:wrap;">
+            <span class="avatar" style="width:58px; height:58px;"><img src="assets/头像_凛视.png" alt="凛视"></span>
+            <div style="text-align:left;">
+                <div><strong>预言者：凛视</strong>（独眼巨人 · 艾尔启）</div>
+                <div class="small muted">日期：泰拉历1100.12.14 · 记录位置：响石的私人日志</div>
+            </div>
+        </div>
+    </div>
+
+    <section class="panel soft">
+        <div class="prophecy-poem">黑雪落在谁的肩上，谁的影子就先冷。
+烟做的死神追着他的猎物，
+猎物身边站着一个不认识死神的人。
+
+我见过两条路。
+一条路上，她伸出了手。
+一条路上，她没有。
+
+雪会停在十五点二十五分。
+您和我见过的一样。</div>
+        <div class="signature">—— 此信已寄出。无人回复。</div>
+    </section>
+</main>
+
+<footer class="site-footer">
+    <div>响石旅行社 Cairn Travel Agency</div>
+    <div class="progress-pill">进度 09/14</div>
+    <div class="disclaimer">本网站内容基于《明日方舟》世界观创作，与现实无关。</div>
+</footer>
+
+<script src="js/main.js"><\/script>
+</body>
+</html>
+
+</script>
+<script type="text/plain" id="pg-journal">
+<!-- 👁️我在看着你👁️ -->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>私人日志 - 响石旅行社</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body class="phase-3" data-page="journal">
+
+<header class="site-header">
+    <div class="header-inner">
+        <a class="logo" href="index.html">
+            <img class="logo-mark" src="assets/头像_响石.png" alt="响石旅行社">
+            <span class="logo-text">
+                <span class="logo-cn">响石旅行社 · 萨米专区</span><br>
+                <span class="logo-en">Cairn Travel Agency</span>
+            </span>
+        </a>
+        <form class="search-form" role="search" onsubmit="return false;">
+            <span class="search-box">
+                <span class="search-icon">⌕</span>
+                <input id="search-input" type="text" autocomplete="off" spellcheck="false" placeholder="搜索目的地、订单号、关键词…">
+                <button class="search-btn" type="button" onclick="handleSearch()">搜索</button>
+            </span>
+        </form>
+    </div>
+    <nav class="site-nav">
+        <div class="nav-inner">
+            <a href="index.html">首页</a>
+            <a href="routes.html">线路介绍</a>
+            <a href="about.html">关于我们</a>
+            <a href="reviews.html">客户评价</a>
+            <a href="order.html">订单查询</a>
+        </div>
+    </nav>
+</header>
+
+<main>
+    <p class="kicker" style="color:var(--danger);">PRIVATE LOG</p>
+    <h1 class="page-title glitch-flicker">私人日志</h1>
+    <p class="page-sub">费尔南·伯恩 · 权限：仅本人可见</p>
+
+    <div style="margin-bottom:18px;"><span class="deleted-mark">PAGE REMOVED</span></div>
+    <p class="small muted glitch-flicker">（本页已从服务器删除。你不知道它为什么还在。）</p>
+
+    <section class="panel diary">
+        <div class="entry">
+            <div class="d-date">1100.12.10</div>
+            <div class="d-body">接到周符卿的委托。他粉丝很多，想直播萨米探险。会是很好的宣传。我说好。</div>
+        </div>
+        <div class="entry">
+            <div class="d-date">1100.12.14</div>
+            <div class="d-body">收到一封没有署名的信。说雪会停在十五点二十五分，说我面前会有两条路。我没有回。这种话谁会信呢。</div>
+        </div>
+        <div class="entry">
+            <div class="d-date anomaly">1100.12.16 · 15:20</div>
+            <div class="d-body">雪开始变黑了。是内卫的玩意儿。我清点人数，让所有人低着头、不许出声、跟我往回走。他留在原地调设备。他说要拍“最后一个镜头”。</div>
+        </div>
+        <div class="entry">
+            <div class="d-date anomaly">15:25</div>
+            <div class="d-body">我没有回头。我听见了他最后说的半句话。我告诉自己，动的人也会死，我要对另外六个人负责。……我是为了他们吗。还是我只是不敢回头。我不知道。我到现在都不知道。</div>
+        </div>
+        <div class="entry">
+            <div class="d-date anomaly">15:27</div>
+            <div class="d-body">雪停了。一切都停了。</div>
+        </div>
+        <div class="entry">
+            <div class="d-date">1100.12.16</div>
+            <div class="d-body">我对官方说“客户已提前离开”。乌萨斯的事不能说。说出去，黑色的雪会落到更多人头上——提丰、那六个客人、我。我只能这么说。我只能。</div>
+        </div>
+        <div class="entry">
+            <div class="d-date">1100.12.18</div>
+            <div class="d-body">提丰看见了。她什么都没说。萨米人守他们的规矩。我欠萨米一次。<br>零失联记录……我留下了它。用别的东西换的。</div>
+        </div>
+    </section>
+
+    <!-- DLC1：皿良皮车模块（常驻，799 触发后激活） -->
+    <section class="panel dlc-card" id="dlc-799-module" data-locked="1">
+        <div class="dlc-card-head">
+            <span class="dlc-avatar">🐰</span>
+            <div>
+                <div class="dlc-name">皿良皮车</div>
+                <div class="dlc-sub">泰拉强度评估 · 从不带节奏</div>
+            </div>
+        </div>
+        <div class="dlc-card-body">
+            你知道满配丰神二技能打 0-2 重的小怪的 dps 是多少吗？
+        </div>
+        <div class="dlc-card-reveal" id="dlc-799-reveal" hidden>
+            <p>进来吧。你算过，对吧。</p>
+            <a class="btn" href="minliang.html">进入咨询台</a>
+        </div>
+    </section>
+</main>
+
+<footer class="site-footer">
+    <div>响石旅行社 Cairn Travel Agency</div>
+    <div class="progress-pill">进度 10/14</div>
+    <div class="disclaimer">本网站内容基于《明日方舟》世界观创作，与现实无关。</div>
+</footer>
+
+<script src="js/main.js"><\/script>
+</body>
+</html>
+
+</script>
+<script type="text/plain" id="pg-stones">
+<!-- 👁️我在看着你👁️ -->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>萨米的古树 - 响石旅行社</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body class="phase-3" data-page="stones">
+
+<header class="site-header">
+    <div class="header-inner">
+        <a class="logo" href="index.html">
+            <img class="logo-mark" src="assets/头像_响石.png" alt="响石旅行社">
+            <span class="logo-text">
+                <span class="logo-cn">响石旅行社 · 萨米专区</span><br>
+                <span class="logo-en">Cairn Travel Agency</span>
+            </span>
+        </a>
+        <form class="search-form" role="search" onsubmit="return false;">
+            <span class="search-box">
+                <span class="search-icon">⌕</span>
+                <input id="search-input" type="text" autocomplete="off" spellcheck="false" placeholder="搜索目的地、订单号、关键词…">
+                <button class="search-btn" type="button" onclick="handleSearch()">搜索</button>
+            </span>
+        </form>
+    </div>
+    <nav class="site-nav">
+        <div class="nav-inner">
+            <a href="index.html">首页</a>
+            <a href="routes.html">线路介绍</a>
+            <a href="about.html">关于我们</a>
+            <a href="reviews.html">客户评价</a>
+            <a href="order.html">订单查询</a>
+        </div>
+    </nav>
+</header>
+
+<main>
+    <p class="kicker" style="color:var(--danger);">UNLISTED</p>
+    <p class="small muted">（本页不在网站导航中。它自己出现在了服务器上。）</p>
+    <h1 class="page-title" style="margin-top:6px;">萨米的古树</h1>
+
+    <div class="panel">
+        <div class="photo-frame">
+            <img src="assets/古树.png" alt="萨米雪原深处的古树">
+            <div class="photo-cap">萨米雪原深处的古树。树皮上刻着歪斜的痕迹。摄于冬牙山脉北麓。</div>
+        </div>
+    </div>
+
+    <div class="panel">
+        <div style="display:flex; align-items:center; gap:14px;">
+            <span class="avatar" style="width:58px; height:58px;"><img src="assets/头像_提丰.png" alt="提丰"></span>
+            <div>
+                <div><strong>提丰</strong> · 萨米原住民猎人 · 目击者</div>
+                <div class="small muted">“我什么都没看见。”——她对每一个来问的人这么说。<br>但她把看见的都刻在了古树上。</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="carving-record">
+        <div class="record-label">【树皮刻痕 · 拓印】</div>
+        <div class="carve">三天后，向导回来了。她说：周先生已平安离开萨米。
+
+这棵树立在这里。路已经指完了。
+剩下指向哪里的，不由她，也不由山。
+
+<span class="s-hint">一个人。黑色的伤。符合内卫的杀伤特征。
+他周围的焦痕。烟一样的东西来过。
+向导的脚印。朝东，步伐从容，距离五十米。
+她停在那里，停了很久。
+<span class="jitter">尸体</span>被她埋在了雪下面。</span></div>
+    </div>
+</main>
+
+<footer class="site-footer">
+    <div>响石旅行社 Cairn Travel Agency</div>
+    <div class="progress-pill">进度 11/14</div>
+    <div class="disclaimer">本网站内容基于《明日方舟》世界观创作，与现实无关。</div>
+</footer>
+
+<script src="js/main.js"><\/script>
+</body>
+</html>
+
+</script>
+<script type="text/plain" id="pg-ending">
+<!-- 👁️我在看着你👁️ -->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>两条路 - 响石旅行社</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body class="phase-4" data-page="ending">
+
+<header class="site-header">
+    <div class="header-inner">
+        <a class="logo" href="index.html">
+            <img class="logo-mark" src="assets/头像_响石.png" alt="响石旅行社">
+            <span class="logo-text">
+                <span class="logo-cn">响石旅行社 · 萨米专区</span><br>
+                <span class="logo-en">Cairn Travel Agency</span>
+            </span>
+        </a>
+        <form class="search-form" role="search" onsubmit="return false;">
+            <span class="search-box">
+                <span class="search-icon">⌕</span>
+                <input id="search-input" type="text" autocomplete="off" spellcheck="false" placeholder="搜索目的地、订单号、关键词…">
+                <button class="search-btn" type="button" onclick="handleSearch()">搜索</button>
+            </span>
+        </form>
+    </div>
+    <nav class="site-nav">
+        <div class="nav-inner">
+            <a href="index.html">首页</a>
+            <a href="routes.html">线路介绍</a>
+            <a href="about.html">关于我们</a>
+            <a href="reviews.html">客户评价</a>
+            <a href="order.html">订单查询</a>
+        </div>
+    </nav>
+</header>
+
+<main>
+    <div class="finale-wrap" style="min-height:auto;">
+        <p class="kicker" style="color:var(--danger);">TWO ROADS</p>
+        <h1 class="end-title">两条路</h1>
+
+        <div class="panel" style="max-width:680px; width:100%; border-color:rgba(176,50,43,.4);">
+            <p>
+                你已经知道了真相。<br>
+                周符卿被邪魔的利刃误杀。响石没有出手。<br>
+                她埋了尸体，谎报了行程，继续经营着旅行社。
+            </p>
+            <p>
+                档案里写着：相关知情人已由后续小组跟进。<br>
+                提丰知道。凛视知道。现在，你也知道。
+            </p>
+            <p style="text-align:center; font-family:var(--font-serif); font-size:16px; color:var(--accent-strong);">
+                凛视见过两条路。现在轮到你了。
+            </p>
+            <div class="choice-row">
+                <a class="btn large" id="dlc-choice-covered" href="#" title="你确定要接受官方说法吗？">接受官方说法</a>
+                <a class="btn large danger" id="dlc-choice-lost" href="#" title="你确定要揭露吗？">揭露真相</a>
+                <a class="btn large dlc-silence" id="dlc-choice-usurp" href="#" title="你确定要沉默吗——像什么都没发生过那样？" style="display:none;">沉默</a>
+            </div>
+            <p class="small muted" style="text-align:center; margin-top:18px;">⚠️ 档案最后一行，你还记得。</p>
+        </div>
+    </div>
+</main>
+
+<footer class="site-footer">
+    <div>响石旅行社 Cairn Travel Agency</div>
+    <div class="progress-pill">进度 12/14</div>
+    <div class="disclaimer">本网站内容基于《明日方舟》世界观创作，与现实无关。</div>
+</footer>
+
+<script src="js/main.js"><\/script>
+</body>
+</html>
+
+</script>
+<script type="text/plain" id="pg-lost">
+<!-- 👁️我在看着你👁️ -->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>风雪蔽目 - 响石旅行社</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body class="phase-4" data-page="lost">
+
+<header class="site-header">
+    <div class="header-inner">
+        <a class="logo" href="index.html">
+            <img class="logo-mark" src="assets/头像_响石.png" alt="响石旅行社">
+            <span class="logo-text">
+                <span class="logo-cn">响石旅行社 · 萨米专区</span><br>
+                <span class="logo-en">Cairn Travel Agency</span>
+            </span>
+        </a>
+        <form class="search-form" role="search" onsubmit="return false;">
+            <span class="search-box">
+                <span class="search-icon">⌕</span>
+                <input id="search-input" type="text" autocomplete="off" spellcheck="false" placeholder="搜索目的地、订单号、关键词…">
+                <button class="search-btn" type="button" onclick="handleSearch()">搜索</button>
+            </span>
+        </form>
+    </div>
+    <nav class="site-nav">
+        <div class="nav-inner">
+            <a href="index.html">首页</a>
+            <a href="routes.html">线路介绍</a>
+            <a href="about.html">关于我们</a>
+            <a href="reviews.html">客户评价</a>
+            <a href="order.html">订单查询</a>
+        </div>
+    </nav>
+</header>
+
+<main>
+    <div class="finale-wrap">
+        <p class="small muted">你把证据整理成文档，准备发出去。</p>
+        <p class="small muted">……画面逐渐变暗。黑雪开始飘落。</p>
+        <p style="font-family:var(--font-serif); font-size:17px;">但你忘记了一件事。</p>
+        <p class="small muted">几天后——<br>你失联了。所有看过那棵古树的人，都失联了。</p>
+
+        <div class="panel" style="max-width:640px; border-color:rgba(176,50,43,.45);">
+            <p style="text-align:left;">
+                响石旅行社官网发布公告：
+            </p>
+            <p style="text-align:left; font-family:var(--font-serif);">
+                “近期失联事件频发，我们深表遗憾。<br>
+                但本社的‘零失联记录’依然保持。<br>
+                因为失联的，都不是我们的游客。”
+            </p>
+            <p style="text-align:left;">有些真相，永远不应该被说出口。</p>
+        </div>
+
+        <div class="end-stamp">MISSING END · 风雪蔽目</div>
+    </div>
+</main>
+
+<footer class="site-footer">
+    <div>响石旅行社 Cairn Travel Agency</div>
+    <div class="progress-pill">进度 13/14 · 全员失联</div>
+    <div class="disclaimer">本网站内容基于《明日方舟》世界观创作，与现实无关。</div>
+</footer>
+
+<script src="js/main.js"><\/script>
+</body>
+</html>
+
+</script>
+<script type="text/plain" id="pg-covered">
+<!-- 👁️我在看着你👁️ -->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>度假村冤魂 - 响石旅行社</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body class="phase-4" data-page="covered">
+
+<header class="site-header">
+    <div class="header-inner">
+        <a class="logo" href="index.html">
+            <img class="logo-mark" src="assets/头像_响石.png" alt="响石旅行社">
+            <span class="logo-text">
+                <span class="logo-cn">响石旅行社 · 萨米专区</span><br>
+                <span class="logo-en">Cairn Travel Agency</span>
+            </span>
+        </a>
+        <form class="search-form" role="search" onsubmit="return false;">
+            <span class="search-box">
+                <span class="search-icon">⌕</span>
+                <input id="search-input" type="text" autocomplete="off" spellcheck="false" placeholder="搜索目的地、订单号、关键词…">
+                <button class="search-btn" type="button" onclick="handleSearch()">搜索</button>
+            </span>
+        </form>
+    </div>
+    <nav class="site-nav">
+        <div class="nav-inner">
+            <a href="index.html">首页</a>
+            <a href="routes.html">线路介绍</a>
+            <a href="about.html">关于我们</a>
+            <a href="reviews.html">客户评价</a>
+            <a href="order.html">订单查询</a>
+        </div>
+    </nav>
+</header>
+
+<main>
+    <div class="finale-wrap" style="min-height:auto;">
+        <p class="kicker" style="color:var(--danger);">SILENT END</p>
+        <h1 class="end-title">你选择了沉默</h1>
+        <p style="max-width:600px; margin:0 auto;">你关闭了调查文档。你删除了所有证据。你保持了沉默。</p>
+
+        <div class="panel" style="max-width:660px; text-align:left;">
+            <h2>▼ 官方最终声明</h2>
+            <p>
+                周符卿先生已于1100.12.18平安离开萨米地区。<br>
+                此前失联报告系通讯故障所致，属萨米地区正常现象。<br>
+                响石旅行社继续保持“零失联记录”。
+            </p>
+        </div>
+
+        <div class="panel" style="max-width:660px; text-align:left;">
+            <h2>▼ 客户评价（新增一条）</h2>
+            <div class="review-card" style="border:0; background:var(--panel-soft);">
+                <div class="review-head">
+                    <span class="avatar">周</span>
+                    <span class="reviewer">周符卿</span>
+                    <span class="review-date">1100.12.20</span>
+                </div>
+                <div class="stars">★★★★★</div>
+                <div class="review-body">已平安回家，谢谢大家的关心，下次还来！</div>
+                <div class="small muted" style="margin-top:8px;">—— 发布时间：15:25</div>
+            </div>
+        </div>
+
+        <p style="max-width:620px;">
+            周符卿先生为何突然宣布退网，成为了永远的秘密。<br>
+            “零失联记录”的神话，得以延续。<br>
+            有些真相，被永远埋在了萨米的雪原之下。
+        </p>
+
+        <div class="end-stamp">SILENT END · 度假村冤魂</div>
+    </div>
+</main>
+
+<footer class="site-footer">
+    <div>响石旅行社 Cairn Travel Agency</div>
+    <div class="progress-pill">进度 14/14 · 隐瞒真相</div>
+    <div class="disclaimer">本网站内容基于《明日方舟》世界观创作，与现实无关。</div>
+</footer>
+
+<script src="js/main.js"><\/script>
+</body>
+</html>
+
+</script>
+<script type="text/plain" id="pg-404_default">
+<!-- 👁️我在看着你👁️ -->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - 没有搜索结果 - 响石旅行社</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body class="phase-1" data-page="notfound">
+
+<header class="site-header">
+    <div class="header-inner">
+        <a class="logo" href="index.html">
+            <img class="logo-mark" src="assets/头像_响石.png" alt="响石旅行社">
+            <span class="logo-text">
+                <span class="logo-cn">响石旅行社 · 萨米专区</span><br>
+                <span class="logo-en">Cairn Travel Agency</span>
+            </span>
+        </a>
+        <form class="search-form" role="search" onsubmit="return false;">
+            <span class="search-box">
+                <span class="search-icon">⌕</span>
+                <input id="search-input" type="text" autocomplete="off" spellcheck="false" placeholder="搜索目的地、订单号、关键词…">
+                <button class="search-btn" type="button" onclick="handleSearch()">搜索</button>
+            </span>
+        </form>
+    </div>
+    <nav class="site-nav">
+        <div class="nav-inner">
+            <a href="index.html">首页</a>
+            <a href="routes.html">线路介绍</a>
+            <a href="about.html">关于我们</a>
+            <a href="reviews.html">客户评价</a>
+            <a href="order.html">订单查询</a>
+        </div>
+    </nav>
+</header>
+
+<main>
+    <div class="error-page">
+        <div class="error-code">404</div>
+        <p>页面不存在</p>
+        <div style="margin:18px 0 8px;"><span class="query-trace" id="query-trace"></span></div>
+        <p class="small muted" style="max-width:560px; margin:0 auto;">
+            没有找到与搜索词匹配的内容。页面上的<strong>加粗文字</strong>往往是有效的检索词，
+            不妨把页面里看起来很重要的词再搜一遍。
+        </p>
+        <div class="archive-paper">
+            <div class="paper-head">ARCHIVE · RECOVERED TEXT</div>
+            <div class="archive-empty">归档记录为空</div>
+            <div class="w-hint" id="hint-area"></div>
+        </div>
+        <p style="margin-top:22px;"><a class="btn" href="index.html">← 返回首页</a></p>
+    </div>
+</main>
+
+<footer class="site-footer">
+    <div>响石旅行社 Cairn Travel Agency</div>
+    <div class="progress-pill">??/14 · 无匹配</div>
+    <div class="disclaimer">本网站内容基于《明日方舟》世界观创作，与现实无关。</div>
+</footer>
+
+<script src="js/main.js"><\/script>
+</body>
+</html>
+
+</script>
+<script type="text/plain" id="pg-404_hint_xianshubei">
+<!-- 👁️我在看着你👁️ -->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - 页面不存在 - 响石旅行社</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body class="phase-1" data-page="hint">
+
+<header class="site-header">
+    <div class="header-inner">
+        <a class="logo" href="index.html">
+            <img class="logo-mark" src="assets/头像_响石.png" alt="响石旅行社">
+            <span class="logo-text">
+                <span class="logo-cn">响石旅行社 · 萨米专区</span><br>
+                <span class="logo-en">Cairn Travel Agency</span>
+            </span>
+        </a>
+        <form class="search-form" role="search" onsubmit="return false;">
+            <span class="search-box">
+                <span class="search-icon">⌕</span>
+                <input id="search-input" type="text" autocomplete="off" spellcheck="false" placeholder="搜索目的地、订单号、关键词…">
+                <button class="search-btn" type="button" onclick="handleSearch()">搜索</button>
+            </span>
+        </form>
+    </div>
+    <nav class="site-nav">
+        <div class="nav-inner">
+            <a href="index.html">首页</a>
+            <a href="routes.html">线路介绍</a>
+            <a href="about.html">关于我们</a>
+            <a href="reviews.html">客户评价</a>
+            <a href="order.html">订单查询</a>
+        </div>
+    </nav>
+</header>
+
+<main>
+    <div class="error-page">
+        <div class="error-code">404</div>
+        <p>页面不存在</p>
+        <p class="muted">该内容已归档。<br>本页面没有任何隐藏内容。</p>
+
+        <div class="archive-paper">
+            <div class="paper-head">ARCHIVE · RECOVERED TEXT</div>
+            <div class="archive-empty">归档记录为空</div>
+            <div class="w-hint" id="hint-area"></div>
+        </div>
+
+        <p style="margin-top:18px;"><a class="btn" href="index.html">← 返回首页</a></p>
+    </div>
+</main>
+
+<footer class="site-footer">
+    <div>响石旅行社 Cairn Travel Agency</div>
+    <div class="progress-pill">??/14 · 隐藏页</div>
+    <div class="disclaimer">本网站内容基于《明日方舟》世界观创作，与现实无关。</div>
+</footer>
+
+<script src="js/main.js"><\/script>
+</body>
+</html>
+
+</script>
+<script type="text/plain" id="pg-404_hint_zero">
+<!-- 👁️我在看着你👁️ -->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - 页面不存在 - 响石旅行社</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body class="phase-1" data-page="hint">
+
+<header class="site-header">
+    <div class="header-inner">
+        <a class="logo" href="index.html">
+            <img class="logo-mark" src="assets/头像_响石.png" alt="响石旅行社">
+            <span class="logo-text">
+                <span class="logo-cn">响石旅行社 · 萨米专区</span><br>
+                <span class="logo-en">Cairn Travel Agency</span>
+            </span>
+        </a>
+        <form class="search-form" role="search" onsubmit="return false;">
+            <span class="search-box">
+                <span class="search-icon">⌕</span>
+                <input id="search-input" type="text" autocomplete="off" spellcheck="false" placeholder="搜索目的地、订单号、关键词…">
+                <button class="search-btn" type="button" onclick="handleSearch()">搜索</button>
+            </span>
+        </form>
+    </div>
+    <nav class="site-nav">
+        <div class="nav-inner">
+            <a href="index.html">首页</a>
+            <a href="routes.html">线路介绍</a>
+            <a href="about.html">关于我们</a>
+            <a href="reviews.html">客户评价</a>
+            <a href="order.html">订单查询</a>
+        </div>
+    </nav>
+</header>
+
+<main>
+    <div class="error-page">
+        <div class="error-code">404</div>
+        <p>页面不存在</p>
+        <p class="muted">该内容已归档。<br>本页面没有任何隐藏内容。</p>
+
+        <div class="archive-paper">
+            <div class="paper-head">ARCHIVE · RECOVERED TEXT</div>
+            <div class="archive-empty">归档记录为空</div>
+            <div class="w-hint" id="hint-area"></div>
+        </div>
+
+        <p style="margin-top:18px;"><a class="btn" href="index.html">← 返回首页</a></p>
+    </div>
+</main>
+
+<footer class="site-footer">
+    <div>响石旅行社 Cairn Travel Agency</div>
+    <div class="progress-pill">??/14 · 隐藏页</div>
+    <div class="disclaimer">本网站内容基于《明日方舟》世界观创作，与现实无关。</div>
+</footer>
+
+<script src="js/main.js"><\/script>
+</body>
+</html>
+
+</script>
+
+    <script src="js/router.js"></script>
+    <script>
+window.__ZFQ_CONFIG__ = {
+  siteFile: 'travel.html',
+  defaultFile: 'index.html',
+  fallbackFile: '404_default.html',
+  pages: [{id: 'index', file: 'index.html'}, {id: 'news', file: 'news.html'}, {id: 'routes', file: 'routes.html'}, {id: 'about', file: 'about.html'}, {id: 'reviews', file: 'reviews.html'}, {id: 'order', file: 'order.html'}, {id: 'livestream', file: 'livestream.html'}, {id: 'frame_0325', file: 'frame_0325.html'}, {id: 'blade', file: 'blade.html'}, {id: 'prophecy', file: 'prophecy.html'}, {id: 'journal', file: 'journal.html'}, {id: 'stones', file: 'stones.html'}, {id: 'ending', file: 'ending.html'}, {id: 'lost', file: 'lost.html'}, {id: 'covered', file: 'covered.html'}, {id: '404_default', file: '404_default.html'}, {id: '404_hint_xianshubei', file: '404_hint.html'}, {id: '404_hint_zero', file: '404_hint.html'}],
+  cross: {'minliang.html': {href: 'minliang.html#v-minliang'}, 'usurp.html': {href: 'minliang.html#v-usurp'}},
+  bgmMap: {'index': 'travel', 'news': 'travel', 'routes': 'travel', 'about': 'travel', 'reviews': 'travel', 'order': 'travel', 'livestream': 'travel', 'frame_0325': 'travel_deep', 'blade': 'travel_deep', 'prophecy': 'travel_deep', 'journal': 'travel_deep', 'stones': 'travel_deep', 'ending': 'travel_deep', 'lost': 'ne', 'covered': 'ne'},
+  bgmAssets: {'travel': {file: 'travel.mp3', volume: 0.08, gap: 0}, 'travel_deep': {file: 'travel_deep.mp3', volume: 0.08, gap: 0}, 'ne': {file: 'NE.mp3', volume: 0.08, gap: 0}}
+};
+window.__ZFQ_PAGES__ = {'index': {id: 'index', file: 'index.html'}, 'news': {id: 'news', file: 'news.html'}, 'routes': {id: 'routes', file: 'routes.html'}, 'about': {id: 'about', file: 'about.html'}, 'reviews': {id: 'reviews', file: 'reviews.html'}, 'order': {id: 'order', file: 'order.html'}, 'livestream': {id: 'livestream', file: 'livestream.html'}, 'frame_0325': {id: 'frame_0325', file: 'frame_0325.html'}, 'blade': {id: 'blade', file: 'blade.html'}, 'prophecy': {id: 'prophecy', file: 'prophecy.html'}, 'journal': {id: 'journal', file: 'journal.html'}, 'stones': {id: 'stones', file: 'stones.html'}, 'ending': {id: 'ending', file: 'ending.html'}, 'lost': {id: 'lost', file: 'lost.html'}, 'covered': {id: 'covered', file: 'covered.html'}, '404_default': {id: '404_default', file: '404_default.html'}, '404_hint_xianshubei': {id: '404_hint_xianshubei', file: '404_hint.html'}, '404_hint_zero': {id: '404_hint_zero', file: '404_hint.html'}};
+
+    </script>
+</body>
+</html>
