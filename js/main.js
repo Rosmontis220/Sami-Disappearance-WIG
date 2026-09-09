@@ -22,8 +22,10 @@ const SafeStore = (() => {
     };
 })();
 
-/* ---------- 关键词路由 ---------- */
-const KEYWORDS = {
+/* ---------- 关键词路由（站点隔离） ----------
+   旅行社站与皿良站搜索互不相通：
+   在错误的站点搜索任何关键词，一律进入该站点自己的 404。 */
+const TRAVEL_KEYWORDS = {
     '线路': 'routes.html',
     '萨米冰原探险': 'routes.html',
     '关于我们': 'about.html',
@@ -49,7 +51,10 @@ const KEYWORDS = {
     '提丰': 'stones.html',
     '尸体': 'ending.html',
     '周符卿': 'news.html#n-1218',
-    /* ---- DLC1：《夺位》 ---- */
+};
+
+/* ---- DLC1：《夺位》（皿良站点词库） ---- */
+const DLC_KEYWORDS = {
     'hewasinmyway': 'second.html',
     '挡路': 'second.html',
     '挡我路': 'second.html',
@@ -58,6 +63,9 @@ const KEYWORDS = {
     'minliangpiche': 'truth.html',
     '真结局': 'true_end.html'   // 真结局页面
 };
+
+/* 合并表保留给可能的控制台/调试使用；实际路由按站点词库走 */
+const KEYWORDS = Object.assign({}, TRAVEL_KEYWORDS, DLC_KEYWORDS);
 
 /* ---------- DLC1 持久状态（localStorage） ---------- */
 const DlcStore = (() => {
@@ -85,6 +93,12 @@ function normalizeKeyword(raw) {
     return (raw || '').trim().replace(/\s+/g, '').toLowerCase();
 }
 
+/* 当前页面所属站点：皿良站（DLC 红黑体系）vs 旅行社站 */
+function currentSite() {
+    const page = document.body ? document.body.getAttribute('data-page') : '';
+    return ['minliang', 'second', 'excel', 'truth', 'usurp'].includes(page) ? 'dlc' : 'travel';
+}
+
 function searchQuery(raw) {
     const input = document.getElementById('search-input');
     const key = normalizeKeyword(raw);
@@ -103,12 +117,12 @@ function searchQuery(raw) {
         window.location.href = ENDING_EASTER_EGG;
         return;
     }
-    const target = KEYWORDS[key] || null;
+    const site = currentSite();
+    const target = (site === 'dlc' ? DLC_KEYWORDS : TRAVEL_KEYWORDS)[key] || null;
     if (target) {
         window.location.href = target;
     } else {
-        const dlcPage = ['minliang', 'second', 'excel'].includes(document.body.getAttribute('data-page'));
-        window.location.href = (dlcPage ? 'dlc_404.html' : '404_default.html') + '?q=' + encodeURIComponent(raw.trim());
+        window.location.href = (site === 'dlc' ? 'dlc_404.html' : '404_default.html') + '?q=' + encodeURIComponent(raw.trim());
     }
 }
 
