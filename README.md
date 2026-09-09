@@ -6,8 +6,8 @@
 
 ## 线上地址
 
-- 入口（对外宣传引导页）：<https://rosmontis220.github.io/Sami-Disappearance-WIG/intro.html>
-- 仓库根路径会自动跳转到引导页。
+- 入口（对外宣传引导页）：<https://rosmontis220.github.io/Sami-Disappearance-WIG/>
+- 即仓库根目录的 `index.html`。
 
 ## 三个站点文件
 
@@ -17,7 +17,7 @@
 | `minliang.html` | 皿良站 | DLC1《夺位》：咨询台 → 永远的第二 → Excel → 真相 → 利刃所指结局 |
 | `miller.html` | 米勒调查站 | DLC2《越过群山》：E01 → E02 → E03 → 终章 |
 
-`intro.html` 是对外引导页（不并入三站）；根目录 `index.html` 仅做跳转。
+`index.html` 是对外引导页（不并入三站），进入后跳转到 `travel.html`。
 
 ## 玩法
 
@@ -37,13 +37,13 @@
 
 ## 本地运行
 
-纯静态站点，直接打开 `intro.html`，或在项目目录启动任意静态服务器：
+纯静态站点，直接打开 `index.html`，或在项目目录启动任意静态服务器：
 
 ```bash
 python -m http.server 8000
 ```
 
-然后访问 <http://localhost:8000/intro.html>。
+然后访问 <http://localhost:8000/>。
 
 ## 说明
 
